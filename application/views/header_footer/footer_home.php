@@ -1,12 +1,15 @@
 
-		<nav class="navbar navbar-default navbar-fixed-bottom" style="background: #4f0381" height="60px" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-bottom" style="background: #4f0381" role="navigation">
 			
-				<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="background-color: #ffff00 ">
+				<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="background-color: #ffff00">
 					<h4 style="color: #ffffff" style="text-align: center;" id="time"></h4>
 				</div>
 				
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+					<div class="runtext-container">
+					<div class="main-runtext">
 					<marquee direction="" 
+					onmouseover="this.stop();"
 					onmouseout="this.start();">
 
 					
@@ -15,7 +18,8 @@
 					   &nbsp; &nbsp; &nbsp;<a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
 					    </div>
 						
-					
+					</div>
+
 					</marquee>
 					</div>
 					</div>
