@@ -11,3 +11,8 @@
  
 	</head>
 	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<a class="navbar-brand" href="#">E-Scheduling</a>
+			</div>
+		</nav>
