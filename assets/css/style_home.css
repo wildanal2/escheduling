@@ -1,0 +1,31 @@
+.namatitel{
+	background-color: rgb(34, 34, 34);
+	color: #F8C301;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.boddy{
+	background: #E6EAED; 
+	height: 500px; 
+	margin-top: 80px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+  }
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+  }
+  
+/* tr:nth-child(even) {
+	background-color: #dddddd;
+  } */
