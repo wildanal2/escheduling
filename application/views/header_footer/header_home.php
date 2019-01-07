@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
-	<head>
+	<head 1">
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,9 +11,11 @@
 		<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style_home.css">
  
 	</head>
-	<body style="background: #B781CC">
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container">
-				<a class="navbar-brand" href="#">E-Scheduling</a>
+
+
+	<body style="background: #B781CC" onload=display_ct()>
+		<nav  class=" navbar navbar-default navbar-fixed-top"role="navigation" style="background: #4f0381">
+			<div class="container ">
+				<a class="navbar-brand" style="color: #ffffff" href="#">E-Scheduling</a>
 			</div>
 		</nav>
