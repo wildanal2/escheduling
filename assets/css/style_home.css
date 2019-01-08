@@ -12,10 +12,11 @@
 
 .boddy{
 	background: #E6EAED; 
-	height: 500px; 
+	/*height: 500px; */
 	margin-top: 80px;
 	margin-left: 20px;
 	margin-right: 20px;
+	padding: 20px;
 }
 
 

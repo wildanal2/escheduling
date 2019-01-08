@@ -32,8 +32,7 @@
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
- 		<script src="Hello World"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		
 		<script type="text/javascript">
@@ -54,7 +53,8 @@
 		$(document).ready(function(){
 
 			showAgenda(); //call function show all agenda
-          
+			showcalendar();
+
 	        //function show all agenda
 	        function showAgenda(){
 	            $.ajax({
@@ -70,9 +70,9 @@
 	                        // var myDateTime = moment(xx).format('DD-MMM-YYYY');
 	                        
 	                        var tgl_a = new Date(data[i].tanggal_awal);
-	                        var tgl_awal = tgl_a.getDate()+"/"+tgl_a.getMonth()+1+"/"+tgl_a.getYear();
+	                        var tgl_awal = tgl_a.getDate()+"/"+tgl_a.getMonth()+1+"/"+tgl_a.getFullYear();
 	                        var tgl_b = new Date(data[i].tanggal_akhir);
-	                        var tgl_ahir = tgl_b.getDate()+"/"+tgl_b.getMonth()+1+"/"+tgl_b.getYear();
+	                        var tgl_ahir = tgl_b.getDate()+"/"+tgl_b.getMonth()+1+"/"+tgl_b.getFullYear();
 	                        html += '<tr>';
 	                        		
 	                        		if (data[i].level == 1) {
@@ -88,6 +88,47 @@
 	                    $('#tbl_agendakegiatan').html(html); 
 	                }
 	            });
+	        }
+
+	        function showcalendar() {
+	        	var html = '';
+	        	let today = new Date();
+				let currentMonth = today.getMonth();
+				let currentYear = today.getFullYear();
+
+	        	let firstDay = (new Date(currentYear, currentMonth)).getDay();
+	        	let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
+
+	        	let date = 1;
+    			for (let i = 0; i < 6; i++) {
+    				// creates a table row
+	        		html+='<tr>';
+
+	        		//creating individual cells, filing them up with data.
+			        for (let j = 0; j < 7; j++) {
+			            if (i === 0 && j < firstDay) {
+			                html+='<td>';
+			                html+='';
+			                html+='</td>';
+			            }
+						else if (date > daysInMonth) {
+			                break;
+			            }
+			            else {
+			                html+='<td>';
+			                html+=''+date;
+			                // if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+			                //     cell.classList.add("bg-info");
+			                // } // color today's date
+			                html+='</td>';
+			                date++;
+			            }
+			        }
+
+					html+='</tr>';	        		
+	        	}
+
+	        	$('#calendarbody').html(html); 
 	        }
 
 
