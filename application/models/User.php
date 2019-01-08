@@ -5,19 +5,22 @@ class User extends CI_Model {
 
 	public function get_allagenda()
 	{
-		$query=$this->db->get('kegiatan');
+		$this->db->select('*');
+		$this->db->from('kegiatan');
+		$this->db->order_by('tanggal_awal', 'asc');
+        $query= $this->db->get();
        	return $query->result();
 	}	
 
 	public function getagendabupati()
 	{
-		$query=$this->db->query("SELECT * FROM `kegiatan` where level=1"); 
+		$query=$this->db->query("SELECT * FROM `kegiatan` where level=1 order by tanggal_awal ASC"); 
        	return $query->result();
 	}	
 
 	public function getagendakominfo()
 	{
-		$query=$this->db->query("SELECT * FROM `kegiatan` where level=2"); 
+		$query=$this->db->query("SELECT * FROM `kegiatan` where level=2 order by tanggal_awal ASC"); 
        	return $query->result();
 	}	
     
