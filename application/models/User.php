@@ -9,6 +9,23 @@ class User extends CI_Model {
        	return $query->result();
 	}	
 
+	public function getagendabupati()
+	{
+		$query=$this->db->query("SELECT * FROM `kegiatan` where level=1"); 
+       	return $query->result();
+	}	
+
+	public function getagendakominfo()
+	{
+		$query=$this->db->query("SELECT * FROM `kegiatan` where level=2"); 
+       	return $query->result();
+	}	
     
+    public function getagendaby($tgl)
+	{
+		$query=$this->db->query('SELECT * FROM `kegiatan` where day(tanggal_awal)='.$tgl);
+		// $query->getfirstrow();
+       	return $query->result();
+	}	
 
 }

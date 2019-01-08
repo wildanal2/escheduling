@@ -19,5 +19,21 @@ class Home extends CI_Controller {
         echo json_encode( $this->User->get_allagenda());
 	}
 
+	public function getAgendabupati()
+	{
+        echo json_encode( $this->User->getagendabupati());
+	}
+
+	public function getAgendakominfo()
+	{
+        echo json_encode( $this->User->getagendakominfo());
+	}
+
+
+	public function agendaby($tgl)
+	{
+        echo json_encode( $this->User->getagendaby($tgl));
+	}
+
 
 }

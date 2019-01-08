@@ -47,28 +47,26 @@
 		     </div>
 	     </div>
 
-	    <div class="boddy">
+	    <div class="boddymid">
 	    	<h4 class="namatitel">AGENDA BUPATI</h4>
 		     <table>
 				<tr style="background-color: #E8E8E8">
 				   <th style="width: 10%;">No</th>
 				   <th style="text-align: center; width: 90%;">Kegiatan</th>
 				</tr>
-					
-				<tbody id="tbl_agendakegiatan">		
+				<tbody id="tbl_agendabupati">		
 				</tbody> 
 			</table>	
 	    </div>
 	     
-	    <div class="boddy">
+	    <div class="boddymid">
 	    	<h4 class="namatitel">AGENDA KOMINFO</h4>
 		     <table>
 				<tr style="background-color: #E8E8E8">
 				   <th style="width: 10%;">No</th>
 				   <th style="text-align: center; width: 90%;">Kegiatan</th>
 				</tr>
-					
-				<tbody id="tbl_agendakegiatan">		
+				<tbody id="tbl_agendakominfo">		
 				</tbody> 
 			</table>	
 	    </div>

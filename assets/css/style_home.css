@@ -14,8 +14,16 @@
 	background: #E6EAED; 
 	/*height: 500px; */
 	margin-top: 80px;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin-left: 2px;
+	margin-right: 2px;
+	padding: 20px;
+}
+
+.boddymid{
+	background: #E6EAED;
+	margin-top: 10px;   
+	margin-left: 5px;
+	margin-right: 5px;
 	padding: 20px;
 }
 

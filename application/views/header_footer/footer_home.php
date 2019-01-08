@@ -53,6 +53,8 @@
 		$(document).ready(function(){
 
 			showAgenda(); //call function show all agenda
+			showabupati();
+			showakominfo()
 			showcalendar();
 
 	        //function show all agenda
@@ -90,6 +92,61 @@
 	            });
 	        }
 
+	        function showakominfo(){
+	            $.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Home/getAgendakominfo',
+	                dataType : 'json',
+	                success : function(data){
+	                    var html = '';
+	                    var i;
+	                    for(i=0; i<data.length; i++){
+	                        a=i+1;
+	                         
+	                        html += '<tr>';
+	                        		
+	                        		if (data[i].level == 1) {
+	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
+	                        		}else if (data[i].level == 2) {
+	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
+	                        		}
+		                    html +=	
+		                            '<td>'+data[i].namaKegiatan+'</td>'+ 
+	                            '</tr>';
+	                    }
+	                    $('#tbl_agendakominfo').html(html); 
+	                }
+	            });
+	        }
+
+	        function showabupati(){
+	            $.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Home/getAgendabupati',
+	                dataType : 'json',
+	                success : function(data){
+	                    var html = '';
+	                    var i;
+	                    for(i=0; i<data.length; i++){
+	                        a=i+1;
+	                         
+	                        html += '<tr>';
+	                        		
+	                        		if (data[i].level == 1) {
+	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
+	                        		}else if (data[i].level == 2) {
+	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
+	                        		}
+		                    html +=	
+		                            '<td>'+data[i].namaKegiatan+'</td>'+ 
+	                            '</tr>';
+	                    }
+	                    $('#tbl_agendabupati').html(html); 
+	                }
+	            });
+	        }
+
+
 	        function showcalendar() {
 	        	var html = '';
 	        	let today = new Date();
@@ -115,12 +172,39 @@
 			                break;
 			            }
 			            else {
-			                html+='<td>';
-			                html+=''+date;
-			                // if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-			                //     cell.classList.add("bg-info");
-			                // } // color today's date
-			                html+='</td>';
+			                	var aj=null;
+			                	 $.ajax({
+										  'async': false,
+										  'type': "POST",
+										  'global': false,
+										  'dataType': 'html',
+										  'url': "<?php echo base_url();?>index.php/Home/agendaby/"+date,
+										  'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+										  'success': function (data) {
+											        aj = JSON.parse(data);
+											       }
+								    }); 
+
+			                	if (aj.length==0) {
+				                	html+='<td>';
+					                html+=''+date;
+					                html+='</td>';
+			                	}else{
+			                		if (aj[0].level==1) {
+			                			html+='<td bgcolor="#66C99B">';
+							            html+=''+date;
+						    	        html+='</td>';
+			                		}else{
+			                			html+='<td bgcolor="#FE851C">';
+							            html+=''+date;
+						    	        html+='</td>';
+			                		}
+			                		
+			                	}
+
+				                
+
+
 			                date++;
 			            }
 			        }
