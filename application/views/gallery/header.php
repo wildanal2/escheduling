@@ -6,11 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Admin E-scheduling</title>
 
+    
         <!-- Bootstrap CSS -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style_home.css"> -->
-
-        <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">  
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
 
         <script src="<?php echo base_url() ?>assets/js/jquery-1.9.1.min.js"></script>
@@ -32,7 +30,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo site_url() ?>/Pengumuman">Pengumuman</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Gallery</a>
                     </li>
 

@@ -10,7 +10,7 @@
 						<div class="main-runtext">
 							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
 								<div class="text-container">
-								   <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
+								   <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
 								</div>
 							</marquee>
 						</div>
@@ -61,7 +61,7 @@
 	            var agenda=null;
 
 	            $.ajax({
-	            	'async': false,
+	            	async: false,
 	                type  : 'ajax',
 	                url   : '<?php echo base_url();?>index.php/Home/getAgenda',
 	                dataType : 'json',
@@ -152,10 +152,10 @@
 
 			            		}
 
-			            		if (asign==null) {
+			            		if (asign==null) { 
 			            			html+='<td>';
 									html+=''+date;
-							        html+='</td>';
+							        html+='</td>'; 
 			            		}
    
 			                date++;
@@ -220,61 +220,6 @@
 	                    $('#tbl_agendabupati').html(html); 
 	                }
 	            });
-	        }
-
-
-	        function showcalendar() {
-	        	var html = '';
-	        	let today = new Date();
-				let currentMonth = today.getMonth();
-				let currentYear = today.getFullYear();
-
-	        	let firstDay = (new Date(currentYear, currentMonth)).getDay();
-	        	let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
-
-	        	let date = 1;
-    			for (let i = 0; i < 6; i++) {
-    				// creates a table row
-	        		html+='<tr>';
-
-	        		//creating individual cells, filing them up with data.
-			        for (let j = 0; j < 7; j++) {
-			            if (i === 0 && j < firstDay) {
-			                html+='<td>';
-			                html+='';
-			                html+='</td>';
-			            } else if (date > daysInMonth) {
-			                break;
-			            } else {	
-
-			                	html+='<td>';
-						                html+=''+date;
-						                html+='</td>';
-			                			
-
-			                	// 	if (aj.length==0) {
-					               //  	html+='<td>';
-						              //   html+=''+date;
-						              //   html+='</td>';
-				                // 	}else{
-				                // 		if (aj[0].level==1) {
-				                // 			html+='<td bgcolor="#66C99B">';
-								            // html+=''+date;
-							    	        // html+='</td>';
-				                // 		}else{
-				                // 			html+='<td bgcolor="#FE851C">';
-								            // html+=''+date;
-							    	        // html+='</td>';
-				                // 		} 
-			                		
-			                date++;
-			            }
-			        }
-
-					html+='</tr>';	        		
-	        	}
-
-	        	$('#calendarbody').html(html); 
 	        }
 
 
