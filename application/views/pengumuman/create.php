@@ -18,21 +18,21 @@
 
 					<?php echo form_open( 'Pengumuman/create', array('class' => 'needs-validation', 'novalidate' => '') ); ?>
 
-					<div class="form-group">
-						<label for="cat_name">Judul </label>
-						<input type="text" class="form-control" name="judul" value="<?php echo set_value('judul') ?>" required>
-						<div class="invalid-feedback">Isi judul dulu</div>
-					</div>
-					<div class="form-group">
-						<label for="text">Pengumuman</label>
-						<textarea type="text" class="form-control " name="isi" value="<?php echo set_value('isi') ?>" rows="5" required><?php echo set_value('isi') ?></textarea>
-						<div class="invalid-feedback">Isi pengumuman dulu</div>
-					</div>
-					<button id="submitBtn" type="submit" class="btn btn-primary">Post Pengumuman</button>
-				</form>
+						<div class="form-group">
+							<label for="cat_name">Judul </label>
+							<input type="text" class="form-control" name="judul" value="<?php echo set_value('judul') ?>" required>
+							<div class="invalid-feedback">Isi judul dulu</div>
+						</div>
+						<div class="form-group">
+							<label for="text">Pengumuman</label>
+							<textarea type="text" class="form-control " name="isi" value="<?php echo set_value('isi') ?>" rows="5" required><?php echo set_value('isi') ?></textarea>
+							<div class="invalid-feedback">Isi pengumuman dulu</div>
+						</div>
+						<button id="submitBtn" type="submit" class="btn btn-primary">Post Pengumuman</button>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 </main>

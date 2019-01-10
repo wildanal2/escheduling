@@ -5,19 +5,17 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<button type="button" class="btn btn-warning btn-lg disabled" id="time"></button>
 				</div>
-				
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 					<div class="runtext-container">
 						<div class="main-runtext">
 							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
 								<div class="text-container">
-								   <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
+								   <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
 								</div>
 							</marquee>
 						</div>
 					</div>
 				</div> 
-
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" >
 					<button type="button" class="btn btn-danger btn-lg disabled" style="align-items: center;"> 
 						<?php
@@ -31,19 +29,32 @@
 
 		<!-- Bootstrap core & jQuery JavaScript
 		================================================== -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="<?php echo base_url()?>assets/js/jquery-1.9.1.min.js"></script>
 		<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+
 
 		<!-- Plugins -->
 		<script src="<?php echo base_url() ?>assets/js/holder.min.js"></script>
 
 		<!-- Custom -->
-		<script src="<?php echo base_url() ?>assets/js/custom.js"></script>
+		<!-- <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
+ -->
 
-		<script src="//code.jquery.com/jquery.js"></script>
-		<!-- Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
- 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ 		
+        <script src="<?php echo base_url() ?>assets/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.tanggal').datepicker({
+                    format: "dd/mm/yyyy",
+				    weekStart: 0,
+				    startDate: 0,
+				    daysOfWeekDisabled: "0",
+				    autoclose: true,
+				    todayHighlight: true
+                });
+            });
+        </script>
 		
 		<script type="text/javascript">
 

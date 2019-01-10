@@ -12,6 +12,7 @@ class Agenda extends CI_Controller {
 
 	public function index()
 	{
+		$data['level'] = $this->agenda_model->get_all_level();
 		$this->load->view("header_footer/header_admin");
 		// Passing data ke view
 		$this->load->view('agenda/view');
@@ -22,7 +23,7 @@ class Agenda extends CI_Controller {
 
 	// Membuat fungsi create
 	public function create()
-	{
+	{	$data['level'] = $this->agenda_model->get_all_level();
 		$data['page_title'] = 'Buat Agenda Baru';
 		// Kita butuh helper dan library berikut
 		$this->load->helper('form');
