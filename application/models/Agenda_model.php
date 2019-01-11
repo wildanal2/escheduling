@@ -9,18 +9,22 @@ class Agenda_model extends CI_Model {
     }
 
 
-    public function create_agenda()
+    public function newAgenda($nama,$keterangan,$tglmulai,$tglselesai,$agenda,$tglpost)
     {
         $data = array(
-            'namaKegiatan'      => "oioi",
-            'tanggal_awal'      => date('Y-m-d H:i:s'),
-            'tanggal_akhir'     => date('Y-m-d H:i:s'),
-            'level'             => "1"
+            'namaKegiatan'      => $nama,
+            'keterangan'      => $keterangan,
+            'tanggal_awal'      => $tglmulai,
+            'tanggal_akhir'     => $tglselesai,
+            'level'             => $agenda,
+            'tanggal_post' => $tglpost
 
         );
 
         return $this->db->insert('kegiatan', $data);
     }
+
+
     public function generate_dropdown()
     {
         $this->db->select('level.id,

@@ -13,40 +13,32 @@ class Agenda extends CI_Controller {
 	public function index()
 	{
 		$data['level'] = $this->agenda_model->get_all_level();
-		$this->load->view("header_footer/header_admin");
-		// Passing data ke view
-		$this->load->view('agenda/view');
-		$this->load->view("header_footer/footer_admin");
+
+		$this->load->view("agenda/header"); 
+		$this->load->view('agenda/agenda_view',$data);
+		$this->load->view("agenda/footer");
 	}
 
 
 
 	// Membuat fungsi create
-	public function create()
-	{	$data['level'] = $this->agenda_model->get_all_level();
-		$data['page_title'] = 'Buat Agenda Baru';
-		// Kita butuh helper dan library berikut
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+	public function agendaBaru()
+	{	 
+		date_default_timezone_set("Asia/Jakarta");
 
-		// Form validasi untuk Nama Kategori
-		$this->form_validation->set_rules(
-			'judul',
-			'Judul',
-			'required|is_unique[pengumuman.judul]',
-			array(
-				'required' => 'Isi %s dulu',
-				'is_unique' => 'Judul <strong>' . $this->input->post('judul') . '</strong> sudah .'
-			)
-		);
+		$tglpost = date("Y-m-d H:i:s");//new name
+		$nama = $this->input->post('nama');
+		$keterangan = $this->input->post('keterangan');
+		$tglmulai = $this->input->post('mulai');
+		$tglselesai = $this->input->post('selesai');
+		$agenda = $this->input->post('agenda');
 
-		if($this->form_validation->run() === FALSE){
-			$this->load->view('header_footer/header_admin');
-			$this->load->view('agenda/create', $data);
-			$this->load->view('header_footer/footer_admin');
-		} else {
-			$this->pengumuman_model->create_agenda();
-			redirect('agenda');
-		}
+
+		$result = $this->agenda_model->newAgenda($nama,$keterangan,$tglmulai,$tglselesai,$agenda,$tglpost);
+
+		echo json_encode($result);
 	}
+
+
+
 }
