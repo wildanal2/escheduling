@@ -21,25 +21,14 @@
 					
 						</div>
 						<div class="form-group col-lg-4">
-							<label for="#">Tanggal Awal </label>
-							<div class="input-group date" data-provide="datepicker">
-							      <input type="text" class="form-control" nama="tanggal_awal" value="<?php echo set_value('tanggal_awal') ?>" >
-							      
-							      <div class="input-group-addon">
-							          <span class="glyphicon glyphicon-th"></span>
-							      </div>
-							</div>
+							<label for="#">Tanggal </label>
+							<div class="input-daterange input-group" data-provide="datepicker" id="datepicker">
+							    <input type="text" class="input-sm form-control" name="start" />
+							    <span class="input-group-addon"> &nbsp to &nbsp  </span>
+							    <input type="text" class="input-sm form-control" name="end" />
+							</div>	
 						</div>
-						<div class="form-group col-lg-4">
-							<label for="#">Tanggal Akhir </label>
-							<div class="input-group date" data-provide="datepicker">
-							      <input type="text" class="form-control" nama="tanggal_akhir" value="<?php echo set_value('tanggal_akhir') ?>" >
-							      
-							      <div class="input-group-addon">
-							          <span class="glyphicon glyphicon-th"></span>
-							      </div>
-							</div>
-						</div>
+						
 
 						<div class="form-group col-lg-4">
 							<label>Agenda</label>

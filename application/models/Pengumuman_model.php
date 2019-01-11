@@ -8,6 +8,14 @@ class Pengumuman_model extends CI_Model {
     	parent::__construct();
     }
 
+    public function get_all_pengumuman()
+    {
+        // Urutkan berdasar abjad
+        $this->db->order_by('tanggal');
+
+        $query = $this->db->get('pengumuman');
+        return $query->result();
+    }
 
     public function create_pengumuman()
     {
@@ -18,6 +26,8 @@ class Pengumuman_model extends CI_Model {
 
         return $this->db->insert('pengumuman', $data);
     }
+
+
 
 
 }

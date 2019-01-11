@@ -6,13 +6,25 @@ class Pengumuman extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		// Load custom helper applications/helpers/MY_helper.php
+		$this->load->helper('MY');
+		
 		$this->load->model('pengumuman_model');
+
+	}
+	public function tes()
+	{
+		$data['pengumuman'] = $this->pengumuman_model->get_all_pengumuman();
+		echo json_encode($data);
 
 	}
 
 	public function index()
 	{
 		$data['page_title'] = 'Daftar Pengumuman'; 
+
+		// Dapatkan semua kategori
+		$data['pengumuman'] = $this->pengumuman_model->get_all_pengumuman();
 
 		$this->load->view("header_footer/header_admin");
 		// Passing data ke view

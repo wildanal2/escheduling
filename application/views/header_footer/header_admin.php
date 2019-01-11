@@ -9,11 +9,15 @@
         <!-- Bootstrap CSS -->
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style_home.css"> -->
+        
+        <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
 
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
 
-        <script src="<?php echo base_url() ?>assets/js/jquery-1.9.1.min.js"></script>
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap-datepicker3.css">
+
+        
  
     </head>
 

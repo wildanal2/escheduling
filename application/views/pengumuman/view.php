@@ -12,47 +12,30 @@
 			</div>
 		</section>
 
-		<?php if( !empty($all_artikel) ) : ?>
-		<div class="album py-5 bg-light">
+		<?php if( !empty($pengumuman) ) : ?>
+		<div class="album py-5 ">
 			<div class="container">
 				<div class="row">
 
 					<?php
 						// Kita looping data dari controller
-						foreach ($all_artikel as $key) :
+						foreach ($pengumuman as $key) :
 					?>
 
 					<div class="col-md-4">
 						<!-- Kita format tampilan blog dalam bentuk card -->
 						<!-- https://getbootstrap.com/docs/4.0/components/card/ -->
-						<div class="card mb-4 box-shadow border-0">
-							
-							<!-- Load thumbnail, jika ada -->
-							<?php if( $key->post_thumbnail ) : ?>
-							<img class="card-img-top" src="<?php echo base_url() .'uploads/'. $key->post_thumbnail ?>" alt="Card image cap">
-							
-							<!-- Jika tidak ada thumbnail, gunakan holder.js -->
-							<?php ; else : ?>
-							<img class="card-img-top" data-src="holder.js/100px190?theme=thumb&bg=eaeaea&fg=aaa&text=Thumbnail" alt="Card image cap">
-							<?php endif; ?>
-							
-							<div class="card-body">
+						<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+							<div class="card-header"> <?php echo $key->tanggal ?> </div>
+						  <div class="card-body">
+						    <h4 class="card-title"><b><?php echo $key->judul ?> </b></h4>
+						    <br>
+						    <p class="card-text"><?php echo $key->isi ?> </p>
+						    <br>
 
-								<!-- Batasi cuplikan konten dengan substr sederhana -->
-								<h5><?php echo character_limiter($key->post_title, 40) ?></h5>
-								<small class="text-success text-uppercase"><?php echo $key->cat_name ?></small>
-								<p class="card-text"><?php echo word_limiter($key->post_content, 20) ?></p>
-								
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<!-- Untuk link detail -->
-										<a href="<?php echo base_url(). 'blog/read/' . $key->post_slug ?>" class="btn btn-outline-secondary">Baca</a>
-										<a href="<?php echo base_url(). 'blog/edit/' . $key->post_id ?>" class="btn btn-outline-secondary">Edit</a>
-									</div>
-									<small class="text-muted"><?php echo time_ago($key->post_date) ?></small>
-								</div>
-							</div>
-							
+						    <a class="btn btn-info" data-toggle="modal" href="#modal_lihat">Lihat</a>
+						    <a class="btn btn-light" data-toggle="modal" href="#modal_edit">Edit</a>
+						  </div>
 						</div>
 					</div>
 					<?php endforeach; ?>
@@ -61,15 +44,58 @@
 			</div>
 		</div>
 		<?php else : ?>
-		<p>Belum ada Pengumuman.</p>
+		<p>Belum ada data bosque.</p>
 		<?php endif; ?>
-
-		<?php 
-		// $links ini berasal dari fungsi pagination 
-		// Jika $links ada (data melebihi jumlah max per page), maka tampilkan
-		if (isset($links)) {
-			echo $links;
-		} 
-		?>
 		
+		<?php
+		// Kita looping data dari controller
+		foreach ($pengumuman as $key) :
+		?>
+				<!-- Modal EDIT -->
+		<div class="modal fade" id="modal_edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<!-- Modal LIHAT -->
+		<div class="modal fade" id="modal_lihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle"><b><?php echo $key->judul ?> </b></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p><b><?php echo $key->isi ?> </b></p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>		
+		<?php endforeach; ?>
+
+
+
 	</main>
+
+

@@ -45,14 +45,8 @@
         <script src="<?php echo base_url() ?>assets/js/bootstrap-datepicker.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $('.tanggal').datepicker({
-                    format: "dd/mm/yyyy",
-				    weekStart: 0,
-				    startDate: 0,
-				    daysOfWeekDisabled: "0",
-				    autoclose: true,
-				    todayHighlight: true
-                });
+                $('#sandbox-container .input-daterange').datepicker({
+				});
             });
         </script>
 		
