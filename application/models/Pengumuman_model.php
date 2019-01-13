@@ -11,10 +11,19 @@ class Pengumuman_model extends CI_Model {
     public function get_all_pengumuman()
     {
         // Urutkan berdasar abjad
-        $this->db->order_by('tanggal');
+        $this->db->order_by('tanggal',"desc");
 
         $query = $this->db->get('pengumuman');
         return $query->result();
+    }
+
+    public function get_pengumuman_firstRow(){
+        // Urutkan berdasar abjad
+        $this->db->order_by('tanggal',"desc");
+
+        $query = $this->db->get('pengumuman');
+        $a = $query->first_row();
+        return $a;
     }
 
     public function create_pengumuman()
@@ -25,6 +34,37 @@ class Pengumuman_model extends CI_Model {
         );
 
         return $this->db->insert('pengumuman', $data);
+    }
+
+    public function pengumumanbyjudul($judul)
+    {
+        $this->db->select('*');
+        $this->db->from('pengumuman');
+        $this->db->where('judul', $judul);
+        $query= $this->db->get();
+        $row = $query->first_row();
+
+        return $row;
+    }   
+
+    public function delete_pengumuman($judul)
+    {
+        $this->db->where('judul', $judul);
+        $result = $this->db->delete('pengumuman');
+        return $result;
+    }
+
+    public function update_pengumuman($id,$judul,$isi){
+        date_default_timezone_set("Asia/Jakarta"); 
+        $data = array(
+                'judul'  => $judul,
+                'isi'  => $isi,
+                'tanggal' => date("Y-m-d H-i-s")
+            );
+        $this->db->where('id', $id);
+        $result=$this->db->update('pengumuman',$data);
+
+        return $result;
     }
 
 

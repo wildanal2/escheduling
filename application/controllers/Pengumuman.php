@@ -12,11 +12,16 @@ class Pengumuman extends CI_Controller {
 		$this->load->model('pengumuman_model');
 
 	}
-	public function tes()
+	public function getPengumuman()
 	{
-		$data['pengumuman'] = $this->pengumuman_model->get_all_pengumuman();
+		$data= $this->pengumuman_model->get_all_pengumuman();
 		echo json_encode($data);
 
+	}
+	public function getPengumumanFirstRow()
+	{
+		$data= $this->pengumuman_model->get_pengumuman_firstRow();
+		echo json_encode($data);
 	}
 
 	public function index()
@@ -26,10 +31,10 @@ class Pengumuman extends CI_Controller {
 		// Dapatkan semua kategori
 		$data['pengumuman'] = $this->pengumuman_model->get_all_pengumuman();
 
-		$this->load->view("header_footer/header_admin");
+		$this->load->view("pengumuman/header");
 		// Passing data ke view
 		$this->load->view('pengumuman/view', $data);
-		$this->load->view("header_footer/footer_admin");
+		$this->load->view("pengumuman/footer");
 	}
 
 
@@ -62,4 +67,25 @@ class Pengumuman extends CI_Controller {
 			redirect('pengumuman');
 		}
 	}
+
+	public function delete_pengumuman()
+	{
+		$judul = $this->input->post('judul');
+
+		$data = $this->pengumuman_model->delete_pengumuman($judul);
+			echo json_encode($data);
+		
+	}
+
+	public function updateGallery()
+	{ 
+		date_default_timezone_set("Asia/Jakarta");
+
+		$id = $this->input->post('id_u'); // id gal
+		$judul = $this->input->post('judul_u'); //get nama
+		$isi = $this->input->post('isi_u'); //get tag
+		$new_name = date("Y-m-d-H-i-s");
+	}
+
+
 }

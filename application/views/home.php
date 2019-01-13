@@ -74,11 +74,61 @@
 	</div>
 	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 boddy">
 		<h4 class="namatitel">PENGUMUMAN</h4>
-
-		<br>
-	     <h4 class="namatitel">GALERY</h4>
+		<div class="card text-black bg-default mb-2" id="update">
+							
+		  	<div class="card-body">
+			    <h4 class=" card-title" nama="judul" style="text-align: center;" id="judul" ><b>Judul </b></h4>
+			    <br>
+			    <!-- <p class="card-text" nama="pengumuman" id="pengumuman">Pengumuman </p> -->
+			
+			    <textarea  class="form-control" rows="7" readonly="" name="pengumuman" id="pengumuman"> Pengumuman</textarea>
+			    <br>
+			    <div class="row align-items-center" >
+			    	<div class="col-md-9">
+				    	<!-- <a class=" btn btn-info" data-toggle="modal" href="#modal_lihat">Lihat</a> -->
+				    </div>
+				    <div class="col-md-3" >
+				    	<small class="text-muted"name="tanggal" id="tanggal">Tanggal</small>
+			  		</div>
+			  	</div>
+		  	</div><br>
+		</div>
+	</div>
+	<div class="col-xs-3 col-sm-3">
+		<h4 class="namatitel">GALERY</h4>
+	     					
+		  	<div >
+			    <img src="‪assets/image/logo.png">
+			    <h5 id="nama1"></h5>
+		  	</div>
+		</div>
 	</div>
 
 </div>
+
+
+<!-- Modal LIHAT -->
+		<div class="modal fade" id="modal_lihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title align-items-center" style="text-align: center; font-size:30px; font-weight: bold;" id="judul_m"></h5>
+		      </div>
+		      <div class="modal-body">
+		        <div class="form-group">
+		        	<div class="col-md-10"></div>
+		        	<div class="col-md-2">
+				  		<small style="text-align: right;" id="tanggal_m"></small>
+				  	</div>
+
+				  	<textarea class="form-control" id="pengumuman_m" rows="7" readonly=""></textarea>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">&nbsp OK &nbsp</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 
 <?php $this->load->view('header_footer/footer_home'); ?>

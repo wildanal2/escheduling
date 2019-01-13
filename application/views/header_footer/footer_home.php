@@ -54,7 +54,8 @@
 
 			showAgendaandCalendar(); //call function show all agenda
 			showabupati();
-			showakominfo()
+			showakominfo();
+			showPengumuman();
 
 	        //function show all agenda
 	        function showAgendaandCalendar(){
@@ -223,7 +224,46 @@
 	        }
 
 
+	        function showPengumuman(){
+	        	 $.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Pengumuman/getPengumumanFirstRow',
+	                dataType : 'json',
+	                success : function(data){
 
+	                	const tgl = new Date(data.tanggal);
+                        var tgl_a = tgl.getDate()+"/"+tgl.getMonth()+1+"/"+tgl.getFullYear();
+                            
+
+	                	document.getElementById("judul").innerHTML=data.judul;
+		                document.getElementById("tanggal").innerHTML=tgl_a;
+		                document.getElementById("pengumuman").value=data.isi;
+
+		                document.getElementById("judul_m").innerHTML=data.judul;
+		                document.getElementById("tanggal_m").innerHTML=tgl_a;
+		                document.getElementById("pengumuman_m").value=data.isi;
+	                    
+	                }
+	            });
+	        }
+
+	        function showGaleri(){
+	        	 $.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Gallery/getfotogalery',
+	                dataType : 'json',
+	                success : function(data){
+
+	                	for(i=0; i<2; i++){
+	                        a=i+1;
+
+		                	document.getElementById("nama+i+").innerHTML=data[i].nama;
+		                	document.getElementById("foto+i+").src="<?=base_url()?>./assets/image/"+data[i].sourcefoto_galery;
+
+				    	}
+	                }
+	            });
+	        }
 		});
 		</script>
 
