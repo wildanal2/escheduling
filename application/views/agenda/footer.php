@@ -27,33 +27,16 @@
 			</div>	
 		</nav>
 
-		<!-- Bootstrap core & jQuery JavaScript
-		================================================== -->
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
-		<script src="<?php echo base_url()?>assets/js/jquery-1.9.1.min.js"></script>
-		<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-
-
-		<!-- Plugins -->
-		<script src="<?php echo base_url() ?>assets/js/holder.min.js"></script>
+		<!-- =============== Bootstrap core & jQuery JavaScript ================================================== -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> --> 
+		<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script> 
+		<script type="text/javascript" src="<?php echo base_url().'assets/datatables/datatables.min.js'?>"></script> 
+		<script src="<?php echo base_url() ?>assets/js/bootstrap-datepicker.js"></script>
 
 		<!-- Custom -->
 		<!-- <script src="<?php echo base_url() ?>assets/js/custom.js"></script>-->
-		
-		<script type="text/javascript" src="<?php echo base_url().'assets/datatables/datatables.min.js'?>"></script> 
-		<script src="<?php echo base_url() ?>assets/js/bootstrap-datepicker.js"></script>
-		
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#sandbox-container .input-daterange').datepicker({
-                	firstDay: 1
-                	language: "id",
-				    daysOfWeekHighlighted: "0,6",
-				    autoclose: true
-				});
-            });
-        </script>
+ 
 
 
 		<script type="text/javascript">
@@ -69,49 +52,32 @@
 					display_c();
 				}
 
-
-		$('[data-toggle="datepicker"]').datepicker({
-				    daysOfWeekHighlighted: "0",
-				    autoclose: true
-				});
-		
-
 		$(document).ready(function(){
+			let today = new Date();
+			let currentMonth = today.getMonth();
+			let currentYear = today.getFullYear();
+			
+			showAgendaandCalendar(currentMonth,currentYear); //call function show all agenda 
+			showdatatabels();
 
-			showAgendaandCalendar(); //call function show all agenda 
-
-
-	        //function show all agenda
-	        function showAgendaandCalendar(){
-	            var agenda=null;
-
-	            $.ajax({
-	            	async: false,
+			function showdatatabels() {
+				$.ajax({ 
 	                type  : 'ajax',
-	                url   : '<?php echo base_url();?>index.php/Home/getAgenda',
+	                url   : '<?php echo base_url();?>index.php/Agenda/getAllAgenda',
 	                dataType : 'json',
 	                success : function(data){
 	                    var html = '';
-	                    var i;
-	                    var agend=[];
-
+	                    var i; 
 	                    for(i=0; i<data.length; i++){
 	                        a=i+1;
 	                    	                       
 	                        const tgl_a = new Date(data[i].tanggal_awal);
-	                        var tgl_awal = tgl_a.getDate()+"/"+tgl_a.getMonth()+1+"/"+tgl_a.getFullYear();
+	                        var bln_a =tgl_a.getMonth()+1;
+	                        var tgl_awal = tgl_a.getDate()+"/"+bln_a+"/"+tgl_a.getFullYear();
 	                        const tgl_b = new Date(data[i].tanggal_akhir);
-	                        var tgl_ahir = tgl_b.getDate()+"/"+tgl_b.getMonth()+1+"/"+tgl_b.getFullYear();
+	                        var bln_b =tgl_b.getMonth()+1;
+	                        var tgl_ahir = tgl_b.getDate()+"/"+bln_b+"/"+tgl_b.getFullYear();
 	                        
-	                        var ag = {
-	                        			tanggal_a:tgl_a.getDate(),
-	                        			tanggal_b:tgl_b.getDate(),
-	                        			level:data[i].level
-	                        			}
-
-	                        agend.push(ag);
-
-
 	                        html += '<tr>';
 	                        		if (data[i].level == 1) {
 	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
@@ -119,32 +85,84 @@
 	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
 	                        		}
 		                    html +=	
-		                            '<td>'+data[i].namaKegiatan+'</td> <td></td>'+
+		                            '<td>'+data[i].namaKegiatan+'</td>'+
+		                            '<td>'+data[i].keterangan+'</td>'+
 		                            '<td>'+tgl_awal+'</td>'+
 		                            '<td>'+tgl_ahir+'</td>'+
 		                            '<td>'+
-                            		'<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit">Edit</a>'+
+                            		'<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id_k="'+data[i].id_k+'" data-nama="'+data[i].namaKegiatan+'" data-ket="'+data[i].keterangan+'" data-tanggal_awal="'+data[i].tanggal_awal+'" data-tanggal_akhir="'+data[i].tanggal_akhir+'" data-level="'+data[i].level+'" data-namalevel="'+data[i].nama+'" >Ubah</a>'+
                             		'</td>'+
                             		'<td>'+
-                            		'<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete">Hapus</a>'+
+                            		'<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_k="'+data[i].id_k+'" data-nama="'+data[i].namaKegiatan+'">Hapus</a>'+
                             		'</td>'+
 
 	                            '</tr>';
 	                    }
 	                    $('#tbl_agendakegiatan').html(html);
 	                    $("#agendaall").DataTable({
-						        "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "Semua"]]
+	                    		destroy:true,
+						        "lengthMenu": [[10, 15, 25, -1], [10, 15, 25, "Semua"]]
 						    });     
+	                }
+	            });
+			}
+
+			document.getElementById("previous").addEventListener("click",previous);
+			document.getElementById("next").addEventListener("click",next);
+
+			function next() {
+				currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+			    currentMonth = (currentMonth + 1) % 12;
+			    showAgendaandCalendar(currentMonth, currentYear);
+			}
+
+			function previous() {
+				currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+			    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+			    showAgendaandCalendar(currentMonth, currentYear);
+			}
+
+	        //function show all agenda
+	        function showAgendaandCalendar(month,year){
+	            var agenda=null;
+
+	            $.ajax({
+	            	async: false,
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Agenda/getAllAgenda',
+	                dataType : 'json',
+	                success : function(data){ 
+	                    var agend=[];
+
+	                    for(i=0; i<data.length; i++){ 
+	                    	                       
+	                        const tgl_a = new Date(data[i].tanggal_awal);
+	                        var tgl_awal = tgl_a.getDate()+"/"+tgl_a.getMonth()+1+"/"+tgl_a.getFullYear();
+	                        const tgl_b = new Date(data[i].tanggal_akhir);
+	                        var tgl_ahir = tgl_b.getDate()+"/"+tgl_b.getMonth()+1+"/"+tgl_b.getFullYear();
+	                        
+	                        var ag = {
+	                        			tanggal_a:tgl_a,
+	                        			tanggal_b:tgl_b,
+	                        			level:data[i].level
+	                        			}
+
+	                        agend.push(ag);
+	                    } 
 	                    agenda=agend;
 	                }
 	            });
 
 	            //calendarrr nya
+	            const monthName = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+
 	            var html = '';
 	        	let today = new Date();
-				let currentMonth = today.getMonth();
-				let currentYear = today.getFullYear();
+				let currentMonth = month;
+				let currentYear = year;
 
+				document.getElementById("thismonth").innerHTML=""+monthName[currentMonth]+"&nbsp "+currentYear;
+				
 	        	let firstDay = (new Date(currentYear, currentMonth)).getDay();
 	        	let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
 
@@ -166,7 +184,7 @@
 
 			            		for (var ia = (agenda.length-1); ia >=0 ; ia--) {
 			            			for (var ib = 0; ib < agenda.length; ib++) {
-			            				if (date>=agenda[ia].tanggal_a && date<=agenda[ia].tanggal_b) {
+			            				if (new Date(currentYear,currentMonth,date) >=agenda[ia].tanggal_a && new Date(currentYear,currentMonth,date)<=agenda[ia].tanggal_b) {
 			            					
 			            					if (agenda[ia].level==1) {
 			            						if (asign==null) {
@@ -205,13 +223,153 @@
 
 	        }
 
+//   ========================  Start ADD RECORD ====================================
+	         //Save new Foto
+            $('#formbaru').submit(function(e){
+                e.preventDefault();
+        		var namain = $('#namain').val();
+        		var ket = $('#ket').val();
+        		var mulaiin = $('#mulai').val();
+        		var selesaiin = $('#selesai').val();
+        		var levelin = $('#level').val();
 
 
-	        $('#agendaall').on('click','.item_delete',function(){ 
-	             
-	            $('#modal_baru').modal('show'); 
-	        });
+    //     		if (!$("#myTextArea").val()) {
+				//   	alert("isidulu");
+				//   	$("#myTextArea").focus();
+				// } 
 
+                // alert(nama+"-"+ket+"-"+mulai+"-"+selesai+"-"+level);
+
+                $.ajax({
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/Agenda/agendaBaru",
+                    dataType : "JSON",
+                    data : {nama:namain,
+                    		keterangan:ket,
+                    		mulai:mulaiin,
+                    		selesai:selesaiin,
+                    		level:levelin},
+
+                    success: function(){
+                    	showAgendaandCalendar();
+						showdatatabels();
+                        $('#Modal_Add').modal('hide'); 
+                        refresh();
+                    }
+                });
+
+                return false;
+            });
+//   ========================  END ADD RECORD ====================================
+
+
+//  ===================  START UPDATE Record ===============================================
+            //get data for UPDATE record show prompt
+            $('#agendaall').on('click','.item_edit',function(){
+                var id_k = $(this).data('id_k');
+                var nama = $(this).data('nama'); 
+                var ket = $(this).data('ket');
+                var tanggal_awal = $(this).data('tanggal_awal'); 
+                var tanggal_akhir = $(this).data('tanggal_akhir'); 
+                var level = $(this).data('level'); 
+                var namalevel = $(this).data('namalevel'); 
+
+				$('[name="id_kup"]').val(id_k);
+				$('[name="namaupdt"]').val(nama);
+				$('[name="ketup"]').val(ket);
+				$('[name="mulaiup"]').val(tanggal_awal);
+				$('[name="selesaiup"]').val(tanggal_akhir);
+
+				for(var i=0; i < document.getElementById('levelup').options.length; i++){
+				    if(document.getElementById('levelup').options[i].value == level) {
+				      document.getElementById('levelup').selectedIndex = i;
+				      break;
+				    }
+				 }
+				$('[name="level"]').val(level);
+
+                $('#Modal_update').modal('show');
+                
+            });
+            
+            //UPDATE record to database
+             $('#formupdate').submit(function(e){
+                e.preventDefault(); 
+        		var id_kegup = $('#id_kup').val();
+				var namaup = $('#namaupdt').val();
+        		var ketup = $('#ketup').val();
+        		var mulaiup = $('#mulaiup').val();
+        		var selesaiup = $('#selesaiup').val();
+        		var levelup = $('select[name=levelup]').val()
+
+                $.ajax({
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/Agenda/agendaUpdate",
+                    dataType : "JSON",
+                    data : { 
+                    		id_k:id_kegup,
+                    		nama:namaup,
+                    		keterangan:ketup,
+                    		mulai:mulaiup,
+                    		selesai:selesaiup,
+                    		level:levelup},
+
+                    success: function(data){
+                    	
+                    	showAgendaandCalendar();
+						showdatatabels();
+                        $('#Modal_update').modal('hide'); 
+                        refresh();
+                    }
+                });
+                return false;
+            });
+ //   ========================  END UPDATE RECORD ====================================
+
+
+
+//  ===================  START Delete Record ===============================================
+            //get data for delete record show prompt
+            $('#agendaall').on('click','.item_delete',function(){
+                var id_k = $(this).data('id_k');
+                var nama = $(this).data('nama'); 
+			                 
+                $('#Modal_Delete').modal('show');
+                document.getElementById("msg").innerHTML='Agenda "'+nama+'"';
+                
+                $('[name="id_kegiatan"]').val(id_k);
+            });
+            //delete record to database
+             $('#formdelete').submit(function(e){
+                e.preventDefault(); 
+        		var id_keg_delete = $('#id_kegiatan').val();
+
+        		 $.ajax({
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/Agenda/agendaDelete",
+                    dataType : "JSON",
+                    data : {id_k:id_keg_delete},
+                    success: function(){
+                    	$('[name="id_galery_delete"]').val("");
+                        $('#Modal_Delete').modal('hide'); 
+                        refresh();
+                    }
+                });
+                return false;
+            });
+ //   ========================  END DELETE RECORD ====================================
+
+ 		function refresh() {
+ 			$("#agendaall").DataTable().destroy();
+            $('tbody').empty();
+            document.getElementById('formbaru').reset();
+            document.getElementById('formupdate').reset();
+            document.getElementById('formdelete').reset();
+            
+            showAgendaandCalendar(currentMonth,currentYear); //call function show all agenda 
+			showdatatabels();
+ 		}
 	      
 
 

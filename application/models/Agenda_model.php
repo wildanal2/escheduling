@@ -8,6 +8,17 @@ class Agenda_model extends CI_Model {
     	parent::__construct();
     }
 
+    public function get_allagenda()
+    { 
+        $query= $this->db->query("SELECT * FROM `kegiatan` join level on kegiatan.level= level.id order by tanggal_awal ASC");
+        return $query->result();
+    }
+
+    public function get_monthagenda()
+    { 
+        $query= $this->db->query("SELECT * FROM `kegiatan` where month(tanggal_awal)=month(curdate()) order by tanggal_awal ASC");
+        return $query->result();
+    }   
 
     public function newAgenda($nama,$keterangan,$tglmulai,$tglselesai,$agenda,$tglpost)
     {
@@ -22,6 +33,31 @@ class Agenda_model extends CI_Model {
         );
 
         return $this->db->insert('kegiatan', $data);
+    }
+
+
+    public function updateAgenda($id,$nama,$keterangan,$tglmulai,$tglselesai,$agenda,$tglpost)
+    {
+        $data = array(
+            'namaKegiatan'      => $nama,
+            'keterangan'      => $keterangan,
+            'tanggal_awal'      => $tglmulai,
+            'tanggal_akhir'     => $tglselesai,
+            'level'             => $agenda,
+            'tanggal_post' => $tglpost
+
+        );
+
+        $this->db->where('id_k', $id);
+        return $this->db->update('kegiatan', $data);
+    }
+
+
+    public function deleteAgenda($id)
+    {
+        $this->db->where('id_k', $id);
+        $result = $this->db->delete('kegiatan');
+        return $result;
     }
 
 

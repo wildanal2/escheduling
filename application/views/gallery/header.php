@@ -8,10 +8,12 @@
 
     
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
+        
 
-        <script src="<?php echo base_url() ?>assets/js/jquery-1.9.1.min.js"></script>
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css"> 
+        <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
  
     </head>
 
@@ -33,17 +35,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Gallery</a>
                     </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Agenda Kegiatan
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Agenda Bupati</a>
-                            <a class="dropdown-item" href="#">Agenda Kominfo</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url() ?>/Agenda">Agenda</a>
                     </li>
-
                 </ul>
                 <div class="btn-group" role="group" aria-label="Data baru">
                     <?php echo anchor('user/logout', 'Logout', array('class' => 'btn btn-outline-danger')); ?>

@@ -19,7 +19,15 @@ class Agenda extends CI_Controller {
 		$this->load->view("agenda/footer");
 	}
 
+	public function getAllAgenda()
+	{
+        echo json_encode( $this->agenda_model->get_allagenda());
+	}
 
+	public function getmonthAgenda()
+	{
+        echo json_encode( $this->agenda_model->get_monthagenda());
+	}
 
 	// Membuat fungsi create
 	public function agendaBaru()
@@ -29,13 +37,43 @@ class Agenda extends CI_Controller {
 		$tglpost = date("Y-m-d H:i:s");//new name
 		$nama = $this->input->post('nama');
 		$keterangan = $this->input->post('keterangan');
-		$tglmulai = $this->input->post('mulai');
-		$tglselesai = $this->input->post('selesai');
-		$agenda = $this->input->post('agenda');
-
+		$tglmulai = date( 'Y-m-d H:i:s', strtotime( $this->input->post('mulai') ) );
+		$tglselesai = date( 'Y-m-d H:i:s', strtotime( $this->input->post('selesai') ) );
+		$agenda = $this->input->post('level');
 
 		$result = $this->agenda_model->newAgenda($nama,$keterangan,$tglmulai,$tglselesai,$agenda,$tglpost);
 
+		echo json_encode($result);
+	}
+
+	// Membuat fungsi UPDATE
+	public function agendaUpdate()
+	{	 
+		date_default_timezone_set("Asia/Jakarta");
+
+		$tglpost = date("Y-m-d H:i:s");//new name
+		$idk = $this->input->post('id_k');
+		$nama = $this->input->post('nama');
+		$keterangan = $this->input->post('keterangan');
+		$tglmulai = date( 'Y-m-d H:i:s', strtotime( $this->input->post('mulai') ) );
+		$tglselesai = date( 'Y-m-d H:i:s', strtotime( $this->input->post('selesai') ) );
+		$agenda = $this->input->post('level');
+
+		$result = $this->agenda_model->updateAgenda($idk,$nama,$keterangan,$tglmulai,$tglselesai,$agenda,$tglpost);
+		if ($result) {
+			echo json_encode("suc ");
+		}else{
+			echo json_encode("Gagal");
+		}
+		
+	}
+
+	// Membuat fungsi create
+	public function agendaDelete()
+	{	  
+		$id = $this->input->post('id_k');
+
+		$result = $this->agenda_model->deleteAgenda($id);
 		echo json_encode($result);
 	}
 

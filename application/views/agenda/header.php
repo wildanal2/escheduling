@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
-    <head 1">
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,10 +12,10 @@
 
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
+        
 
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css"> 
         <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap-datepicker3.css">
-        
         <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
         
     </head>
@@ -39,7 +39,7 @@
                         <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Gallery</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Agenda</a>
+                        <a class="nav-link" href="<?php echo site_url() ?>/Agenda">Agenda</a>
                     </li>
                 </ul>
                 <div class="btn-group" role="group" aria-label="Data baru">
