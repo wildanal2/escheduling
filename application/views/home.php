@@ -94,13 +94,10 @@
 		  	</div><br>
 		</div>
 	</div>
-	<div class="col-xs-3 col-sm-3">
+	<div class="col-xs-3 col-sm-3 boddymid">
 		<h4 class="namatitel">GALERY</h4>
-	     					
-		  	<div >
-			    <img src="‪assets/image/logo.png">
-			    <h5 id="nama1"></h5>
-		  	</div>
+	     				
+	     	<img src="‪https://awsimages.detik.net.id/community/media/visual/2018/03/28/957e5eac-e538-4070-8e14-8a08ade5c147_43.jpeg?w=700&q=90">
 		</div>
 	</div>
 
