@@ -4,8 +4,8 @@
 
 <div class="container-fluid" style="width: 100%">
 	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		<div class="boddy">
-			<h4 class="namatitel">AGENDA KEGIATAN</h4>
+		<div class="boddy" style="padding-bottom: 50px;">
+			<h4 class="namatitel">AGENDA KEGIATAN MINGGU INI</h4>
 			<table>
 			  <tr style="background-color: #E8E8E8">
 			    <th style="width: 10%;">No</th>
@@ -22,22 +22,19 @@
 	</div>
 	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4">
 		<div class="boddy">
-			<h4 class="namatitel">KALENDER KEGIATAN</h4>
+			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
 			<div class="card">
-		        <h4 class="card-header" id="namabulan" style="text-align: center;"><?php
-							date_default_timezone_set("Asia/Jakarta");
-							echo " " . date("F Y");
-							?></h4>
+		        <h5 style="text-align: center;" id="thismonth"></h5>
 		        <table class="table table-bordered table-responsive-sm" id="calendar">
 		            <thead>
 		            <tr>
-		                <th>Sun</th>
-		                <th>Mon</th>
-		                <th>Tue</th>
-		                <th>Wed</th>
-		                <th>Thu</th>
-		                <th>Fri</th>
-		                <th>Sat</th>
+		                <th>Minggu</th>
+			            <th>Senin</th>
+			            <th>Selasa</th>
+			            <th>Rabu</th>
+			            <th>Kamis</th>
+			            <th>Jumat</th>
+			            <th>Sabtu</th>
 		            </tr>
 		            </thead>
 		            <tbody id="calendarbody">
@@ -48,7 +45,7 @@
 	     </div>
 
 	    <div class="boddymid">
-	    	<h4 class="namatitel">AGENDA BUPATI</h4>
+	    	<h4 class="namatitel">AGENDA BUPATI BULAN INI</h4>
 		     <table>
 				<tr style="background-color: #E8E8E8">
 				   <th style="width: 10%;">No</th>
@@ -60,7 +57,7 @@
 	    </div>
 	     
 	    <div class="boddymid">
-	    	<h4 class="namatitel">AGENDA KOMINFO</h4>
+	    	<h4 class="namatitel">AGENDA KOMINFO BULAN INI</h4>
 		     <table>
 				<tr style="background-color: #E8E8E8">
 				   <th style="width: 10%;">No</th>
@@ -93,13 +90,32 @@
 			  	</div>
 		  	</div><br>
 		</div>
+
 	</div>
+
 	<div class="col-xs-3 col-sm-3 boddymid">
 		<h4 class="namatitel">GALERY</h4>
-	     				
-	     	<img src="‪https://awsimages.detik.net.id/community/media/visual/2018/03/28/957e5eac-e538-4070-8e14-8a08ade5c147_43.jpeg?w=700&q=90">
+	     				 
+		<div class="">
+				<div id="gal_home">	
+				    <!-- container img gallery -->
+				</div>
+
+				  <a class="prev" id="prev">❮</a>
+				  <a class="next" id="next">❯</a>
+
+			<div class="caption-container"> <p id="caption"></p>  </div>
+
+				<div class="row" style="margin-left: 2px">
+
+					<div id="column_imggallery">
+					    <!-- container rowsColls img -->
+				    </div> 
+				</div>
+
 		</div>
-	</div>
+
+	</div> 
 
 </div>
 

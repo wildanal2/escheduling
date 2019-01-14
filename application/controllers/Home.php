@@ -6,7 +6,7 @@ class Home extends CI_Controller {
  	public function __construct()
 	 {
 	 	parent::__construct();
-	 	$this->load->model('User');
+	 	$this->load->model('User_model'); 
 	 }
 
 	public function index()
@@ -14,25 +14,37 @@ class Home extends CI_Controller {
 		$this->load->view('home');
 	}
 
+	public function getWeekAgenda()
+	{
+        echo json_encode( $this->User_model->getweekagenda());
+	}
+
 	public function getAgenda()
 	{
-        echo json_encode( $this->User->get_allagenda());
+        echo json_encode( $this->User_model->get_allagenda());
 	}
 
 	public function getAgendabupati()
 	{
-        echo json_encode( $this->User->getagendabupati());
+        echo json_encode( $this->User_model->getagendabupati());
 	}
 
 	public function getAgendakominfo()
 	{
-        echo json_encode( $this->User->getagendakominfo());
+        echo json_encode( $this->User_model->getagendakominfo());
 	}
+
+	public function getGalleryHome()
+	{
+        echo json_encode( $this->User_model->getgalleryhome());
+	}
+
+
 
 
 	public function agendaby($tgl)
 	{
-        echo json_encode( $this->User->getagendaby($tgl));
+        echo json_encode( $this->User_model->getagendaby($tgl));
 	}
 
 

@@ -16,8 +16,7 @@
 						<button class="btn btn-outline-primary" id="previous">Previous</button>	
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<h5 style="text-align: center;" id="thismonth">
-						</h4>
+						<h5 style="text-align: center;" id="thismonth"></h5>
 					</div>
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<button class="btn btn-outline-primary" id="next">Next</button>	

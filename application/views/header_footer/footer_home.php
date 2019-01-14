@@ -36,27 +36,98 @@
  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		
 		<script type="text/javascript">
+		var slideIndex = 1;
 
-		function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-		}
+			function display_c(){
+					var refresh=1000; // Refresh rate in milli seconds
+					mytime=setTimeout('display_ct()',refresh)
+			}
 
-		function display_ct() {
-				var x = new Date()
-				var x1 =  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
-				document.getElementById('time').innerHTML = x1;
-				display_c();
-		}
+			function display_ct() {
+					var x = new Date()
+					var x1 =  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
+					document.getElementById('time').innerHTML = x1;
+					display_c();
+			}
+
+			function currentSlide(n) {
+			  showSlides1(slideIndex = n);
+			}
+
+			function showSlides1(n) {
+			  var i;
+			  var slides = document.getElementsByClassName("mySlides");
+			  var dots = document.getElementsByClassName("demo");
+			  var captionText = document.getElementById("caption");
+			  if (n > slides.length) {slideIndex = 1}
+			  if (n < 1) {slideIndex = slides.length}
+			  for (i = 0; i < slides.length; i++) {
+			      slides[i].style.display = "none";
+			  }
+			  for (i = 0; i < dots.length; i++) {
+			      dots[i].className = dots[i].className.replace(" active", "");
+			  }
+
+			  slides[slideIndex-1].style.display = "block";
+			  dots[slideIndex-1].className += " active"; 
+			  captionText.innerHTML = dots[slideIndex-1].alt;
+			}
+
 
 
 		$(document).ready(function(){
 
 			showAgendaandCalendar(); //call function show all agenda
+			showAgendaMingguIni();
 			showabupati();
 			showakominfo();
 			showPengumuman();
+			showGalerihome();
 
+
+
+			function showAgendaMingguIni() {
+				$.ajax({ 
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Home/getWeekAgenda',
+	                dataType : 'json',
+	                success : function(data){
+	                    var html = '';
+	                    var i;
+	                    var agend=[];
+
+	                    for(i=0; i<data.length; i++){
+	                        a=i+1;
+	                    	                       
+	                        const tgl_a = new Date(data[i].tanggal_awal);
+	                        var tgl_awal = tgl_a.getDate()+"/"+tgl_a.getMonth()+1+"/"+tgl_a.getFullYear();
+	                        const tgl_b = new Date(data[i].tanggal_akhir);
+	                        var tgl_ahir = tgl_b.getDate()+"/"+tgl_b.getMonth()+1+"/"+tgl_b.getFullYear();
+	                        
+	                        var ag = {
+	                        			tanggal_a:tgl_a,
+	                        			tanggal_b:tgl_b,
+	                        			level:data[i].level
+	                        			}
+
+	                        agend.push(ag);
+
+	                        html += '<tr>';
+	                        		if (data[i].level == 1) {
+	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
+	                        		}else if (data[i].level == 2) {
+	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
+	                        		}
+		                    html +=	
+		                            '<td>'+data[i].namaKegiatan+'</td>'+
+		                            '<td style="text-align: center;">'+tgl_awal+' s.d '+tgl_ahir+'</td>'+ 
+	                            '</tr>';
+	                    }
+	                    agenda=agend;
+	                    $('#tbl_agendakegiatan').html(html); 
+	                }
+	            });
+			}
 	        //function show all agenda
 	        function showAgendaandCalendar(){
 	            var agenda=null;
@@ -80,35 +151,27 @@
 	                        var tgl_ahir = tgl_b.getDate()+"/"+tgl_b.getMonth()+1+"/"+tgl_b.getFullYear();
 	                        
 	                        var ag = {
-	                        			tanggal_a:tgl_a.getDate(),
-	                        			tanggal_b:tgl_b.getDate(),
+	                        			tanggal_a:tgl_a,
+	                        			tanggal_b:tgl_b,
 	                        			level:data[i].level
 	                        			}
 
-	                        agend.push(ag);
-
-	                        html += '<tr>';
-	                        		if (data[i].level == 1) {
-	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
-	                        		}else if (data[i].level == 2) {
-	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
-	                        		}
-		                    html +=	
-		                            '<td>'+data[i].namaKegiatan+'</td>'+
-		                            '<td style="text-align: center;">'+tgl_awal+' s.d '+tgl_ahir+'</td>'+ 
-	                            '</tr>';
+	                        agend.push(ag); 
 	                    }
-	                    agenda=agend;
-	                    $('#tbl_agendakegiatan').html(html); 
+	                    agenda=agend; 
 	                }
 	            });
 
 	            //calendarrr nya
+	            const monthName = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+
 	            var html = '';
 	        	let today = new Date();
 				let currentMonth = today.getMonth();
 				let currentYear = today.getFullYear();
 
+				document.getElementById("thismonth").innerHTML=""+monthName[currentMonth]+"&nbsp "+currentYear;
+				
 	        	let firstDay = (new Date(currentYear, currentMonth)).getDay();
 	        	let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
 
@@ -130,7 +193,7 @@
 
 			            		for (var ia = (agenda.length-1); ia >=0 ; ia--) {
 			            			for (var ib = 0; ib < agenda.length; ib++) {
-			            				if (date>=agenda[ia].tanggal_a && date<=agenda[ia].tanggal_b) {
+			            				if (new Date(currentYear,currentMonth,date) >=agenda[ia].tanggal_a && new Date(currentYear,currentMonth,date)<=agenda[ia].tanggal_b) {
 			            					
 			            					if (agenda[ia].level==1) {
 			            						if (asign==null) {
@@ -247,23 +310,66 @@
 	            });
 	        }
 
-	        function showGaleri(){
+	        function showGalerihome(){
 	        	 $.ajax({
+	        	 	async: false,
 	                type  : 'ajax',
-	                url   : '<?php echo base_url();?>index.php/Gallery/getfotogalery',
+	                url   : '<?php echo base_url();?>index.php/Home/getGalleryHome',
 	                dataType : 'json',
 	                success : function(data){
+	                	var html='';
+	                	var html1='';
+	                	for(i=0; i<data.length; i++){
+	                		html+=  '<div class="mySlides">'+
+									   '<div class="numbertext">'+data[i].nama+'</div>'+
+									    '<img class="img-responsive" src="<?=base_url()?>./assets/image/'+data[i].source+'">'+
+									'</div>';
 
-	                	for(i=0; i<2; i++){
-	                        a=i+1;
-
-		                	document.getElementById("nama+i+").innerHTML=data[i].nama;
-		                	document.getElementById("foto+i+").src="<?=base_url()?>./assets/image/"+data[i].sourcefoto_galery;
-
+							html1+= '<div class="column">'+
+								      '<img class="demo cursor" src="<?=base_url()?>./assets/image/'+data[i].source+'" style="width:100%" onclick="currentSlide('+(i+1)+')" alt="'+data[i].nama+'">'+
+								    '</div>';
 				    	}
+				    	$('#gal_home').html(html); 
+				    	$('#column_imggallery').html(html1); 
 	                }
 	            });
 	        }
+
+//   ========================   sliderrrrrr ===========================
+	        showSlides(slideIndex);
+
+			document.getElementById("prev").addEventListener("click",minSlides);
+			document.getElementById("next").addEventListener("click",plusSlides);
+
+			function plusSlides() {
+				n= 1;
+			  showSlides(slideIndex += n);
+			} 
+			function minSlides() {
+				n= -1;
+			  showSlides(slideIndex += n);
+			}
+
+			function showSlides(n) {
+			  var i;
+			  var slides = document.getElementsByClassName("mySlides");
+			  var dots = document.getElementsByClassName("demo");
+			  var captionText = document.getElementById("caption");
+			  if (n > slides.length) {slideIndex = 1}
+			  if (n < 1) {slideIndex = slides.length}
+			  for (i = 0; i < slides.length; i++) {
+			      slides[i].style.display = "none";
+			  }
+			  for (i = 0; i < dots.length; i++) {
+			      dots[i].className = dots[i].className.replace(" active", "");
+			  }
+
+			  slides[slideIndex-1].style.display = "block";
+			  dots[slideIndex-1].className += " active"; 
+			  captionText.innerHTML = dots[slideIndex-1].alt;
+			}
+//  end slide
+
 		});
 		</script>
 

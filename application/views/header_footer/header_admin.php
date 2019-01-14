@@ -7,16 +7,11 @@
         <title>Admin E-scheduling</title>
 
         <!-- Bootstrap CSS -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style_home.css"> -->
-        
-        <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
-
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
-
-        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap-datepicker3.css">
-
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style_home.css">
+        
+        <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
         
  
     </head>
@@ -30,7 +25,7 @@
             </button>
             <div class="collapse navbar-collapse" id="mainnavbar">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="<?php echo site_url() ?>/Admin">Home</a>
                     </li>
                     <li class="nav-item">
@@ -39,17 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Gallery</a>
                     </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Agenda Kegiatan
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Agenda Bupati</a>
-                            <a class="dropdown-item" href="#">Agenda Kominfo</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url() ?>/Agenda">Agenda</a>
                     </li>
-
                 </ul>
                 <div class="btn-group" role="group" aria-label="Data baru">
                     <?php echo anchor('user/logout', 'Logout', array('class' => 'btn btn-outline-danger')); ?>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Model {
+class User_model extends CI_Model {
 
 	public function get_allagenda()
 	{
@@ -11,6 +11,12 @@ class User extends CI_Model {
         $query= $this->db->get();
        	return $query->result();
 	}	
+
+	public function getweekagenda()
+	{
+		$query=$this->db->query("SELECT * FROM `kegiatan` where week(tanggal_awal)=week(curdate()) order by tanggal_awal ASC"); 
+       	return $query->result();
+	}
 
 	public function getagendabupati()
 	{
@@ -22,7 +28,15 @@ class User extends CI_Model {
 	{
 		$query=$this->db->query("SELECT * FROM `kegiatan` where level=2 order by tanggal_awal ASC"); 
        	return $query->result();
-	}	
+	}
+
+	public function getgalleryhome()
+	{
+		$query=$this->db->query("SELECT * FROM `galeri` order by tanggal ASC"); 
+       	return $query->result();
+	}
+
+
     
     public function getagendaby($tgl)
 	{
