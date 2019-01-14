@@ -57,5 +57,21 @@ class Gallery_model extends CI_Model {
 		return $result;
 	}
 
+    public function get_count_galeri(){
+        $query = $this->db->query("SELECT COUNT(*) as ok FROM galeri");
+       // return $query->result();
+       // $query= $this->db->get();
+        
+        $row = $query->first_row();
+        return $row;
+
+    }
+
+    public function get_count_week_galeri(){
+        $query = $this->db->query("SELECT COUNT(*) as ok FROM galeri WHERE week(tanggal)=week(curdate())");
+        $row = $query->first_row();
+        return $row;
+    }
+
 
 }

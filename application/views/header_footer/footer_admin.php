@@ -69,8 +69,14 @@
 
 			showAgenda(); //call function show all agenda
 			showcalendar();
+			countAgenda(); 		//function show all agenda
+			countWeekAgenda();
+			countPengumuman();
+			countWeekPengumuman();
+			countGaleri();
+			countWeekGaleri();
 
-	        //function show all agenda
+
 	        function showAgenda(){
 	            $.ajax({
 	                type  : 'ajax',
@@ -145,6 +151,87 @@
 
 	        	$('#calendarbody').html(html); 
 	        }
+	        	// AGENDA
+	        function countAgenda(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Agenda/getCountAgenda',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("cc_agenda").innerHTML=data.jum_agenda;
+		                
+	                }
+	            });
+	        }
+
+	        function countWeekAgenda(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Agenda/getCountWeekAgenda',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("c_agenda").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
+
+	        	//PENGUMUMAN
+	        function countPengumuman(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Pengumuman/getCountPengumuman',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("cc_pengumuman").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
+
+	        function countWeekPengumuman(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Pengumuman/getCountWeekPengumuman',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("c_pengumuman").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
+
+	        	//GALERI
+	        function countGaleri(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Gallery/getCountGaleri',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("cc_galeri").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
+
+	        function countWeekGaleri(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Gallery/getCountGaleri',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("c_galeri").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
+	       
 
 
 

@@ -77,6 +77,16 @@ class Agenda extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	public function getCountAgenda()
+	{
+		echo json_encode($this->agenda_model->get_count_agenda());
+	}
+
+	public function getCountWeekAgenda()
+	{
+		echo json_encode($this->agenda_model->get_count_week_agenda());
+	}
+
 
 
 }

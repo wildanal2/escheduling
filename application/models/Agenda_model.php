@@ -92,5 +92,22 @@ class Agenda_model extends CI_Model {
         return $query->row();
     }
 
+    public function get_count_agenda(){
+        $query = $this->db->query("SELECT COUNT('namaKegiatan') as 'jum_agenda' FROM kegiatan");
+       // return $query->result();
+       // $query= $this->db->get();
+        
+        $row = $query->first_row();
+        return $row;
+
+    }
+
+    public function get_count_week_agenda(){
+        $query = $this->db->query("SELECT COUNT(*) as ok FROM kegiatan WHERE week(tanggal_awal)=week(curdate())");
+        $row = $query->first_row();
+        return $row;
+    }
+
+
 
 }

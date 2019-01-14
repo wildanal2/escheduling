@@ -107,7 +107,15 @@ class Gallery extends CI_Controller {
         echo json_encode($data);
 	}
 
+	public function getCountGaleri()
+	{
+		echo json_encode($this->Gallery_model->get_count_galeri());
+	}
 
+	public function getCountWeekGaleri()
+	{
+		echo json_encode($this->Gallery_model->get_count_week_galeri());
+	}
 
 
  

@@ -67,6 +67,22 @@ class Pengumuman_model extends CI_Model {
         return $result;
     }
 
+    public function get_count_pengumuman(){
+        $query = $this->db->query("SELECT COUNT(*) as 'ok' FROM pengumuman");
+       // return $query->result();
+       // $query= $this->db->get();
+        
+        $row = $query->first_row();
+        return $row;
+
+    }
+
+    public function get_count_week_pengumuman(){
+        $query = $this->db->query("SELECT COUNT(*) as ok FROM pengumuman WHERE week(tanggal)=week(curdate())");
+        $row = $query->first_row();
+        return $row;
+    }
+
 
 
 
