@@ -39,6 +39,11 @@ class Home extends CI_Controller {
         echo json_encode( $this->User_model->getgalleryhome());
 	}
 
+	public function getPengumumanfooter()
+	{
+        echo json_encode( $this->User_model->getpengumumanmarque());
+	}
+
 
 
 

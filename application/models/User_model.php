@@ -42,4 +42,10 @@ class User_model extends CI_Model {
        	return $query->result();
 	}	
 
+	public function getpengumumanmarque()
+	{ 
+        $query=$this->db->query("SELECT * FROM `pengumuman`  order by tanggal DESC");
+       	return $query->result();
+	}
+
 }

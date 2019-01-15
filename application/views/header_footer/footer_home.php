@@ -8,10 +8,8 @@
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 					<div class="runtext-container">
 						<div class="main-runtext">
-							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
-								<div class="text-container">
-								   <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
-								</div>
+							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();" id="text_berjalan">
+
 							</marquee>
 						</div>
 					</div>
@@ -83,6 +81,7 @@
 			showakominfo();
 			showPengumuman();
 			showGalerihome();
+			showpengumumanfooter();
 
 
 
@@ -334,6 +333,27 @@
 	                }
 	            });
 	        }
+
+
+	        function showpengumumanfooter(){
+	        	 $.ajax({
+	        	 	async: false,
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Home/getPengumumanfooter',
+	                dataType : 'json',
+	                success : function(data){
+	                	var html=''; 
+	                	for(i=0; i<data.length; i++){
+	                		html+=  '<a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #fff;font-size: 18px; margin-left:50px;" >'+
+	                				'<img src="<?php echo base_url() ?>assets/image/logo.png" height="20px"> '+
+	                				'Dinas Komunikasi dan Informatika &nbsp&nbsp&nbsp&nbsp'+
+	                				 data[i].judul+'-'+data[i].isi+'</a>';
+				    	}
+				    	$('#text_berjalan').html(html);
+	                }
+	            });
+	        }
+
 
 //   ========================   sliderrrrrr ===========================
 	        showSlides(slideIndex);
