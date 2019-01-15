@@ -20,6 +20,7 @@
 					
 						<!-- Kita format tampilan blog dalam bentuk card -->
 						<!-- https://getbootstrap.com/docs/4.0/components/card/ -->
+						<form id="tampil">
 						<div class="card text-black bg-default mb-2" id="update">
 							<div class="card-header" name="tanggal" id="tanggal">Tanggal</div>
 						  <div class="card-body">
@@ -32,12 +33,13 @@
 						    <a class="btn btn-info" data-toggle="modal" href="#modal_lihat">Lihat</a>
 						  </div>
 						</div>
+						</form>
 					
 				</div>
 			</div>
 			<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="border: 2px;">
 				<div style="background-color: #FFF; padding: 15px;">
-					<div class="panel panel-default">
+					<div class="panel panel-default card text-black">
 				      <div class="panel-heading card-header"><h3><b> Pengumuman </b></h3></div>
 				      <div class="card-body">
 				        
@@ -91,24 +93,29 @@
 	  <!--END MODAL DELETE-->
 					
 		<!-- Modal LIHAT -->
+	<form id="form_update">
 		<div class="modal fade" id="modal_lihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="judul_m"></b></h5>
+		        <h5 class="modal-title" id="judul_p"></b></h5>
+
+		        	<input type="hidden" id="judul_m" >
 		      </div>
 		      <div class="modal-body">
 		        <div class="form-group">
 				  	<label for="exampleFormControlTextarea3" id="tanggal_m"></label>
-				  	<textarea class="form-control" id="pengumuman_m" rows="7" readonly=""></textarea>
+				  	<textarea class="form-control" id="pengumuman_m" rows="7" ></textarea>
 				</div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">&nbsp OK &nbsp</button>
+		        <button type="submit" id="btn_push" class="btn btn-success col-md-3">Perbarui</button>
 		      </div>
 		    </div>
 		  </div>
-		</div>		
+		</div>	
+	</form>	
 
 
 

@@ -1,5 +1,5 @@
 
-		<nav class="navbar navbar-default navbar-fixed-bottom" style="background: #4f0381" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-bottom" style="background: #2929a3; margin-bottom: -15px" role="navigation">
 			<div class="container-fluid">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color: #ff9900;">
 					<center><h4 style="color: #ffffff" id="time"></h4></center>
@@ -9,6 +9,7 @@
 					<div class="runtext-container">
 						<div class="main-runtext">
 							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();" id="text_berjalan">
+
 
 							</marquee>
 						</div>
@@ -118,8 +119,8 @@
 	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
 	                        		}
 		                    html +=	
-		                            '<td>'+data[i].namaKegiatan+'</td>'+
-		                            '<td style="text-align: center;">'+tgl_awal+' s.d '+tgl_ahir+'</td>'+ 
+		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+
+		                            '<td style="text-align: right;">'+tgl_awal+' '+ 
 	                            '</tr>';
 	                    }
 	                    agenda=agend;
@@ -250,7 +251,7 @@
 	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
 	                        		}
 		                    html +=	
-		                            '<td>'+data[i].namaKegiatan+'</td>'+ 
+		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+ 
 	                            '</tr>';
 	                    }
 	                    $('#tbl_agendakominfo').html(html); 
@@ -277,7 +278,7 @@
 	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
 	                        		}
 		                    html +=	
-		                            '<td>'+data[i].namaKegiatan+'</td>'+ 
+		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+ 
 	                            '</tr>';
 	                    }
 	                    $('#tbl_agendabupati').html(html); 
@@ -344,10 +345,9 @@
 	                success : function(data){
 	                	var html=''; 
 	                	for(i=0; i<data.length; i++){
-	                		html+=  '<a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #fff;font-size: 18px; margin-left:50px;" >'+
+	                		html+=  '<a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #fff;font-size: 18px; margin-left:50px ;" >'+
 	                				'<img src="<?php echo base_url() ?>assets/image/logo.png" height="20px"> '+
-	                				'Dinas Komunikasi dan Informatika &nbsp&nbsp&nbsp&nbsp'+
-	                				 data[i].judul+'-'+data[i].isi+'</a>';
+	                				'Dinas Komunikasi dan Informatika Kabupaten Mojokerto</a>';
 				    	}
 				    	$('#text_berjalan').html(html);
 	                }

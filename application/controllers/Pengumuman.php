@@ -76,16 +76,22 @@ class Pengumuman extends CI_Controller {
 			echo json_encode($data);
 		
 	}
+	// Membuat fungsi UPDATE
+	public function pengumumanUpdate()
+	{	 
+		date_default_timezone_set("Asia/Jakarta");
 
-	// public function updateGallery()
-	// { 
-	// 	date_default_timezone_set("Asia/Jakarta");
-
-	// 	$id = $this->input->post('id_u'); // id gal
-	// 	$judul = $this->input->post('judul_u'); //get nama
-	// 	$isi = $this->input->post('isi_u'); //get tag
-	// 	$new_name = date("Y-m-d-H-i-s");
-	// }
+		$judul = $this->input->post('judul');
+		$isi = $this->input->post('pengumuman');
+		
+		$result = $this->pengumuman_model->update_pengumuman($judul,$isi);
+		if ($result) {
+			echo json_encode("suc ");
+		}else{
+			echo json_encode("Gagal");
+		}
+		
+	}
 
 	public function getCountPengumuman()
 	{

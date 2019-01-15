@@ -54,18 +54,18 @@ class Pengumuman_model extends CI_Model {
         return $result;
     }
 
-    public function update_pengumuman($id,$judul,$isi){
+    public function update_pengumuman($judul,$isi){
         date_default_timezone_set("Asia/Jakarta"); 
         $data = array(
-                'judul'  => $judul,
                 'isi'  => $isi,
                 'tanggal' => date("Y-m-d H-i-s")
             );
-        $this->db->where('id', $id);
+        $this->db->where('judul', $judul);
         $result=$this->db->update('pengumuman',$data);
 
         return $result;
     }
+
 
     public function get_count_pengumuman(){
         $query = $this->db->query("SELECT COUNT(*) as 'ok' FROM pengumuman");

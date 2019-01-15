@@ -57,8 +57,8 @@
         }
 
 		 $(document).ready(function(){
-		 	show();    
-
+		 	
+            show();    
             function show(){
                     $.ajax({
                     	async :false,
@@ -68,9 +68,10 @@
                         success : function(data){
                             var html = '';
                             var i;
+
                             for(i=0; i<data.length; i++){
-                                var string = data[i].isi;
-                                var length = 10;
+                                var string = data[i].isi ;
+                                var length = 22;
                                 var trimmedString = string.substring(0, length);
 
                                 html += 
@@ -101,7 +102,7 @@
             }
 
 
-        // ====================  Update ======================================================
+        // ====================  Update DATATABLE ======================================================
             //get data for update record UPDATEEEE
             $('#mydata').on('click','.item_edit',function(){
                 var tanggal = $(this).data('tanggal');
@@ -111,17 +112,43 @@
                 document.getElementById("judul").innerHTML=judul;
                 document.getElementById("tanggal").innerHTML=tanggal;
                 document.getElementById("pengumuman").value=pengumuman;
+                alert(pengumuman);
 
-                document.getElementById("judul_m").innerHTML=judul;
+                document.getElementById("judul_p").innerHTML=judul;
+                document.getElementById("judul_m").value=judul;
                 document.getElementById("tanggal_m").innerHTML=tanggal;
                 document.getElementById("pengumuman_m").value=pengumuman;
 
-
-                 
-                //set iinput
-                
+               
 
             });
+
+            
+            //UPDATE record to database
+             $('#form_update').submit(function(e){
+                e.preventDefault(); 
+
+                var judul_m= $('#judul_m').val();
+                var pengumuman_m = $('#pengumuman_m').val();
+                //alert(judul_m + " "+ pengumuman_m);
+                $.ajax({
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/Pengumuman/pengumumanUpdate",
+                    dataType : "JSON",
+                    data : { 
+                            judul:judul_m,
+                            pengumuman:pengumuman_m},
+                    success: function(data){                     
+                        $('#modal_lihat').modal('hide'); 
+                        refresh();
+
+                    }
+                });
+                return false;
+            });
+            
+ //   ========================  END UPDATE RECORD ====================================
+
 
 
 
@@ -157,29 +184,27 @@
             });
  //   ========================  END DELETE RECORD ====================================
 
-            
-        });
-
-
-		function truncateText(selector, maxLength) {
-		    var element = document.getElementById(selector),
-		        truncated = element.innerText;
-
-		    if (truncated.length > maxLength) {
-		        truncated = truncated.substr(0,maxLength) + '...';
-		    }
-		    return truncated;
-		}
-		document.getElementById("pengumuman").innerText = truncateText("pengumuman", 3);
-		
         function refresh() {
                 $(".table").DataTable().destroy();
                 $('tbody').empty();
-
+                document.getElementById('form_update').reset();
+                document.getElementById('tampil').reset();
+            
                 show();
-
-
         }
+
+          
+        });
+
+        
+//        document.getElementById().innerText = truncateText("pengumuman", 99);
+          
+
+		
+        
+
+        
+
 
 
         </script>

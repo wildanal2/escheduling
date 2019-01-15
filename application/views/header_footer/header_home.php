@@ -16,8 +16,8 @@
 	</head>
 
 
-	<body style="background: #B781CC; margin-bottom: 60px;" onload=display_ct()>
-		<nav  class=" navbar navbar-default navbar-fixed-top"role="navigation" style="background: #4f0381">
+	<body style="background: #b3d1ff; margin-bottom: 60px;" onload=display_ct()>
+		<nav  class=" navbar navbar-default navbar-fixed-top"role="navigation" style="background: #0039e6">
 			<div class="container ">
 				<a class="navbar-brand" style="color: #ffffff" href="#">E-Scheduling</a>
 			</div>

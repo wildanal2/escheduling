@@ -2,15 +2,15 @@
 ?> 
 
 
-<div class="container-fluid" style="width: 100%">
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+<div class="container-fluid" style="width: 100%;  ">
+	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 		<div class="boddy" style="padding-bottom: 50px;">
 			<h4 class="namatitel">AGENDA KEGIATAN MINGGU INI</h4>
 			<table>
 			  <tr style="background-color: #E8E8E8">
 			    <th style="width: 10%;">No</th>
 			    <th style="text-align: center; width: 40%;">Kegiatan</th>
-			    <th style="text-align: right; width: 40%">Tgl Mulai & Selesai</th>
+			    <th style="text-align: right; width: 40%">Tgl Mulai</th>
 			  </tr>
 				
 				<tbody id="tbl_agendakegiatan">
@@ -20,21 +20,21 @@
 		</div>	
 
 	</div>
-	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4">
-		<div class="boddy">
+	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4" style="margin-left: -20px">
+		<div class="boddy" >
 			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
 			<div class="card">
 		        <h5 style="text-align: center;" id="thismonth"></h5>
 		        <table class="table table-bordered table-responsive-sm" id="calendar">
 		            <thead>
 		            <tr>
-		                <th>Minggu</th>
-			            <th>Senin</th>
-			            <th>Selasa</th>
-			            <th>Rabu</th>
-			            <th>Kamis</th>
-			            <th>Jumat</th>
-			            <th>Sabtu</th>
+		                <th>Ming</th>
+			            <th>Sen</th>
+			            <th>Sel</th>
+			            <th>Rab</th>
+			            <th>Kam</th>
+			            <th>Jum</th>
+			            <th>Sab</th>
 		            </tr>
 		            </thead>
 		            <tbody id="calendarbody">
@@ -69,7 +69,7 @@
 	    </div>
 	     
 	</div>
-	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 boddy">
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 boddy" >
 		<h4 class="namatitel">PENGUMUMAN</h4>
 		<div class="card text-black bg-default mb-2" id="update">
 							
