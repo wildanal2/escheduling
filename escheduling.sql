@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 15, 2019 at 02:15 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.39
+-- Host: 127.0.0.1
+-- Generation Time: 15 Jan 2019 pada 07.58
+-- Versi Server: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galeri`
+-- Struktur dari tabel `galeri`
 --
 
 CREATE TABLE `galeri` (
@@ -37,16 +37,22 @@ CREATE TABLE `galeri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `galeri`
+-- Dumping data untuk tabel `galeri`
 --
 
 INSERT INTO `galeri` (`id_galery`, `nama`, `tag`, `source`, `tanggal`) VALUES
-(29, 'Kost Putra Wildan', 'jnjnj', 'gallery/2019-01-10-10-28-18.jpg', '2019-01-10 10:28:18');
+(30, 'Upacara Peringatan Hari Bela Negara ke-70 dan Hari Nusantara Tahun 2018', 'Bupati', 'gallery/2019-01-15-08-41-44.jpg', '2019-01-15 08:46:21'),
+(31, ' Peringatan Hari Ibu ke-90 Tahun 2018', 'Hari Ibu', 'gallery/2019-01-15-08-42-39.jpg', '2019-01-15 08:42:39'),
+(33, 'Peringatan Hari Ibu ke-90 Tahun 2018', 'Hari Ibu', 'gallery/2019-01-15-08-52-30.jpg', '2019-01-15 08:52:30'),
+(34, 'Upacara Peringatan Hari Bela Negara ke-70 dan Hari Nusantara Tahun 2018', 'Hari Bela Negara', 'gallery/2019-01-15-08-53-31.jpg', '2019-01-15 08:53:31'),
+(35, 'Kepala Dinas Kominfo Kota Mojokerto Segera Dilantik Jadi Sekda Jombang Definitif   Artikel ini telah', 'Pelantikan', 'gallery/2019-01-15-08-57-38.jpg', '2019-01-15 08:57:38'),
+(36, 'Dinas Kominfo Kota Mojokerto Dengan Kominfo Bandung Mou Tentang Hibah Aplikasi', 'Aplikasi', 'gallery/2019-01-15-09-14-57.jpg', '2019-01-15 09:14:57'),
+(37, 'Dishub Kominfo Kota Mojokerto Sosialisasi Tertib Lalin', 'Sosialisasi', 'gallery/2019-01-15-09-21-34.jpg', '2019-01-15 09:21:34');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kegiatan`
+-- Struktur dari tabel `kegiatan`
 --
 
 CREATE TABLE `kegiatan` (
@@ -60,7 +66,7 @@ CREATE TABLE `kegiatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `kegiatan`
+-- Dumping data untuk tabel `kegiatan`
 --
 
 INSERT INTO `kegiatan` (`id_k`, `namaKegiatan`, `keterangan`, `tanggal_awal`, `tanggal_akhir`, `level`, `tanggal_post`) VALUES
@@ -74,7 +80,7 @@ INSERT INTO `kegiatan` (`id_k`, `namaKegiatan`, `keterangan`, `tanggal_awal`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Struktur dari tabel `level`
 --
 
 CREATE TABLE `level` (
@@ -83,7 +89,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `level`
+-- Dumping data untuk tabel `level`
 --
 
 INSERT INTO `level` (`id`, `nama`) VALUES
@@ -93,7 +99,7 @@ INSERT INTO `level` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengumuman`
+-- Struktur dari tabel `pengumuman`
 --
 
 CREATE TABLE `pengumuman` (
@@ -104,14 +110,16 @@ CREATE TABLE `pengumuman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pengumuman`
+-- Dumping data untuk tabel `pengumuman`
 --
 
 INSERT INTO `pengumuman` (`id`, `judul`, `isi`, `tanggal`) VALUES
 (1, 'pengumuman', 'Pengumuman \r\n\r\n1. abc\r\n2. def', '2019-01-10 04:45:54'),
 (2, 'pengumuman 2', 'Pengumuman \r\n\r\n3. ghi\r\n4. jkl', '2019-01-10 04:49:58'),
 (3, 'pengumuman 9', 'mencoba\r\n enter', '2019-01-10 06:13:58'),
-(4, 'Pengumuman 5', 'Enter\r\nenter \r\nenter\r\n', '2019-01-10 06:14:22');
+(4, 'Pengumuman 5', 'Enter\r\nenter \r\nenter\r\n', '2019-01-10 06:14:22'),
+(5, 'tes', 'function refresh() {\n                $(\".table\").DataTable().destroy();\n                $(\'tbody\').empty();\n                document.getElementById(\'form_update\').reset();\n                document.getElementById(\'tampil\').reset();\n            \n                show();\n        }', '2019-01-15 04:34:57'),
+(6, 'pengumumn sng dowo', 'oioi', '2019-01-15 03:30:06');
 
 --
 -- Indexes for dumped tables
@@ -150,32 +158,28 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
+  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   MODIFY `id_k` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
 --
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
 
 --
--- Constraints for dumped tables
---
-
---
--- Constraints for table `kegiatan`
+-- Ketidakleluasaan untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD CONSTRAINT `fk_kegiatan_level` FOREIGN KEY (`level`) REFERENCES `level` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
