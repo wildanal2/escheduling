@@ -4,29 +4,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User_model extends CI_Model {
 
 	public function get_allagenda()
-	{
-		$this->db->select('*');
-		$this->db->from('kegiatan');
-		$this->db->order_by('tanggal_awal', 'asc');
-        $query= $this->db->get();
+	{ 
+        $query=$this->db->query("SELECT * FROM `kegiatan` where month(tanggal_awal)=month(curdate()) and year(tanggal_awal)=year(curdate())  order by tanggal_awal ASC");
        	return $query->result();
 	}	
 
 	public function getweekagenda()
 	{
-		$query=$this->db->query("SELECT * FROM `kegiatan` where week(tanggal_awal)=week(curdate()) order by tanggal_awal ASC"); 
+		$query=$this->db->query("SELECT * FROM `kegiatan` where week(tanggal_awal)=week(curdate()) and year(tanggal_awal)=year(curdate())  order by tanggal_awal ASC");
        	return $query->result();
 	}
 
 	public function getagendabupati()
 	{
-		$query=$this->db->query("SELECT * FROM `kegiatan` where level=1 order by tanggal_awal ASC"); 
+		$query=$this->db->query("SELECT * FROM `kegiatan` where level=1 and month(tanggal_awal)=month(curdate()) and year(tanggal_awal)=year(curdate()) order by tanggal_awal ASC"); 
        	return $query->result();
 	}	
 
 	public function getagendakominfo()
 	{
-		$query=$this->db->query("SELECT * FROM `kegiatan` where level=2 order by tanggal_awal ASC"); 
+		$query=$this->db->query("SELECT * FROM `kegiatan` where level=2 and month(tanggal_awal)=month(curdate()) and year(tanggal_awal)=year(curdate()) order by tanggal_awal ASC"); 
        	return $query->result();
 	}
 

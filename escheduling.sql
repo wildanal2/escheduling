@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 11 Jan 2019 pada 03.10
--- Versi Server: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Host: localhost
+-- Generation Time: Jan 15, 2019 at 02:15 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `galeri`
+-- Table structure for table `galeri`
 --
 
 CREATE TABLE `galeri` (
@@ -37,43 +37,44 @@ CREATE TABLE `galeri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `galeri`
+-- Dumping data for table `galeri`
 --
 
 INSERT INTO `galeri` (`id_galery`, `nama`, `tag`, `source`, `tanggal`) VALUES
-(27, 'awaw', 'feffef', 'gallery/2019-01-10-09-07-59.png', '2019-01-10 10:51:50'),
-(28, 'nonononononono', 'oooo', 'gallery/2019-01-10-09-09-07.png', '2019-01-10 10:48:45'),
-(29, 'Kost Putra Wildan', 'jnjnj', 'gallery/2019-01-10-10-28-18.jpg', '2019-01-10 10:28:18'),
-(30, 'testing', 'kamaroni', 'gallery/2019-01-10-11-27-16.png', '2019-01-10 11:27:16');
+(29, 'Kost Putra Wildan', 'jnjnj', 'gallery/2019-01-10-10-28-18.jpg', '2019-01-10 10:28:18');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kegiatan`
+-- Table structure for table `kegiatan`
 --
 
 CREATE TABLE `kegiatan` (
-  `id` int(11) NOT NULL,
+  `id_k` int(11) NOT NULL,
   `namaKegiatan` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_awal` datetime NOT NULL,
   `tanggal_akhir` datetime NOT NULL,
-  `level` int(11) NOT NULL
+  `level` int(11) NOT NULL,
+  `tanggal_post` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `kegiatan`
+-- Dumping data for table `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id`, `namaKegiatan`, `tanggal_awal`, `tanggal_akhir`, `level`) VALUES
-(1, 'Rapat Koordinasi Dan Konsultasi', '2019-01-08 00:00:00', '2019-01-10 00:00:00', 1),
-(2, 'Rapat Bulanan', '2019-01-30 00:00:00', '2019-01-31 00:00:00', 2),
-(3, 'Pengelolaan sistem informasi penggajian', '2019-01-09 00:00:00', '2019-01-11 00:00:00', 2),
-(5, 'Evaluasi bulanan', '2019-01-27 00:00:00', '2019-01-28 00:00:00', 1);
+INSERT INTO `kegiatan` (`id_k`, `namaKegiatan`, `keterangan`, `tanggal_awal`, `tanggal_akhir`, `level`, `tanggal_post`) VALUES
+(10, 'februari bersih', ' kerja bakti bersama', '2019-02-01 00:00:00', '2019-02-02 00:00:00', 1, '2019-01-11 18:39:34'),
+(11, 'Sambutan Tahun baru', ' Makan Besar ', '2019-01-02 00:00:00', '2019-01-02 00:00:00', 2, '2019-01-11 18:51:30'),
+(12, 'Disiplin Sabtu', 'Check in Januari ', '2019-01-05 00:00:00', '2019-01-05 00:00:00', 1, '2019-01-11 18:55:39'),
+(13, 'Kunjungan Kerja', 'Ke Jombang ', '2019-02-20 00:00:00', '2019-02-23 00:00:00', 2, '2019-01-11 20:27:23'),
+(15, 'Istighosah', 'Kubrooooo mantap gannnnnnnnnnnn', '2019-01-20 00:00:00', '2019-01-20 00:00:00', 1, '2019-01-14 23:03:50'),
+(17, 'aye aye', ' awaw', '2019-01-15 00:00:00', '2019-01-19 00:00:00', 2, '2019-01-14 23:04:39');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `level`
+-- Table structure for table `level`
 --
 
 CREATE TABLE `level` (
@@ -82,7 +83,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `level`
+-- Dumping data for table `level`
 --
 
 INSERT INTO `level` (`id`, `nama`) VALUES
@@ -92,7 +93,7 @@ INSERT INTO `level` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengumuman`
+-- Table structure for table `pengumuman`
 --
 
 CREATE TABLE `pengumuman` (
@@ -103,7 +104,7 @@ CREATE TABLE `pengumuman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `pengumuman`
+-- Dumping data for table `pengumuman`
 --
 
 INSERT INTO `pengumuman` (`id`, `judul`, `isi`, `tanggal`) VALUES
@@ -126,7 +127,7 @@ ALTER TABLE `galeri`
 -- Indexes for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_k`),
   ADD KEY `fk_kegiatan_level` (`level`);
 
 --
@@ -149,28 +150,32 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
 --
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_k` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `kegiatan`
+-- Constraints for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD CONSTRAINT `fk_kegiatan_level` FOREIGN KEY (`level`) REFERENCES `level` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

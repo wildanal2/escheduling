@@ -16,7 +16,7 @@ class Agenda_model extends CI_Model {
 
     public function get_monthagenda()
     { 
-        $query= $this->db->query("SELECT * FROM `kegiatan` where month(tanggal_awal)=month(curdate()) order by tanggal_awal ASC");
+        $query= $this->db->query("SELECT * FROM `kegiatan` where month(tanggal_awal)=month(curdate()) and year(tanggal_awal)=year(curdate()) order by tanggal_awal ASC");
         return $query->result();
     }   
 
