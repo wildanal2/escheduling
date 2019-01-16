@@ -10,6 +10,9 @@ class Pengumuman extends CI_Controller {
 		$this->load->helper('MY');
 		
 		$this->load->model('pengumuman_model');
+		if(!$this->session->userdata('escheduling_logged')){
+					redirect('login/login');
+		}
 
 	}
 	public function getPengumuman()

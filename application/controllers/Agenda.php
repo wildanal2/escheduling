@@ -7,6 +7,9 @@ class Agenda extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('agenda_model');
+		if(!$this->session->userdata('escheduling_logged')){
+					redirect('login/login');
+		}
 
 	}
 

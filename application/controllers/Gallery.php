@@ -7,6 +7,9 @@ class Gallery extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Gallery_model');
+		if(!$this->session->userdata('escheduling_logged')){
+					redirect('login/login');
+		}
 
 	}
 

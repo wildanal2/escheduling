@@ -38,8 +38,31 @@
                         <a class="nav-link" href="<?php echo site_url() ?>/Agenda">Agenda</a>
                     </li>
                 </ul>
-                <div class="btn-group" role="group" aria-label="Data baru">
-                    <?php echo anchor('user/logout', 'Logout', array('class' => 'btn btn-outline-danger')); ?>
+
+                <!-- <div class="btn-group" role="group" aria-label="Data baru">
+                    <?php echo anchor('login/logout', 'Logout', array('class' => 'btn btn-outline-danger')); ?>
+                </div> -->
+
+
+                <div class="btn-group">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown" style="margin-right: 50px">
+                            <div class="dropdown-toggle btn-group btn btn-outline-danger dropdown-toggle btn-sm" role="group" aria-label="Data baru" data-toggle="dropdown"> KELUAR
+                                
+                            </div>
+
+                            <!-- <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>  -->
+                            <div class="dropdown-menu">
+                                <form class="navbar-form container" role="form">
+                                    <p> Apakah yakin ingin keluar ?</p>
+                                    <button type="submit" class="btn btn-primary">NO</button>
+                                    
+                                        <?php echo anchor('login/logout', 'YES', array('class' => 'btn btn-success')); ?>
+                                    
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

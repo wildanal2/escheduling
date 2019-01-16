@@ -35,21 +35,24 @@ class Login extends CI_Controller {
 			$output['level'] = 1;
 			$output['message'] = 'Prosess Masuk. Tunggu sebentar...';
 		}else {
-			$output['error'] = true;
-			$output['message'] = 'Gagal masuk. User atau Password tidak terdaftar';
+			
+			
+			redirect('Admin', 'refreshe');
+			// $output['error'] = true;
+			// $output['message'] = 'Gagal masuk. User atau Password tidak terdaftar';
 		}
 		echo json_encode($output);
 	}
  
-
-
+	
 
 
 	public function logout()
 	{
 		$this->session->unset_userdata('escheduling_logged');
 		$this->session->sess_destroy();
-		redirect('Kostku','refresh');
+		redirect('Admin','refresh');
+
 	}
 
 }
