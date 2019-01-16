@@ -29,7 +29,7 @@ class User_model extends CI_Model {
 
 	public function getgalleryhome()
 	{
-		$query=$this->db->query("SELECT * FROM `galeri` order by tanggal ASC"); 
+		$query=$this->db->query("SELECT * FROM `galeri` order by tanggal ASC limit 6"); 
        	return $query->result();
 	}
 

@@ -58,54 +58,6 @@
 			let currentYear = today.getFullYear();
 			
 			showAgendaandCalendar(currentMonth,currentYear); //call function show all agenda 
-			showdatatabels();
-
-			function showdatatabels() {
-				$.ajax({ 
-	                type  : 'ajax',
-	                url   : '<?php echo base_url();?>index.php/Agenda/getAllAgenda',
-	                dataType : 'json',
-	                success : function(data){
-	                    var html = '';
-	                    var i; 
-	                    for(i=0; i<data.length; i++){
-	                        a=i+1;
-	                    	                       
-	                        const tgl_a = new Date(data[i].tanggal_awal);
-	                        var bln_a =tgl_a.getMonth()+1;
-	                        var tgl_awal = tgl_a.getDate()+"/"+bln_a+"/"+tgl_a.getFullYear();
-	                        const tgl_b = new Date(data[i].tanggal_akhir);
-	                        var bln_b =tgl_b.getMonth()+1;
-	                        var tgl_ahir = tgl_b.getDate()+"/"+bln_b+"/"+tgl_b.getFullYear();
-	                        
-	                        html += '<tr>';
-	                        		if (data[i].level == 1) {
-	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
-	                        		}else if (data[i].level == 2) {
-	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
-	                        		}
-		                    html +=	
-		                            '<td>'+data[i].namaKegiatan+'</td>'+
-		                            '<td>'+data[i].keterangan+'</td>'+
-		                            '<td>'+tgl_awal+'</td>'+
-		                            '<td>'+tgl_ahir+'</td>'+
-		                            '<td>'+
-                            		'<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id_k="'+data[i].id_k+'" data-nama="'+data[i].namaKegiatan+'" data-ket="'+data[i].keterangan+'" data-tanggal_awal="'+data[i].tanggal_awal+'" data-tanggal_akhir="'+data[i].tanggal_akhir+'" data-level="'+data[i].level+'" data-namalevel="'+data[i].nama+'" >Ubah</a>'+
-                            		'</td>'+
-                            		'<td>'+
-                            		'<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_k="'+data[i].id_k+'" data-nama="'+data[i].namaKegiatan+'">Hapus</a>'+
-                            		'</td>'+
-
-	                            '</tr>';
-	                    }
-	                    $('#tbl_agendakegiatan').html(html);
-	                    $("#agendaall").DataTable({
-	                    		destroy:true,
-						        "lengthMenu": [[10, 15, 25, -1], [10, 15, 25, "Semua"]]
-						    });     
-	                }
-	            });
-			}
 
 			document.getElementById("previous").addEventListener("click",previous);
 			document.getElementById("next").addEventListener("click",next);
@@ -125,17 +77,22 @@
 	        //function show all agenda
 	        function showAgendaandCalendar(month,year){
 	            var agenda=null;
+	            var mm =(month+1);
 
 	            $.ajax({
 	            	async: false,
-	                type  : 'ajax',
-	                url   : '<?php echo base_url();?>index.php/Agenda/getAllAgenda',
+	                type : "POST",
+	                url   : '<?php echo base_url();?>index.php/Agenda/getMyAgenda',
 	                dataType : 'json',
+	                data : { 
+                    		month_p:mm,
+                    		year_p:year},
+
 	                success : function(data){ 
 	                    var agend=[];
-
+	                    var html='';
 	                    for(i=0; i<data.length; i++){ 
-	                    	                       
+	                    	a=i+1;             
 	                        const tgl_a = new Date(data[i].tanggal_awal);
 	                        var tgl_awal = tgl_a.getDate()+"/"+tgl_a.getMonth()+1+"/"+tgl_a.getFullYear();
 	                        const tgl_b = new Date(data[i].tanggal_akhir);
@@ -148,8 +105,36 @@
 	                        			}
 
 	                        agend.push(ag);
+
+	                        html += '<tr>';
+	                        		if (data[i].level == 1) {
+	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
+	                        		}else if (data[i].level == 2) {
+	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
+	                        		}
+		                    html +=	
+		                            '<td>'+data[i].namaKegiatan+'</td>'+
+		                            '<td>'+data[i].keterangan+'</td>'+
+		                            '<td>'+tgl_awal+'</td>'+
+		                            '<td>'+tgl_ahir+'</td>'+
+		                            '<td>'+
+                            		'<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id_k="'+data[i].id_k+'" data-nama="'+data[i].namaKegiatan+'" data-ket="'+data[i].keterangan+'" data-tanggal_awal="'+data[i].tanggal_awal+'" data-tanggal_akhir="'+data[i].tanggal_akhir+'" data-level="'+data[i].level+'" data-namalevel="'+data[i].nama+'" >Ubah</a>'+
+                            		'</td>'+
+                            		'<td>'+
+                            		'<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_k="'+data[i].id_k+'" data-nama="'+data[i].namaKegiatan+'">Hapus</a>'+
+                            		'</td>'+
+
+	                            '</tr>';
 	                    } 
 	                    agenda=agend;
+	                    $("#agendaall").DataTable().destroy();
+            			$('tbody').empty();
+	                    
+	                    $('#tbl_agendakegiatan').html(html);
+	                    $("#agendaall").DataTable({
+	                    		destroy:true,
+						        "lengthMenu": [[10, 15, 25, -1], [10, 15, 25, "Semua"]]
+						    }); 
 	                }
 	            });
 
@@ -233,14 +218,6 @@
         		var selesaiin = $('#selesai').val();
         		var levelin = $('#level').val();
 
-
-    //     		if (!$("#myTextArea").val()) {
-				//   	alert("isidulu");
-				//   	$("#myTextArea").focus();
-				// } 
-
-                // alert(nama+"-"+ket+"-"+mulai+"-"+selesai+"-"+level);
-
                 $.ajax({
                     type : "POST",
                     url  : "<?php echo site_url(); ?>/Agenda/agendaBaru",
@@ -251,9 +228,7 @@
                     		selesai:selesaiin,
                     		level:levelin},
 
-                    success: function(){
-                    	showAgendaandCalendar();
-						showdatatabels();
+                    success: function(){ 
                         $('#Modal_Add').modal('hide'); 
                         refresh();
                     }
@@ -316,10 +291,7 @@
                     		level:levelup},
 
                     success: function(data){
-                    	
-                    	showAgendaandCalendar();
-						showdatatabels();
-                        $('#Modal_update').modal('hide'); 
+                    	$('#Modal_update').modal('hide'); 
                         refresh();
                     }
                 });
@@ -368,7 +340,6 @@
             document.getElementById('formdelete').reset();
             
             showAgendaandCalendar(currentMonth,currentYear); //call function show all agenda 
-			showdatatabels();
  		}
 	      
 

@@ -17,12 +17,14 @@ class Pengumuman_model extends CI_Model {
         return $query->result();
     }
 
-    public function get_pengumuman_firstRow(){
-        // Urutkan berdasar abjad
-        $this->db->order_by('tanggal',"desc");
-
-        $query = $this->db->get('pengumuman');
-        $a = $query->first_row();
+    public function get_pengumuman_home(){ 
+        $this->db->select('*');
+        $this->db->from('pengumuman');
+        $this->db->order_by('tanggal',"DESC");
+        $this->db->limit(4);
+        $query= $this->db->get();
+        
+        $a = $query->result();
         return $a;
     }
 

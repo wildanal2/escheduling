@@ -9,8 +9,8 @@
 			<table>
 			  <tr style="background-color: #E8E8E8">
 			    <th style="width: 10%;">No</th>
-			    <th style="text-align: center; width: 40%;">Kegiatan</th>
-			    <th style="text-align: right; width: 40%">Tgl Mulai</th>
+			    <th style="text-align: center; width: 70%;">Kegiatan</th>
+			    <th style="text-align: right; width: 20%">Tgl Mulai</th>
 			  </tr>
 				
 				<tbody id="tbl_agendakegiatan">
@@ -71,27 +71,39 @@
 	</div>
 	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 boddy" >
 		<h4 class="namatitel">PENGUMUMAN</h4>
-		<div class="card text-black bg-default mb-2" id="update">
-							
-		  	<div class="card-body">
-			    <h4 class=" card-title" nama="judul" style="text-align: center;" id="judul" ><b>Judul </b></h4>
-			    <br>
-			    <!-- <p class="card-text" nama="pengumuman" id="pengumuman">Pengumuman </p> -->
-			
-			    <textarea  class="form-control" rows="7" readonly="" name="pengumuman" id="pengumuman"> Pengumuman</textarea>
-			    <br>
-			    <div class="row align-items-center" >
-			    	<div class="col-md-9">
-				    	<!-- <a class=" btn btn-info" data-toggle="modal" href="#modal_lihat">Lihat</a> -->
-				    </div>
-				    <div class="col-md-3" >
-				    	<small class="text-muted"name="tanggal" id="tanggal">Tanggal</small>
-			  		</div>
-			  	</div>
-		  	</div><br>
+		
+		<div id="con_lstpgumuman">	
 		</div>
 
-	</div>
+		<div class="card-body" id="card_pengumuman" style="display: none;">
+			<div class="row" style="margin-bottom: -10px;">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<a id="back" style="padding: 30px; margin-bottom: -50px">❮</a>		
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+					<center><font id="judul" ></font></center>
+				</div>
+			</div>
+		    
+		    <hr> 
+		    <textarea  class="form-control" rows="7" readonly="" id="pengumuman"></textarea>
+		   
+		    <div class="row align-items-center" >
+		    	<div class="col-md-9">
+
+			    </div>
+			    <div class="col-md-3" >
+			    	<small class="text-muted" id="tanggal"></small>
+		  		</div>
+		  	</div>
+  		</div>
+
+	</div> 
+
+		<!-- <div class="card text-black bg-default mb-2" id="update">
+		</div> -->
+		
+		
 
 	<div class="col-xs-3 col-sm-3 boddymid">
 		<h4 class="namatitel">GALERY</h4>
@@ -106,7 +118,7 @@
 
 			<div class="caption-container"> <p id="caption"></p>  </div>
 
-				<div class="row" style="margin-left: 2px">
+				<div class="row" style="margin-left: 2px;margin-right: 2px;">
 
 					<div id="column_imggallery">
 					    <!-- container rowsColls img -->

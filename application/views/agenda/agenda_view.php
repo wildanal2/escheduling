@@ -28,13 +28,13 @@
 			        <table class="table table-bordered table-responsive-sm" id="calendar">
 			            <thead>
 			            <tr>
-			                <th>Minggu</th>
-			                <th>Senin</th>
-			                <th>Selasa</th>
-			                <th>Rabu</th>
-			                <th>Kamis</th>
-			                <th>Jumat</th>
-			                <th>Sabtu</th>
+			                <th>Mingg</th>
+			                <th>Sen</th>
+			                <th>Sel</th>
+			                <th>Rab</th>
+			                <th>Kam</th>
+			                <th>Jum</th>
+			                <th>Sab</th>
 			            </tr>
 			            </thead>
 			            <tbody id="calendarbody">

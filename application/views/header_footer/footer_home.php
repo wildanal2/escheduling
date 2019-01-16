@@ -1,12 +1,12 @@
 
-		<nav class="navbar navbar-default navbar-fixed-bottom" style="background: #2929a3; margin-bottom: -15px" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-bottom" style="background: #2929a3; margin-bottom: -10px" role="navigation">
 			<div class="container-fluid">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color: #ff9900;">
 					<center><h4 style="color: #ffffff" id="time"></h4></center>
 				</div>
 				
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<div class="runtext-container">
+					<div class="runtext-container" style="margin-top: 5px">
 						<div class="main-runtext">
 							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();" id="text_berjalan">
 
@@ -48,6 +48,7 @@
 					document.getElementById('time').innerHTML = x1;
 					display_c();
 			}
+
 
 			function currentSlide(n) {
 			  showSlides1(slideIndex = n);
@@ -290,25 +291,51 @@
 	        function showPengumuman(){
 	        	 $.ajax({
 	                type  : 'ajax',
-	                url   : '<?php echo base_url();?>index.php/Pengumuman/getPengumumanFirstRow',
+	                url   : '<?php echo base_url();?>index.php/Pengumuman/getPengumumanHome',
 	                dataType : 'json',
 	                success : function(data){
+	                	html='';
+	                	for(i= 0; i<data.length; i++) {
 
-	                	const tgl = new Date(data.tanggal);
-                        var tgl_a = tgl.getDate()+"/"+tgl.getMonth()+1+"/"+tgl.getFullYear();
-                            
+	                		const tgl = new Date(data[i].tanggal);
+	                        var tgl_a = tgl.getDate()+"-"+tgl.getMonth()+1+"-"+tgl.getFullYear();
 
-	                	document.getElementById("judul").innerHTML=data.judul;
-		                document.getElementById("tanggal").innerHTML=tgl_a;
-		                document.getElementById("pengumuman").value=data.isi;
-
-		                document.getElementById("judul_m").innerHTML=data.judul;
-		                document.getElementById("tanggal_m").innerHTML=tgl_a;
-		                document.getElementById("pengumuman_m").value=data.isi;
-	                    
+	                		html += '<div class="card">'+
+										'<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">'+
+											 '<img  width="40px" src="<?php echo base_url() ?>assets/image/horn.png" style="margin: 10px;" >'+
+										'</div>'+
+										'<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="align-items: center;">'+
+											'<a style="color: #000;" class="item_edit" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h5>'+data[i].judul+'</h5></a>'+
+											'<p style="margin-top: -5px">'+tgl_a+'</p>'+
+										'</div>'+
+									'</div><hr>';
+	                	}
+	                    $('#con_lstpgumuman').html(html); 
 	                }
 	            });
 	        }
+
+	        $('#con_lstpgumuman').on('click','.item_edit',function(){
+                var judul = $(this).data('judul');
+                var isi = $(this).data('isi'); 
+                var tgl = $(this).data('tanggal');  
+
+                document.getElementById("judul").innerHTML=judul;
+                document.getElementById("pengumuman").innerHTML=isi;
+                document.getElementById("tanggal").innerHTML=tgl;
+
+                document.getElementById("con_lstpgumuman").style.display="none";
+                document.getElementById("card_pengumuman").style.display="block";
+            });
+
+	        document.getElementById("back").addEventListener("click",hidepengumuman);
+
+	        function hidepengumuman(){
+	        	document.getElementById("con_lstpgumuman").style.display="block";
+                document.getElementById("card_pengumuman").style.display="none";
+	        }
+
+
 
 	        function showGalerihome(){
 	        	 $.ajax({
@@ -321,13 +348,13 @@
 	                	var html1='';
 	                	for(i=0; i<data.length; i++){
 	                		html+=  '<div class="mySlides">'+
-									   '<div class="numbertext">'+data[i].nama+'</div>'+
+									   // '<div class="numbertext">'+data[i].nama+'</div>'+
 									    '<img class="img-responsive" src="<?=base_url()?>./assets/image/'+data[i].source+'">'+
 									'</div>';
-
 							html1+= '<div class="column">'+
-								      '<img class="demo cursor" src="<?=base_url()?>./assets/image/'+data[i].source+'" style="width:100%" onclick="currentSlide('+(i+1)+')" alt="'+data[i].nama+'">'+
+								      '<img class="demo cursor img-responsive" src="<?=base_url()?>./assets/image/'+data[i].source+'" style="width:100%" onclick="currentSlide('+(i+1)+')" alt="'+data[i].nama+'">'+
 								    '</div>';
+							
 				    	}
 				    	$('#gal_home').html(html); 
 				    	$('#column_imggallery').html(html1); 
@@ -356,7 +383,15 @@
 
 
 //   ========================   sliderrrrrr ===========================
-	        showSlides(slideIndex);
+	        carousel();
+
+	        function carousel() {
+				var slides = document.getElementsByClassName("mySlides");
+				if (slideIndex > slides.length) slideIndex=1;
+				showSlides(slideIndex);
+				slideIndex++;
+				setTimeout(carousel, 8000);
+			}
 
 			document.getElementById("prev").addEventListener("click",minSlides);
 			document.getElementById("next").addEventListener("click",plusSlides);

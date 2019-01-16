@@ -23,27 +23,29 @@
 
     <body style="background: #B781CC" onload=display_ct()>
         <nav  class=" navbar navbar-expand-md navbar-dark bg-uno box-shadowf"role="" style="background: #4f0381">
-            <a class="navbar-brand" style="color: #ffffff" href="#">Admin E-Scheduling</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavbar" aria-controls="mainnavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainnavbar">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/Admin">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/Pengumuman">Pengumuman</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo site_url() ?>/Agenda">Agenda</a>
-                    </li>
-                </ul>
-                <div class="btn-group" role="group" aria-label="Data baru">
-                    <?php echo anchor('user/logout', 'Logout', array('class' => 'btn btn-outline-danger')); ?>
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color: #ffffff" href="#">Admin E-Scheduling</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavbar" aria-controls="mainnavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainnavbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url() ?>/Admin">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url() ?>/Pengumuman">Pengumuman</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php echo site_url() ?>/Agenda">Agenda</a>
+                        </li>
+                    </ul>
+                    <div class="btn-group" role="group" aria-label="Data baru">
+                        <?php echo anchor('user/logout', 'Logout', array('class' => 'btn btn-outline-danger')); ?>
+                    </div>
                 </div>
             </div>
         </nav>

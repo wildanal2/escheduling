@@ -8,9 +8,9 @@ class Agenda_model extends CI_Model {
     	parent::__construct();
     }
 
-    public function get_allagenda()
+    public function get_myagenda($month,$years)
     { 
-        $query= $this->db->query("SELECT * FROM `kegiatan` join level on kegiatan.level= level.id order by tanggal_awal ASC");
+        $query= $this->db->query("SELECT * FROM kegiatan join level on kegiatan.level= level.id WHERE month(tanggal_awal)=".$month." and year(tanggal_awal)= ".$years." order by tanggal_awal ASC");
         return $query->result();
     }
 

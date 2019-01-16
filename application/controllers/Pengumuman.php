@@ -18,9 +18,9 @@ class Pengumuman extends CI_Controller {
 		echo json_encode($data);
 
 	}
-	public function getPengumumanFirstRow()
+	public function getPengumumanHome()
 	{
-		$data= $this->pengumuman_model->get_pengumuman_firstRow();
+		$data= $this->pengumuman_model->get_pengumuman_home();
 		echo json_encode($data);
 	}
 

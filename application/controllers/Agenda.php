@@ -19,9 +19,11 @@ class Agenda extends CI_Controller {
 		$this->load->view("agenda/footer");
 	}
 
-	public function getAllAgenda()
+	public function getMyAgenda()
 	{
-        echo json_encode( $this->agenda_model->get_allagenda());
+		$month = $this->input->post('month_p');
+		$year = $this->input->post('year_p');
+        echo json_encode( $this->agenda_model->get_myagenda($month,$year));
 	}
 
 	public function getmonthAgenda()
