@@ -78,10 +78,10 @@
 		<div class="card-body" id="card_pengumuman" style="display: none;">
 			<div class="row" style="margin-bottom: -10px;">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<a id="back" style="padding: 30px; margin-bottom: -50px">❮</a>		
+					<a id="back" class="prevv" >❮</a>		
 				</div>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<center><font id="judul" ></font></center>
+					<center><b><font id="judul" size="4"></font></b></center>
 				</div>
 			</div>
 		    
@@ -89,11 +89,11 @@
 		    <textarea  class="form-control" rows="7" readonly="" id="pengumuman"></textarea>
 		   
 		    <div class="row align-items-center" >
-		    	<div class="col-md-9">
+		    	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
 			    </div>
-			    <div class="col-md-3" >
-			    	<small class="text-muted" id="tanggal"></small>
+			    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >
+			    	<small class="text-muted" id="tanggal" style="text-align: right;"></small>
 		  		</div>
 		  	</div>
   		</div>

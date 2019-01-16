@@ -23,6 +23,31 @@
 	padding: 20px;
 }
 
+.linkpengumum{
+	cursor: pointer;	
+}
+
+.prevv{
+  cursor: pointer;
+  position: absolute;  
+  padding: 5px;
+  margin: 0 0 2px 5px ;  
+  color: black;
+  font-weight: bold;
+  font-size: 14px; 
+  user-select: none;
+  -webkit-user-select: none;
+} 
+
+/* On hover, add a black background color with a little bit see-through */
+.prevv:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-decoration:none;
+}
+
+
+
 
 table {
 	font-family: arial, sans-serif;

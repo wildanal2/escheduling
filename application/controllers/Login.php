@@ -9,6 +9,12 @@ class Login extends CI_Controller {
 		$this->load->model('Login_model');
 	}
 
+	public function index(){
+		$this->load->view('login/header_login');
+		$this->load->view('login/login_view');
+		$this->load->view('login/footer_login');
+	}
+
 	public function login()
 	{ 
 		$username = $this->input->post('username');
@@ -16,13 +22,23 @@ class Login extends CI_Controller {
 		$output = array('error' => false);
 
 		$result = $this->Login_model->login($username,$password);
-		if ($result) { 
+		if ($result->level==1) { 
+			$sess_array = array();
+			foreach ($result as $row) {
+				$sess_array = array(
+					'id_user' => $row->id,
+					'username' => $row->user,
+					'level' => $row->level
+				);	 
+			} 
+			$this->session->set_userdata('escheduling_logged',$sess_array );
 			$output['level'] = 1;
 			$output['message'] = 'Prosess Masuk. Tunggu sebentar...';
 		}else {
 			$output['error'] = true;
 			$output['message'] = 'Gagal masuk. User atau Password tidak terdaftar';
 		}
+
 		echo json_encode($output);
 	}
  
@@ -32,7 +48,7 @@ class Login extends CI_Controller {
 
 	public function logout()
 	{
-		$this->session->unset_userdata('kostku_logged_in');
+		$this->session->unset_userdata('escheduling_logged');
 		$this->session->sess_destroy();
 		redirect('Kostku','refresh');
 	}

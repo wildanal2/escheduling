@@ -1,29 +1,34 @@
 <div class="container">
    <div class="py-5 text-center">
        <h2>Selamat datang 
-       	<span class="badge badge-secondary">Admin</span>
+        <span class="badge badge-secondary">Admin</span>
        </h2>
        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
    </div>
 
     <div class="row">
       <div class="col-xl-6 col-sm-12 mb-6"> 
-        <div class="card text-white    bg-danger o-hidden h-100">
+        <div class="card text-white    bg-danger o-hidden h-100" >
           <div class="card-body">
             <div class="row">
               <div class="col-xl-8 card-body-icon">
                 <i class="fa fa-fw fa-comments">Jumlah <b>Pengumuman</b> minggu ini</i>
               </div>
-              <div class="col-xl-3">
-                <h1 class="display-2" id="c_pengumuman"><strong>99</strong></h1>
+              <div class="col-xl-3" style="margin-top: -20px">
+                <h1 class="display-2" id="ccc_pengumuman"><strong><?php echo $w_pengumuman->ok ?></strong></h1>
               </div>
-              <div class="col-xl-5">Total Semua Pengumuman <br> <h4 id="cc_pengumuman">999</h4></div>
+              <div class="col-xl-7">Jumlah <b>Pengumuman</b> bulan ini <br> 
+                <h2 class="text-center"><?php echo $m_pengumuman->ok ?></h2>
+              </div>
             </div>
           </div>
           <a class="card-footer text-white clearfix small z-1" href="<?php echo site_url() ?>/Pengumuman">
-            <span class="float-left">View Details</span>
+            <span class="float-left" >View Details</span>
               <span class="float-right">
-                <i class="fa fa-angle-right"></i>
+                <i class="fa fa-angle-right">
+
+                  <h6 class="display-6" id="c_pengumuman"> Total Semua : <strong><?php echo $pengumuman->ok ?></strong></h6>
+                </i>
             </span>
           </a>
         </div>
@@ -37,16 +42,21 @@
               <div class="col-xl-8 card-body-icon">
                 <i class="fa fa-fw fa-comments">Jumlah <b>Galeri</b> minggu ini</i>
               </div>
-              <div class="col-xl-3">
-                <h1 class="display-2" id="c_galeri"><strong>99</strong></h1>
+              <div class="col-xl-3" style="margin-top: -20px">
+                <h1 class="display-2" id="ccc_galeri"><strong><?php echo $w_galeri->ok ?></strong></h1>
               </div>
-              <div class="col-xl-5">Total Semua Galeri <br> <h4 id="cc_galeri">999</h4></div>
+              <div class="col-xl-7">Jumlah <b>Galeri</b> bulan ini <br> 
+                <h2 class="text-center"><?php echo $m_galeri->ok ?></h2>
+              </div>
             </div>
           </div>
           <a class="card-footer text-white clearfix small z-1" href="<?php echo site_url() ?>/Gallery">
             <span class="float-left">View Details</span>
               <span class="float-right">
-                <i class="fa fa-angle-right"></i>
+                <i class="fa fa-angle-right">
+
+                  <h6 class="display-6" id="c_pengumuman"> Total Semua : <strong><?php echo $galeri->ok ?></strong></h6>
+                </i>
             </span>
           </a>
         </div>
@@ -60,21 +70,24 @@
               <div class="col-xl-8 card-body-icon">
                 <i class="fa fa-fw fa-comments">Jumlah <b>Agenda</b> minggu ini</i>
               </div>
-              <div class="col-xl-3">
-                <h1 class="display-2" id="c_agenda"><strong>99</strong></h1>
+              <div class="col-xl-3" style="margin-top: -20px">
+                <h1 class="display-2" id="ccc_agenda"><strong><?php echo $w_agenda->ok ?></strong></h1>
               </div>
-              <div class="col-xl-5" >Total Semua Agenda <br> <h4 id="cc_agenda" >999</h4></div>
+              <div class="col-xl-7">Jumlah <b>Agenda</b> bulan ini <br> 
+                <h2 class="text-center"><?php echo $m_agenda->ok ?></h2>
+              </div>
             </div>
           </div>
           <a class="card-footer text-white clearfix small z-1" href="<?php echo site_url() ?>/Agenda">
             <span class="float-left">View Details</span>
               <span class="float-right">
-                <i class="fa fa-angle-right"></i>
+                <i class="fa fa-angle-right">
+
+                  <h6 class="display-6" id="c_pengumuman"> Total Semua : <strong><?php echo $agenda->ok ?></strong></h6>
+                </i>
             </span>
           </a>
         </div>
       </div>
   </div>
 </div>
-
-

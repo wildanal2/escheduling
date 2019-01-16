@@ -77,6 +77,8 @@
 
 		$(document).ready(function(){
 
+			const monthName = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+
 			showAgendaandCalendar(); //call function show all agenda
 			showAgendaMingguIni();
 			showabupati();
@@ -164,8 +166,7 @@
 	            });
 
 	            //calendarrr nya
-	            const monthName = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-
+	           
 	            var html = '';
 	        	let today = new Date();
 				let currentMonth = today.getMonth();
@@ -305,7 +306,7 @@
 											 '<img  width="40px" src="<?php echo base_url() ?>assets/image/horn.png" style="margin: 10px;" >'+
 										'</div>'+
 										'<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="align-items: center;">'+
-											'<a style="color: #000;" class="item_edit" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h5>'+data[i].judul+'</h5></a>'+
+											'<a style="color: #000;" class="item_edit linkpengumum" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h5>'+data[i].judul+'</h5></a>'+
 											'<p style="margin-top: -5px">'+tgl_a+'</p>'+
 										'</div>'+
 									'</div><hr>';
@@ -318,11 +319,13 @@
 	        $('#con_lstpgumuman').on('click','.item_edit',function(){
                 var judul = $(this).data('judul');
                 var isi = $(this).data('isi'); 
-                var tgl = $(this).data('tanggal');  
+                
+                const tgl = new Date($(this).data('tanggal'));
+	            var tgl_a = tgl.getDate()+"-"+monthName[tgl.getMonth()+1]+"-"+tgl.getFullYear();  
 
                 document.getElementById("judul").innerHTML=judul;
                 document.getElementById("pengumuman").innerHTML=isi;
-                document.getElementById("tanggal").innerHTML=tgl;
+                document.getElementById("tanggal").innerHTML=tgl_a;
 
                 document.getElementById("con_lstpgumuman").style.display="none";
                 document.getElementById("card_pengumuman").style.display="block";
