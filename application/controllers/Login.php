@@ -22,7 +22,7 @@ class Login extends CI_Controller {
 		$output = array('error' => false);
 
 		$result = $this->Login_model->login($username,$password);
-		if ($result->level==1) { 
+		if ($result) { 
 			$sess_array = array();
 			foreach ($result as $row) {
 				$sess_array = array(
@@ -38,7 +38,6 @@ class Login extends CI_Controller {
 			$output['error'] = true;
 			$output['message'] = 'Gagal masuk. User atau Password tidak terdaftar';
 		}
-
 		echo json_encode($output);
 	}
  

@@ -17,12 +17,5 @@ class Login_model extends CI_Model {
 		}
 	}
  
- 
 
-/* End of file login_model.php */
-/* Location: ./application/models/login_model.php */	
-
-}
-
-/* End of file login_model.php */
-/* Location: ./application/models/login_model.php */
+} 

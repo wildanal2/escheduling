@@ -21,26 +21,24 @@
 	            $.ajax({
 	            	async : false,
 	                type : "POST",
-	                url  : "<?php echo site_url('Login/login') ?>",
+	                url   : '<?php echo base_url();?>index.php/Login/login',
 	                dataType : "JSON",
 	                data : {username:username,password:password},
-	                success: function(response){
-	                	alert("sdkmkm");
-	                	
-	     //            	$('#message').html(response.message);
+	                success: function(response){ 
+	                	$('#message').html(response.message);
 
-						// if(response.error){
-						// 	$('#responseDiv').removeClass('alert-success').addClass('alert-danger').show();
-						// }
-						// else{
-						// 	$('#responseDiv').removeClass('alert-danger').addClass('alert-success').show();
-						// 	$('#uname').val("");
-						// 	$('#paswd').val("");
-						// 	if (response.level == 1) {
-						// 		setTimeout(' window.location.href = "<?php echo site_url('Admin'); ?>" ',2000);
-						// 	}
+						if(response.error){
+							$('#responseDiv').removeClass('alert-success').addClass('alert-danger').show();
+						}
+						else{
+							$('#responseDiv').removeClass('alert-danger').addClass('alert-success').show();
+							$('#uname').val("");
+							$('#paswd').val("");
+							if (response.level == 1) {
+								setTimeout(' window.location.href = "<?php echo site_url('Admin'); ?>" ',2000);
+							}
 
-						// }
+						}
 
 	                }
 	            });

@@ -11,12 +11,13 @@ class Admin extends CI_Controller{
 
 	public function index()
 	{
+
 		if ($this->session->userdata('escheduling_logged')) {
 			$session_data = $this->session->userdata('escheduling_logged');
 			$data['level'] = $session_data['level'];
 			
 			if ($data['level'] == 1) {
-				
+				redirect('Admin/home','refresh');
 			}else{
 				redirect('Login','refresh');	
 			}
