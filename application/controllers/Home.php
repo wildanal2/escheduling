@@ -21,7 +21,7 @@ class Home extends CI_Controller {
 
 	public function getAgenda()
 	{
-        echo json_encode( $this->User_model->get_allagenda());
+        echo json_encode( $this->User_model->get_monthagenda());
 	}
 
 	public function getAgendabupati()

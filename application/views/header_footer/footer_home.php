@@ -80,7 +80,7 @@
 			const monthName = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
 
 			showAgendaandCalendar(); //call function show all agenda
-			showAgendaMingguIni();
+			// showAgendaMingguIni();
 			showabupati();
 			showakominfo();
 			showPengumuman();
@@ -90,51 +90,41 @@
 
 
 			function showAgendaMingguIni() {
-				$.ajax({ 
+				
+			}
+
+	        //function show all agenda
+	        function showAgendaandCalendar(){
+	            var agenda=null;
+	            var agendaweek= null
+
+	            // minggu an isi datanyaaa
+	            $.ajax({ 
+	            	async: false,
 	                type  : 'ajax',
 	                url   : '<?php echo base_url();?>index.php/Home/getWeekAgenda',
 	                dataType : 'json',
 	                success : function(data){
 	                    var html = '';
 	                    var i;
-	                    var agend=[];
+	                    var agendwee=[];
 
 	                    for(i=0; i<data.length; i++){
-	                        a=i+1;
-	                    	                       
-	                        const tgl_a = new Date(data[i].tanggal_awal);
-	                        var tgl_awal = tgl_a.getDate()+"/"+tgl_a.getMonth()+1+"/"+tgl_a.getFullYear();
-	                        const tgl_b = new Date(data[i].tanggal_akhir);
-	                        var tgl_ahir = tgl_b.getDate()+"/"+tgl_b.getMonth()+1+"/"+tgl_b.getFullYear();
-	                        
-	                        var ag = {
-	                        			tanggal_a:tgl_a,
-	                        			tanggal_b:tgl_b,
+	           
+	                        var agweek = {
+	                        			nama:data[i].namaKegiatan,
+	                        			ket:data[i].keterangan,
+	                        			tanggal_awal:data[i].tanggal_awal,
+	                        			tanggal_akhir:data[i].tanggal_akhir,
 	                        			level:data[i].level
-	                        			}
-
-	                        agend.push(ag);
-
-	                        html += '<tr>';
-	                        		if (data[i].level == 1) {
-	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
-	                        		}else if (data[i].level == 2) {
-	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
-	                        		}
-		                    html +=	
-		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+
-		                            '<td style="text-align: right;">'+tgl_awal+' '+ 
-	                            '</tr>';
+	                        			} 
+	                        agendwee.push(agweek);   
 	                    }
-	                    agenda=agend;
-	                    $('#tbl_agendakegiatan').html(html); 
+	                    agendaweek=agendwee; 
 	                }
 	            });
-			}
-	        //function show all agenda
-	        function showAgendaandCalendar(){
-	            var agenda=null;
 
+	            // agenda month
 	            $.ajax({
 	            	async: false,
 	                type  : 'ajax',
@@ -168,6 +158,8 @@
 	            //calendarrr nya
 	           
 	            var html = '';
+	            var htmlweek = '';
+
 	        	let today = new Date();
 				let currentMonth = today.getMonth();
 				let currentYear = today.getFullYear();
@@ -178,13 +170,16 @@
 	        	let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
 
 	        	let date = 1;
+	        	let numday = 1;
+
     			for (let i = 0; i < 6; i++) {
     				// creates a table row
 	        		html+='<tr>';
 
 	        		//creating individual cells, filing them up with data.
-			        for (let j = 0; j < 7; j++) {
-			            if (i === 0 && j < firstDay) {
+			        for (let numdays = 0; numdays < 7; numdays++) {
+			        	var doubell = null;
+			            if (i === 0 && numdays < firstDay) {
 			                html+='<td>';
 			                html+='';
 			                html+='</td>';
@@ -195,23 +190,32 @@
 
 			            		for (var ia = (agenda.length-1); ia >=0 ; ia--) {
 			            			for (var ib = 0; ib < agenda.length; ib++) {
+
 			            				if (new Date(currentYear,currentMonth,date) >=agenda[ia].tanggal_a && new Date(currentYear,currentMonth,date)<=agenda[ia].tanggal_b) {
 			            					
 			            					if (agenda[ia].level==1) {
 			            						if (asign==null) {
-				            						html+='<td bgcolor="#66C99B">';
-										            html+=''+date;
-									    	        html+='</td>';
-									    	        asign=date;	
-				            					}	
-			            					}else if(agenda[ia].level==2){
-			            						if (asign==null) {
-				            						html+='<td bgcolor="#FE851C">';
+			            							html+='<td bgcolor="#66C99B">';
 										            html+=''+date;
 									    	        html+='</td>';
 									    	        asign=date;	
 				            					}
-			            					} 
+
+			            					} else if(agenda[ia].level==2){
+			            						if (asign==null) {
+				            						html+='<td bgcolor="#FE851C">';
+										            html+=''+date;
+									    	        html+='</td>';
+									    	        asign=date;
+									    	        doubell =date;
+				            					}else{
+				            						html+='<td bgcolor="#ABAA61">';
+										            html+=''+date;
+									    	        html+='</td>';
+									    	        asign=date;
+									    	        doubell =date;
+				            					}
+			            					}
 							    	        break; 
 				            			} 
 			            			}
@@ -226,12 +230,44 @@
    
 			                date++;
 			            }
+
+
+			            //cek minggu an tgl
+			            for (var io = 0; io < agendaweek.length; io++) {
+			            	var tgla = new Date(agendaweek[io].tanggal_awal);
+			            	var tglb = new Date(agendaweek[io].tanggal_akhir);
+
+			            	if (date>=tgla.getDate() && date<=tglb.getDate()) {
+			            		var tgll = date+"/"+tgla.getMonth()+1+"/"+tgla.getFullYear();
+
+			            		htmlweek += '<tr>';
+		                        		if (agendaweek[io].level == 1) {
+		                        htmlweek +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+numday+'</font></td>';
+		                        		}else if (agendaweek[io].level == 2) {
+		                        htmlweek +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+numday+'</font></td>';
+		                        		}
+			                    htmlweek +=	
+			                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>';
+			                            if (date==today.getDate()) {
+			                    htmlweek += '<td style="text-align: right; background: #ED7098;">'+tgll+' ';
+			                            }else{
+			                    htmlweek += '<td style="text-align: right;">'+tgll+' ';
+			                            }
+			                            
+		                        htmlweek += '</tr>';
+
+		                        numday++;
+			            	}
+
+
+			            }
+
 			        }
 
 					html+='</tr>';	        		
 	        	} 
 	        	$('#calendarbody').html(html);  
-
+	        	$('#tbl_agendakegiatan').html(htmlweek); 
 	        }
 
 	        function showakominfo(){
@@ -306,7 +342,7 @@
 											 '<img  width="40px" src="<?php echo base_url() ?>assets/image/horn.png" style="margin: 10px;" >'+
 										'</div>'+
 										'<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="align-items: center;">'+
-											'<a style="color: #000;" class="item_edit linkpengumum" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h5>'+data[i].judul+'</h5></a>'+
+											'<a style="color: #000;" class="item_view linkpengumum" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h5>'+data[i].judul+'</h5></a>'+
 											'<p style="margin-top: -5px">'+tgl_a+'</p>'+
 										'</div>'+
 									'</div><hr>';
@@ -316,7 +352,7 @@
 	            });
 	        }
 
-	        $('#con_lstpgumuman').on('click','.item_edit',function(){
+	        $('#con_lstpgumuman').on('click','.item_view',function(){
                 var judul = $(this).data('judul');
                 var isi = $(this).data('isi'); 
                 
