@@ -1,48 +1,48 @@
 
-		
-		<nav class="navbar navbar-default navbar-fixed-bottom footer" style="background: #4f0381" role="navigation">
-			<div class="container-fluid" >
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<button type="button" class="btn btn-warning btn-lg disabled" id="time"></button>
-				</div>
-				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<div class="runtext-container">
-						<div class="main-runtext">
-							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
-								<div class="text-container">
-								   <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
-								</div>
-							</marquee>
-						</div>
-					</div>
-				</div> 
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" >
-					<button type="button" class="btn btn-danger btn-lg disabled" style="align-items: center;"> 
-						<?php
-						date_default_timezone_set("Asia/Jakarta");
-						echo " " . date("d:M:Y");
-						?>
-					</button>
-				</div>
-			</div>	
-		</nav>
+        
+        <nav class="navbar navbar-default navbar-fixed-bottom footer" style="background: #4f0381" role="navigation">
+            <div class="container-fluid" >
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <button type="button" class="btn btn-warning btn-lg disabled" id="time"></button>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="runtext-container">
+                        <div class="main-runtext">
+                            <marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
+                                <div class="text-container">
+                                   <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
+                                </div>
+                            </marquee>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+                    <button type="button" class="btn btn-danger btn-lg disabled" style="align-items: center;"> 
+                        <?php
+                        date_default_timezone_set("Asia/Jakarta");
+                        echo " " . date("d:M:Y");
+                        ?>
+                    </button>
+                </div>
+            </div>  
+        </nav>
 
-		<!-- Bootstrap core & jQuery JavaScript
-		================================================== -->
-		<script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
-		<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+        <!-- Bootstrap core & jQuery JavaScript
+        ================================================== -->
+        <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
 
 
-		<!-- Plugins -->
-		<script src="<?php echo base_url() ?>assets/js/holder.min.js"></script>
+        <!-- Plugins -->
+        <script src="<?php echo base_url() ?>assets/js/holder.min.js"></script>
 
-		<!-- Custom -->
-		<!-- <script src="<?php echo base_url() ?>assets/js/custom.js"></script>-->
-		
-		<script type="text/javascript" src="<?php echo base_url().'assets/datatables/datatables.min.js'?>"></script> 
-		<script src="<?php echo base_url() ?>assets/js/bootstrap-datepicker.js"></script>
-		
-		<script type="text/javascript">
+        <!-- Custom -->
+        <!-- <script src="<?php echo base_url() ?>assets/js/custom.js"></script>-->
+        
+        <script type="text/javascript" src="<?php echo base_url().'assets/datatables/datatables.min.js'?>"></script> 
+        <script src="<?php echo base_url() ?>assets/js/bootstrap-datepicker.js"></script>
+        
+        <script type="text/javascript">
 
         function display_c(){
                 var refresh=1000; // Refresh rate in milli seconds
@@ -56,12 +56,12 @@
             display_c();
         }
 
-		 $(document).ready(function(){
-		 	
+         $(document).ready(function(){
+            
             show();    
             function show(){
                     $.ajax({
-                    	async :false,
+                        async :false,
                         type  : 'ajax',
                         url   : '<?php echo base_url();?>index.php/pengumuman/getPengumuman',
                         dataType : 'json',
@@ -71,8 +71,8 @@
 
                             for(i=0; i<data.length; i++){
                                 var string = data[i].isi ;
-                                var length = 22;
-                                var trimmedString = string.substring(0, length);
+                                var length = 21;
+                                var trimmedString = string.substring(0, length, "..");
 
                                 html += 
 
@@ -83,7 +83,7 @@
                                     '<td>'+data[i].tanggal+'</td>'+ 
                                     
                                     '<td>'+
-                                    	'<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'" data-tanggal="'+data[i].tanggal+'"  >Edit</a>'+
+                                        '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'" data-tanggal="'+data[i].tanggal+'"  >Edit</a>'+
                                     '</td>'+
                                    
 
@@ -105,6 +105,7 @@
         // ====================  Update DATATABLE ======================================================
             //get data for update record UPDATEEEE
             $('#mydata').on('click','.item_edit',function(){
+                //alert($(this).data('isi'));
                 var tanggal = $(this).data('tanggal');
                 var judul = $(this).data('judul');
                 var pengumuman = $(this).data('isi');
@@ -112,7 +113,7 @@
                 document.getElementById("judul").innerHTML=judul;
                 document.getElementById("tanggal").innerHTML=tanggal;
                 document.getElementById("pengumuman").value=pengumuman;
-                alert(pengumuman);
+               
 
                 document.getElementById("judul_p").innerHTML=judul;
                 document.getElementById("judul_m").value=judul;
@@ -200,7 +201,7 @@
 //        document.getElementById().innerText = truncateText("pengumuman", 99);
           
 
-		
+        
         
 
         
@@ -210,5 +211,5 @@
         </script>
 
 
-	</body>
+    </body>
 </html>

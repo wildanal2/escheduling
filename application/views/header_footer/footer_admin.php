@@ -62,13 +62,17 @@
 		$(document).ready(function(){
 
 			showAgenda(); //call function show all agenda
-			showcalendar();
-			countAgenda(); 		//function show all agenda
-			countWeekAgenda();
-			countPengumuman();
-			countWeekPengumuman();
-			countGaleri();
-			countWeekGaleri();
+			showcalendar(); //function show all agenda
+			
+			// countAgenda(); 		
+			// countWeekAgenda();
+			// countMonthAgenda();
+			// countPengumuman();
+			// countWeekPengumuman();
+			// countMonthPengumuman();
+			// countGaleri();
+			// countWeekGaleri();
+			// countMonthGaleri();
 
 
 	        function showAgenda(){
@@ -153,7 +157,20 @@
 	                dataType : 'json',
 	                success : function(data){
 	                	//alert(data.jum_agenda);
-						document.getElementById("cc_agenda").innerHTML=data.jum_agenda;
+						document.getElementById("c_agenda").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
+
+	        function countMonthAgenda(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Agenda/getCountMonthAgenda',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("cc_agenda").innerHTML=data.ok;
 		                
 	                }
 	            });
@@ -166,17 +183,46 @@
 	                dataType : 'json',
 	                success : function(data){
 	                	//alert(data.jum_agenda);
-						document.getElementById("c_agenda").innerHTML=data.ok;
+						document.getElementById("ccc_agenda").innerHTML=data.ok;
 		                
 	                }
 	            });
 	        }
 
+	        
+
 	        	//PENGUMUMAN
+	        function Pengumuman(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Home/getCountPengumuman',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("c_pengumuman").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
+
+
 	        function countPengumuman(){
 	        	$.ajax({
 	                type  : 'ajax',
 	                url   : '<?php echo base_url();?>index.php/Pengumuman/getCountPengumuman',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("c_pengumuman").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
+
+	        function countMonthPengumuman(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Pengumuman/getCountMonthPengumuman',
 	                dataType : 'json',
 	                success : function(data){
 	                	//alert(data.jum_agenda);
@@ -193,27 +239,16 @@
 	                dataType : 'json',
 	                success : function(data){
 	                	//alert(data.jum_agenda);
-						document.getElementById("c_pengumuman").innerHTML=data.ok;
+						document.getElementById("ccc_pengumuman").innerHTML=data.ok;
 		                
 	                }
 	            });
 	        }
+
+	        
 
 	        	//GALERI
 	        function countGaleri(){
-	        	$.ajax({
-	                type  : 'ajax',
-	                url   : '<?php echo base_url();?>index.php/Gallery/getCountGaleri',
-	                dataType : 'json',
-	                success : function(data){
-	                	//alert(data.jum_agenda);
-						document.getElementById("cc_galeri").innerHTML=data.ok;
-		                
-	                }
-	            });
-	        }
-
-	        function countWeekGaleri(){
 	        	$.ajax({
 	                type  : 'ajax',
 	                url   : '<?php echo base_url();?>index.php/Gallery/getCountGaleri',
@@ -225,7 +260,32 @@
 	                }
 	            });
 	        }
+
+	        function countWeekGaleri(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Gallery/getCountMonthGaleri',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("cc_galeri").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
 	       
+	       	function countMonthGaleri(){
+	        	$.ajax({
+	                type  : 'ajax',
+	                url   : '<?php echo base_url();?>index.php/Gallery/getCountWeekGaleri',
+	                dataType : 'json',
+	                success : function(data){
+	                	//alert(data.jum_agenda);
+						document.getElementById("ccc_galeri").innerHTML=data.ok;
+		                
+	                }
+	            });
+	        }
 
 
 

@@ -30,7 +30,7 @@
 						
 						    <textarea  class="form-control" rows="7" readonly="" name="pengumuman" id="pengumuman"> Pengumuman</textarea>
 						    <br>
-						    <a class="btn btn-info" data-toggle="modal" href="#modal_lihat">Lihat</a>
+						    <a class="btn btn-info card-text" data-toggle="modal" href="#modal_lihat">Lihat dan Perbarui</a>
 						  </div>
 						</div>
 						</form>
@@ -105,7 +105,7 @@
 		      <div class="modal-body">
 		        <div class="form-group">
 				  	<label for="exampleFormControlTextarea3" id="tanggal_m"></label>
-				  	<textarea class="form-control" id="pengumuman_m" rows="7" ></textarea>
+				  	<textarea class="form-control" id="pengumuman_m" rows="7" > Klik Edit data yang dipilih dibagian datatabel</textarea>
 				</div>
 		      </div>
 		      <div class="modal-footer">
