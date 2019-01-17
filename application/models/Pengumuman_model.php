@@ -23,7 +23,7 @@ class Pengumuman_model extends CI_Model {
         // $this->db->order_by('tanggal',"DESC");
         // // $this->db->limit(4);
         // $query= $this->db->get();
-        $query= $this->db->query("SELECT * FROM `pengumuman` order by tanggal ASC limit 4");
+        $query= $this->db->query("SELECT * FROM `pengumuman` order by tanggal DESC limit 4");
         return $query->result();
     }
 
