@@ -39,19 +39,19 @@
                     </li>
                 </ul>
 
-                <!-- <div class="btn-group" role="group" aria-label="Data baru">
-                    <?php echo anchor('login/logout', 'Logout', array('class' => 'btn btn-outline-danger')); ?>
-                </div> -->
+                <div class="btn-group" role="group" aria-label="Data baru">
+                    <a class="btn-group btn btn-outline-danger " data-toggle="modal" href="#modal_keluar" >Keluar</a>
+                </div> 
 
 
-                <div class="btn-group">
+                <!-- <div class="btn-group">
                     <ul class="nav navbar-nav">
                         <li class="dropdown" style="margin-right: 50px">
                             <div class="dropdown-toggle btn-group btn btn-outline-danger dropdown-toggle btn-sm" role="group" aria-label="Data baru" data-toggle="dropdown"> KELUAR
                                 
                             </div>
 
-                            <!-- <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>  -->
+                            // <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
                             <div class="dropdown-menu">
                                 <form class="navbar-form container" role="form">
                                     <p> Apakah yakin ingin keluar ?</p>
@@ -63,7 +63,35 @@
                             </div>
                         </li>
                     </ul>
-                </div>
+                </div> -->
+
             </div>
         </nav>
+
+        <!-- Modal Keluar -->
+    <form id="form_keluar">
+        <div class="modal fade" id="modal_keluar" style="background-color:currentColor; " tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="judul_p"><b> Peringatan !! </b></h5>
+                    
+              </div>
+
+              <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea3" id="tanggal_m">Apakah yakin ingin keluar ?</label>
+                    
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default col-md-3" data-dismiss="modal" aria-label="Close">Batal</button>
+                <?php echo anchor('login/logout', 'Keluar', array('class' => 'btn btn-danger col-md-3')); ?>
+                
+              </div>
+            </div>
+          </div>
+        </div>  
+    </form> 
 

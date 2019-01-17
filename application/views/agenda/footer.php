@@ -1,6 +1,6 @@
 
 		
-		<nav class="navbar navbar-default navbar-fixed-bottom footer" style="background: #4f0381" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-bottom footer" style="background-color: transparent;" role="navigation">
 			<div class="container-fluid" >
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<button type="button" class="btn btn-warning btn-lg disabled" id="time"></button>
@@ -10,7 +10,7 @@
 						<div class="main-runtext">
 							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
 								<div class="text-container">
-								   <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a>
+								   <!-- <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a> -->
 								</div>
 							</marquee>
 						</div>

@@ -14,14 +14,14 @@
 
 		<div class="container-fluid row">
 			
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="border: 2px">
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 boddy" style="border: 2px">
 				<div style="background-color: #FFF; padding: 15px">
 
 					
 						<!-- Kita format tampilan blog dalam bentuk card -->
 						<!-- https://getbootstrap.com/docs/4.0/components/card/ -->
 						<form id="tampil">
-						<div class="card text-black bg-default mb-2" id="update">
+						<div class="card text-black bg-default mb-2 boddy" id="update">
 							<div class="card-header" name="tanggal" id="tanggal">Tanggal</div>
 						  <div class="card-body">
 						    <h4 class=" card-title" nama="judul" id="judul" ><b>Judul </b></h4>

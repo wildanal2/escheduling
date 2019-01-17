@@ -9,7 +9,7 @@
         
         <br><br><br>
         <center>
-            <img src="<?=base_url()?>assets/image/logo.png" class="img-responsive" width="150px">            
+            <img src="<?=base_url()?>assets/image/logo.png" class="img-responsive" height="150px">            
         </center>
         <br>
         <div class="row">

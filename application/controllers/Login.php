@@ -19,7 +19,7 @@ class Login extends CI_Controller {
 	{ 
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		$output = array('error' => false);
+		//$output = array('error' => false);
 
 		$result = $this->Login_model->login($username,$password);
 		if ($result) { 
@@ -36,7 +36,8 @@ class Login extends CI_Controller {
 			$output['message'] = 'Prosess Masuk. Tunggu sebentar...';
 		}else {
 			
-			
+			$this->session->set_flashdata('login_failed', 'Login invalid');
+
 			redirect('Admin', 'refreshe');
 			// $output['error'] = true;
 			// $output['message'] = 'Gagal masuk. User atau Password tidak terdaftar';
@@ -51,6 +52,9 @@ class Login extends CI_Controller {
 	{
 		$this->session->unset_userdata('escheduling_logged');
 		$this->session->sess_destroy();
+		
+		$this->session->set_flashdata('user_loggedout', 'Anda sudah log out');
+
 		redirect('Admin','refresh');
 
 	}

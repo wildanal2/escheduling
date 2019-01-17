@@ -17,8 +17,8 @@
 
 
 	<body style="background: #b3d1ff; margin-bottom: 60px;" onload=display_ct()>
-		<nav  class=" navbar navbar-default navbar-fixed-top"role="navigation" style="background: #0039e6">
-			<div class="container ">
-				<a class="navbar-brand" style="color: #ffffff" href="#">E-Scheduling</a>
+		<nav  class=" navbar navbar-default navbar-top"role="navigation" style="background: #0039e6">
+			<div class="container-fluid" style="margin-left: 50px">
+				<img src="<?=base_url()?>assets/image/Logo Mojokerto.png" height="50px">
 			</div>
 		</nav>

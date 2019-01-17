@@ -18,4 +18,12 @@
 
 
     <body style="background: #b3d1ff">
+
+        <?php if($this->session->flashdata('login_failed')): ?>
+          <?php echo '<div class="alert alert-danger">'.$this->session->flashdata('login_failed').'</div>'; ?>
+        <?php endif; ?>
+
+        <?php if($this->session->flashdata('user_loggedout')): ?>
+          <?php echo '<div class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</div>'; ?>
+        <?php endif; ?>
          
