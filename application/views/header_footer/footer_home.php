@@ -238,21 +238,20 @@
 			                date++;
 			            }
 
-
 			            //cek minggu an tgl
 			            for (var io = 0; io < agendaweek.length; io++) {
 			            	var tgla = new Date(agendaweek[io].tanggal_awal);
 			            	var tglb = new Date(agendaweek[io].tanggal_akhir);
 
 			            	if (date>=tgla.getDate() && date<=tglb.getDate()) {
-			            		var tgll = date+"/"+tgla.getMonth()+1+"/"+tgla.getFullYear();
-
+		            			var tgll = date+"/"+tgla.getMonth()+1+"/"+tgla.getFullYear();
 			            		if (date==today.getDate()) {
 			            			htmlweek += '<tr style="background-color: #C8AFD4;font-weight: 900;">';
 			            		}else{
 			            			htmlweek += '<tr>';
 			            		}
-			            		// isiiiiii 
+
+			            		///////// isiiiiii 
 		                        		if (agendaweek[io].level == 1) {
 		                        htmlweek +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+numday+'</font></td>';
 		                        		}else if (agendaweek[io].level == 2) {
@@ -262,12 +261,14 @@
 			                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
 			                            	'<td style="text-align: right;">'+tgll+' '+
 		                        		'</tr>';
+		                        /////////////////////
 
 		                        numday++;
 			            	}
-
+			            	
 
 			            }
+			            
 
 			        }
 
@@ -297,7 +298,8 @@
 	                    $('#tbl_agendakominfo').html(html);
 	                    $("#tbl_kominfo").DataTable({
 	                    		destroy:true,searching: false,
-						        "lengthMenu": [[5,10, -1], [5,10, "Semua"]]
+						        "lengthMenu": [[5,10, -1], [5,10, "Semua"]],
+						        "bLengthChange": false
 						    });
 	                }
 	            });
@@ -323,7 +325,8 @@
 	                    $('#tbl_agendabupati').html(html); 
 	                    $("#tbl_bupati").DataTable({
 	                    		destroy:true,searching: false,
-						        "lengthMenu": [[5,10, -1], [5,10, "Semua"]]
+	                    		"lengthMenu": [[5,10, -1], [5,10, "Semua"]],
+	                    		"bLengthChange": false
 						    });
 
 	                }
@@ -396,6 +399,7 @@
 									   // '<div class="numbertext">'+data[i].nama+'</div>'+
 									    '<img class="img-responsive" src="<?=base_url()?>./assets/image/'+data[i].source+'">'+
 									'</div>';
+
 							html1+= '<div class="column">'+
 								      '<img class="demo cursor img-responsive" src="<?=base_url()?>./assets/image/'+data[i].source+'" style="width:100%" onclick="currentSlide('+(i+1)+')" alt="'+data[i].nama+'">'+
 								    '</div>';
@@ -419,7 +423,7 @@
 	                	for(i=0; i<data.length; i++){
 	                		html+=  '<a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #fff;font-size: 18px; margin-left:50px ;" >'+
 	                				'<img src="<?php echo base_url() ?>assets/image/logo.png" height="20px"> '+
-	                				'Dinas Komunikasi dan Informatika Kabupaten Mojokerto</a>';
+	                				'Dinas Komunikasi dan Informatika Kabupaten Mojokerto '+data[i].judul+'  '+data[i].isi+'</a>';
 				    	}
 				    	$('#text_berjalan').html(html);
 	                }

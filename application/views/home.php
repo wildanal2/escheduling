@@ -11,13 +11,13 @@
 		        <table class="table table-bordered table-responsive-sm" id="calendar">
 		            <thead>
 		            <tr>
-		                <th>Ming</th>
-			            <th>Sen</th>
-			            <th>Sel</th>
-			            <th>Rab</th>
-			            <th>Kam</th>
-			            <th>Jum</th>
-			            <th>Sab</th>
+		                <th>Minggu</th>
+			            <th>Senin</th>
+			            <th>Selasa</th>
+			            <th>Rabu</th>
+			            <th>Kamis</th>
+			            <th>Jumat</th>
+			            <th>Sabtu</th>
 		            </tr>
 		            </thead>
 		            <tbody id="calendarbody">
@@ -26,7 +26,7 @@
 		        </table>
 		     </div>
 	    </div>
-	    
+
 		<div class="boddymid" style="padding-bottom: 10px;">
 			<h4 class="namatitel">AGENDA KEGIATAN MINGGU INI</h4>
 			<table>
@@ -121,10 +121,10 @@
 				    <!-- container img gallery -->
 				</div>
 
-				  <a class="prev" id="prev">❮</a>
-				  <a class="next" id="next">❯</a>
+				  <a class="prevgal" id="prev">❮</a>
+				  <a class="nextgal" id="next">❯</a>
 
-				<div class="caption-container"> <p id="caption"></p>  </div>
+				<div class="caption-container"> <a href="" style="color: white;"><p id="caption"></p></a></div>
 
 				<div class="row" style="margin-left: 2px;margin-right: 2px;">
 
