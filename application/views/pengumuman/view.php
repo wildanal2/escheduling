@@ -6,9 +6,7 @@
 			<div class="container">
 				<h1 class="jumbotron-heading"><?php echo $page_title ?></h1>
 				
-				<p>
-					<?php echo anchor('Pengumuman/create', 'Tambah Pengumuman', array('class' => 'btn btn-primary')); ?>
-				</p>
+				<!--  -->
 			</div>
 		</section>
 
@@ -30,7 +28,7 @@
 						
 						    <textarea  class="form-control" rows="7" readonly="" name="pengumuman" id="pengumuman"> Pengumuman</textarea>
 						    <br>
-						    <a class="btn btn-info card-text" data-toggle="modal" href="#modal_lihat">Lihat dan Perbarui</a>
+						    <a id="btn_perbaharui" style="display: none;" class="btn btn-info card-text pull-right" data-toggle="modal" href="#modal_lihat">Perbarui</a>
 						  </div>
 						</div>
 						</form>
@@ -40,9 +38,14 @@
 			<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="border: 2px;">
 				<div style="background-color: #FFF; padding: 15px;">
 					<div class="panel panel-default card text-black">
-				      <div class="panel-heading card-header"><h3><b> Pengumuman </b></h3></div>
+				      <div class="panel-heading card-header"><h3><b><center> Pengumuman </center></b></h3></div>
 				      <div class="card-body">
-				        
+
+				       	<div class="pull-right">
+				       		<a class="btn btn-success" href="Pengumuman/create"> <span class="fa fa-plus"></span> Tambah Pengumuman </a>
+				       	</div>
+
+				       	
 				        <table class="table table-striped" id="mydata">
 				          <thead>
 				            <tr>
@@ -98,9 +101,9 @@
 		  <div class="modal-dialog modal-dialog-centered" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="judul_p"></b></h5>
+		        <h5 class="modal-title" id="judul_m"></b></h5>
 
-		        	<input type="hidden" id="judul_m" >
+		        	<!-- <input type="hidden" id="judul_p" > -->
 		      </div>
 		      <div class="modal-body">
 		        <div class="form-group">
@@ -109,7 +112,7 @@
 				</div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">&nbsp OK &nbsp</button>
+		        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">tutup</button>
 		        <button type="submit" id="btn_push" class="btn btn-success col-md-3">Perbarui</button>
 		      </div>
 		    </div>

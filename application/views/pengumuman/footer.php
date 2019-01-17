@@ -114,9 +114,10 @@
                 document.getElementById("tanggal").innerHTML=tanggal;
                 document.getElementById("pengumuman").value=pengumuman;
                
-
-                document.getElementById("judul_p").innerHTML=judul;
-                document.getElementById("judul_m").value=judul;
+                document.getElementById("btn_perbaharui").style.display="block";
+                
+                document.getElementById("judul_m").innerHTML=judul;
+                //document.getElementById("judul_p").value=judul;
                 document.getElementById("tanggal_m").innerHTML=tanggal;
                 document.getElementById("pengumuman_m").value=pengumuman;
 

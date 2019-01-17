@@ -8,19 +8,19 @@
 	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border: 2px">
 		<div style="background-color: #FFF; padding: 10px">
 
-			<div class="boddy">
-				<center><h4 class="namatitel">KALENDER KEGIATAN</h4></center>
-				<div class="card">
-					<div class="row card-header">
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<button class="btn btn-outline-primary" id="previous">Previous</button>	
-					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<h5 style="text-align: center;" id="thismonth"></h5>
-					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<button class="btn btn-outline-primary" id="next">Next</button>	
-					</div>
+			<div class="boddy card">
+				<center><h4 class="namatitel card-header">KALENDER KEGIATAN</h4></center>
+				<div class="card-body">
+					<div class="row card-title">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<button class="btn btn-outline-primary col-md-12" id="previous">Previous</button>	
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<h5 style="text-align: center;" id="thismonth"></h5>
+						</div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<button class="btn btn-outline-primary col-md-12" id="next">Next</button>	
+						</div>
 					</div>
 
 					
@@ -48,28 +48,28 @@
 	</div>
 	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="border: 2px;">
 		<div style="background-color: #FFF; padding: 15px;">
-			<div class="boddy">
-				<center><h4 class="namatitel">AGENDA KEGIATAN</h4></center>
-				<hr>
-				<div class="pull-right"><a href="javascript:void(0);" class="btn btn-success" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Tambah Agenda</a></div>
+			<div class="boddy card">
+				<center><h4 class="namatitel card-header">AGENDA KEGIATAN</h4></center>
+				<div class="card-body">
+					<div class="pull-right"><a href="javascript:void(0);" class="btn btn-success" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Tambah Agenda</a></div>
 
-				<table class="table table-striped table-bordered" style="width:100%" id="agendaall">
-					<thead>
-						<tr style="background-color: #E8E8E8;">
-						   <th style="width: 5%;">No</th>
-						   <th style="text-align: center; width: 25%;">Kegiatan</th>
-						   <th style="text-align: center; width: 24%;">Keterangan</th>
-						   <th style="text-align: center; width: 13%">Tanggal Mulai</th>
-						   <th style="text-align: center; width: 13%">Tanggal Selesai</th>
-						   <th style="text-align: center; width: 10%">Edit</th>
-						   <th style="text-align: center; width: 10%">Hapus</th>
-						</tr>
-					</thead>
-					<tbody id="tbl_agendakegiatan" style="text-align: center;">
-						
-					</tbody> 
-				</table>
-
+					<table class="table table-striped table-bordered" style="width:100%" id="agendaall">
+						<thead>
+							<tr style="background-color: #E8E8E8;">
+							   <th style="width: 5%;">No</th>
+							   <th style="text-align: center; width: 25%;">Kegiatan</th>
+							   <th style="text-align: center; width: 24%;">Keterangan</th>
+							   <th style="text-align: center; width: 13%">Tanggal Mulai</th>
+							   <th style="text-align: center; width: 13%">Tanggal Selesai</th>
+							   <th style="text-align: center; width: 10%">Edit</th>
+							   <th style="text-align: center; width: 10%">Hapus</th>
+							</tr>
+						</thead>
+						<tbody id="tbl_agendakegiatan" style="text-align: center;">
+							
+						</tbody> 
+					</table>
+				</div>
 			</div>	
 		</div>
 	</div>

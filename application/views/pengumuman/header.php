@@ -39,7 +39,7 @@
                         <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/Gallery">Agenda</a>
+                        <a class="nav-link" href="<?php echo site_url() ?>/Agenda">Agenda</a>
                     </li>
                 </ul>
                 <div class="btn-group" role="group" aria-label="Data baru">

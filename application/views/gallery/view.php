@@ -17,42 +17,44 @@
 			
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border: 2px">
 				<div style="background-color: #FFF; padding: 15px">
-
-					<H5 id="titel_sec">Tambahkan Data Foto</H5>
-					<form class="form-horizontal" id="addgallery">
-						<div class="form-group">
-							<label style="text-align: left;">Nama Foto </label>
-							<input type="text" class="form-control" name="nama" placeholder="Nama Foto" required>
-							<div class="invalid-feedback">isi Nama Foto</div>
+					<div class="boddy card">
+						<H5 class="card-header" id="titel_sec">Tambahkan Data Foto</H5>
+						<div class="card-body">
+							<form class="form-horizontal" id="addgallery">
+								<div class="form-group">
+									<label style="text-align: left;">Nama Foto </label>
+									<input type="text" class="form-control" name="nama" placeholder="Nama Foto" required>
+									<div class="invalid-feedback">isi Nama Foto</div>
+								</div>
+								<div class="form-group">
+									<label style="text-align: left;">Tag</label>
+									<input type="text" class="form-control" name="tag" placeholder="Tag" required>
+									<div class="invalid-feedback">isi Nama Tag</div>
+								</div>
+								<div class="form-group">
+									<label style="text-align: left;">File Foto</label>
+									<input type="file" class="form-control" name="file" id="file">
+									<div class="invalid-feedback">isi file foto</div>
+								</div>
+								<input type="hidden" name="id_foto" id="id_foto" class="form-control">
+								<input type="hidden" name="fotolama" id="fotolama" class="form-control">
+								<input type="hidden" name="status" id="status" value="Insert" class="form-control">
+								<div class="row" style="margin-left: 20px">
+									<button type="reset" id="batal" class="btn btn-default col-md-3" style="margin-right: 20px;display: none;">Batal</button>
+									<button type="submit" id="btn_save" class="btn btn-primary col-md-3">Simpan</button>
+								</div> 
+							</form>
 						</div>
-						<div class="form-group">
-							<label style="text-align: left;">Tag</label>
-							<input type="text" class="form-control" name="tag" placeholder="Tag" required>
-							<div class="invalid-feedback">isi Nama Tag</div>
-						</div>
-						<div class="form-group">
-							<label style="text-align: left;">File Foto</label>
-							<input type="file" class="form-control" name="file" id="file">
-							<div class="invalid-feedback">isi file foto</div>
-						</div>
-						<input type="hidden" name="id_foto" id="id_foto" class="form-control">
-						<input type="hidden" name="fotolama" id="fotolama" class="form-control">
-						<input type="hidden" name="status" id="status" value="Insert" class="form-control">
-						<div class="row" style="margin-left: 20px">
-							<button type="reset" id="batal" class="btn btn-default col-md-3" style="margin-right: 20px;display: none;">Batal</button>
-							<button type="submit" id="btn_save" class="btn btn-primary col-md-3">Simpan</button>
-						</div> 
-					</form>
-
+					</div>
 					<br>
 				</div>
 			</div>
 			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="border: 2px;">
 				<div style="background-color: #FFF; padding: 15px;">
-					<div class="panel panel-default">
-				      <div class="panel-heading"> Daftar Foto</div>
+					<div class="boddy card">
+				      <div class="card-header"> Daftar Foto</div>
 				      <div class="panel-body">
-				        
+				        <div class="card-title">
 				        <table class="table table-striped" id="mydata">
 				          <thead>
 				            <tr>
@@ -69,6 +71,7 @@
 
 				          </tbody>
 				        </table>
+				        </div>
 				      </div>
 				    </div>
 				</div>
