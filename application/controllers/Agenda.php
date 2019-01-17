@@ -7,14 +7,15 @@ class Agenda extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('agenda_model');
-		if(!$this->session->userdata('escheduling_logged')){
-					redirect('login/login');
-		}
 
 	}
 
 	public function index()
 	{
+		if(!$this->session->userdata('escheduling_logged')){
+					redirect('login/login');
+		}
+
 		$data['level'] = $this->agenda_model->get_all_level();
 
 		$this->load->view("agenda/header"); 

@@ -10,13 +10,12 @@ class Pengumuman extends CI_Controller {
 		// $this->load->helper('MY');
 		$this->load->model('pengumuman_model');
 
-		if(!$this->session->userdata('escheduling_logged')){
-					redirect('login/login');
-		}
+		
 
 	}
 	public function getPengumuman()
 	{
+
 		$data= $this->pengumuman_model->get_all_pengumuman();
 		echo json_encode($data);
 
@@ -29,6 +28,9 @@ class Pengumuman extends CI_Controller {
 
 	public function index()
 	{
+		if(!$this->session->userdata('escheduling_logged')){
+					redirect('login/login');
+		}
 		$data['page_title'] = 'Daftar Pengumuman'; 
 
 		// Dapatkan semua kategori
