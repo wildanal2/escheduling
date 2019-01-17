@@ -4,38 +4,6 @@
 
 <div class="container-fluid" style="width: 100%;  ">
 	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-		<div class="boddy" style="padding-bottom: 10px;">
-			<h4 class="namatitel">AGENDA KEGIATAN MINGGU INI</h4>
-			<table>
-			  <tr style="background-color: #E8E8E8">
-			    <th style="width: 10%;">No</th>
-			    <th style="text-align: center; width: 70%;">Kegiatan</th>
-			    <th style="text-align: right; width: 20%">Tanggal</th>
-			  </tr>
-				
-				<tbody id="tbl_agendakegiatan">
-					
-				</tbody> 
-			</table>
-		</div>	
-
-		
-		<div class="boddymid">
-	    	<h4 class="namatitel">AGENDA BUPATI BULAN INI</h4>
-		     <table id="tbl_bupati">
-				<thead>
-					<tr style="background-color: #E8E8E8">
-					   <th style="width: 10%;">Tgl</th>
-					   <th style="text-align: center; width: 90%;">Kegiatan</th>
-					</tr>
-				</thead>	
-				<tbody id="tbl_agendabupati">		
-				</tbody> 
-			</table>	
-	    </div>
-
-	</div>
-	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4" style="margin-left: -20px">
 		<div class="boddy" >
 			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
 			<div class="card">
@@ -57,7 +25,42 @@
 		            </tbody>
 		        </table>
 		     </div>
-	     </div>
+	    </div>
+	    
+		<div class="boddymid" style="padding-bottom: 10px;">
+			<h4 class="namatitel">AGENDA KEGIATAN MINGGU INI</h4>
+			<table>
+			  <tr style="background-color: #E8E8E8">
+			    <th style="width: 10%;">No</th>
+			    <th style="text-align: center; width: 70%;">Kegiatan</th>
+			    <th style="text-align: right; width: 20%">Tanggal</th>
+			  </tr>
+				
+				<tbody id="tbl_agendakegiatan">
+					
+				</tbody> 
+			</table>
+		</div>	
+
+		
+		
+
+	</div>
+	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4" style="margin-left: -20px">
+		
+		<div class="boddy">
+	    	<h4 class="namatitel">AGENDA BUPATI BULAN INI</h4>
+		     <table id="tbl_bupati">
+				<thead>
+					<tr style="background-color: #E8E8E8">
+					   <th style="width: 10%;">Tgl</th>
+					   <th style="text-align: center; width: 90%;">Kegiatan</th>
+					</tr>
+				</thead>	
+				<tbody id="tbl_agendabupati">		
+				</tbody> 
+			</table>	
+	    </div>
 	     
 	    <div class="boddymid">
 	    	<h4 class="namatitel">AGENDA KOMINFO BULAN INI</h4>
