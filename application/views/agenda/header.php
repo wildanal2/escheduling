@@ -21,7 +21,7 @@
     </head>
 
 
-    <body style="background: #B781CC" onload=display_ct()>
+    <body style="background: #b3d1ff" onload=display_ct()>
         <nav  class=" navbar navbar-expand-md navbar-dark bg-uno box-shadowf"role="" style="background: #4f0381">
             <div class="container-fluid">
                 <a class="navbar-brand" style="color: #ffffff" href="#">Admin E-Scheduling</a>
