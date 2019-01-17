@@ -169,33 +169,43 @@
 
 			            		for (var ia = (agenda.length-1); ia >=0 ; ia--) {
 			            			for (var ib = 0; ib < agenda.length; ib++) {
+
 			            				if (new Date(currentYear,currentMonth,date) >=agenda[ia].tanggal_a && new Date(currentYear,currentMonth,date)<=agenda[ia].tanggal_b) {
 			            					
 			            					if (agenda[ia].level==1) {
 			            						if (asign==null) {
-				            						html+='<td bgcolor="#66C99B">';
-										            html+=''+date;
-									    	        html+='</td>';
-									    	        asign=date;	
-				            					}	
-			            					}else if(agenda[ia].level==2){
-			            						if (asign==null) {
-				            						html+='<td bgcolor="#FE851C">';
-										            html+=''+date;
-									    	        html+='</td>';
-									    	        asign=date;	
+			            							asign=1;
+			            						}else{
+			            							asign=3;
+			            						}
+			            					} else if(agenda[ia].level==2){
+			            						if (asign==1) { 
+									    	        asign=3; 
+				            					}else{ 
+									    	        asign=2; 
 				            					}
-			            					} 
+			            					}
 							    	        break; 
 				            			} 
-			            			}
-
+			            			} 
 			            		}
 
 			            		if (asign==null) { 
 			            			html+='<td>';
 									html+=''+date;
 							        html+='</td>'; 
+			            		}else if(asign==1){
+			            			html+='<td bgcolor="#66C99B">'; //ijo
+						            html+=''+date;
+					    	        html+='</td>';
+			            		}else if(asign==2){
+			            			html+='<td bgcolor="#FE851C">'; //orange
+						            html+=''+date;
+					    	        html+='</td>';
+			            		}else if(asign==3){
+			            			html+='<td bgcolor="#ABAA61">'; //coklat
+						            html+=''+date;
+					    	        html+='</td>';
 			            		}
    
 			                date++;

@@ -7,9 +7,9 @@ class Pengumuman extends CI_Controller {
 	{
 		parent::__construct();
 		// Load custom helper applications/helpers/MY_helper.php
-		$this->load->helper('MY');
-		
+		// $this->load->helper('MY');
 		$this->load->model('pengumuman_model');
+
 		if(!$this->session->userdata('escheduling_logged')){
 					redirect('login/login');
 		}

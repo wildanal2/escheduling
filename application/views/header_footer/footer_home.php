@@ -33,6 +33,12 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ 		<script type="text/javascript" src="<?php echo base_url().'assets/datatables/datatables.min.js'?>"></script> 
+
+
+
+
+
 		
 		<script type="text/javascript">
 		var slideIndex = 1;
@@ -195,37 +201,38 @@
 			            					
 			            					if (agenda[ia].level==1) {
 			            						if (asign==null) {
-			            							html+='<td bgcolor="#66C99B">';
-										            html+=''+date;
-									    	        html+='</td>';
-									    	        asign=date;	
-				            					}
-
+			            							asign=1;
+			            						}else{
+			            							asign=3;
+			            						}
 			            					} else if(agenda[ia].level==2){
-			            						if (asign==null) {
-				            						html+='<td bgcolor="#FE851C">';
-										            html+=''+date;
-									    	        html+='</td>';
-									    	        asign=date;
-									    	        doubell =date;
-				            					}else{
-				            						html+='<td bgcolor="#ABAA61">';
-										            html+=''+date;
-									    	        html+='</td>';
-									    	        asign=date;
-									    	        doubell =date;
+			            						if (asign==1) { 
+									    	        asign=3; 
+				            					}else{ 
+									    	        asign=2; 
 				            					}
 			            					}
 							    	        break; 
 				            			} 
-			            			}
-
+			            			} 
 			            		}
 
 			            		if (asign==null) { 
 			            			html+='<td>';
 									html+=''+date;
 							        html+='</td>'; 
+			            		}else if(asign==1){
+			            			html+='<td bgcolor="#66C99B">'; //ijo
+						            html+=''+date;
+					    	        html+='</td>';
+			            		}else if(asign==2){
+			            			html+='<td bgcolor="#FE851C">'; //orange
+						            html+=''+date;
+					    	        html+='</td>';
+			            		}else if(asign==3){
+			            			html+='<td bgcolor="#ABAA61">'; //coklat
+						            html+=''+date;
+					    	        html+='</td>';
 			            		}
    
 			                date++;
@@ -240,21 +247,21 @@
 			            	if (date>=tgla.getDate() && date<=tglb.getDate()) {
 			            		var tgll = date+"/"+tgla.getMonth()+1+"/"+tgla.getFullYear();
 
-			            		htmlweek += '<tr>';
+			            		if (date==today.getDate()) {
+			            			htmlweek += '<tr style="background-color: #C8AFD4;font-weight: 900;">';
+			            		}else{
+			            			htmlweek += '<tr>';
+			            		}
+			            		// isiiiiii 
 		                        		if (agendaweek[io].level == 1) {
 		                        htmlweek +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+numday+'</font></td>';
 		                        		}else if (agendaweek[io].level == 2) {
 		                        htmlweek +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+numday+'</font></td>';
 		                        		}
 			                    htmlweek +=	
-			                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>';
-			                            if (date==today.getDate()) {
-			                    htmlweek += '<td style="text-align: right; background: #ED7098;">'+tgll+' ';
-			                            }else{
-			                    htmlweek += '<td style="text-align: right;">'+tgll+' ';
-			                            }
-			                            
-		                        htmlweek += '</tr>';
+			                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
+			                            	'<td style="text-align: right;">'+tgll+' '+
+		                        		'</tr>';
 
 		                        numday++;
 			            	}
@@ -280,19 +287,18 @@
 	                    var i;
 	                    for(i=0; i<data.length; i++){
 	                        a=i+1;
-	                         
-	                        html += '<tr>';
-	                        		
-	                        		if (data[i].level == 1) {
-	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
-	                        		}else if (data[i].level == 2) {
-	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
-	                        		}
-		                    html +=	
+	                        var tgla = new Date(data[i].tanggal_awal);
+
+	                        html += '<tr>'+
+	                        	'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+tgla.getDate()+'</font></td>'+
 		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+ 
-	                            '</tr>';
+	                            '</tr>'; 
 	                    }
-	                    $('#tbl_agendakominfo').html(html); 
+	                    $('#tbl_agendakominfo').html(html);
+	                    $("#tbl_kominfo").DataTable({
+	                    		destroy:true,searching: false,
+						        "lengthMenu": [[5,10, -1], [5,10, "Semua"]]
+						    });
 	                }
 	            });
 	        }
@@ -307,19 +313,19 @@
 	                    var i;
 	                    for(i=0; i<data.length; i++){
 	                        a=i+1;
-	                         
-	                        html += '<tr>';
-	                        		
-	                        		if (data[i].level == 1) {
-	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
-	                        		}else if (data[i].level == 2) {
-	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
-	                        		}
-		                    html +=	
+	                        var tgla = new Date(data[i].tanggal_awal);
+
+	                        html += '<tr>'+
+	                        	'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+tgla.getDate()+'</font></td>'+
 		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+ 
 	                            '</tr>';
 	                    }
 	                    $('#tbl_agendabupati').html(html); 
+	                    $("#tbl_bupati").DataTable({
+	                    		destroy:true,searching: false,
+						        "lengthMenu": [[5,10, -1], [5,10, "Semua"]]
+						    });
+
 	                }
 	            });
 	        }

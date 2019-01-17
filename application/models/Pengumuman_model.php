@@ -18,14 +18,13 @@ class Pengumuman_model extends CI_Model {
     }
 
     public function get_pengumuman_home(){ 
-        $this->db->select('*');
-        $this->db->from('pengumuman');
-        $this->db->order_by('tanggal',"DESC");
-        $this->db->limit(4);
-        $query= $this->db->get();
-        
-        $a = $query->result();
-        return $a;
+        // $this->db->select('*');
+        // $this->db->from('pengumuman');
+        // $this->db->order_by('tanggal',"DESC");
+        // // $this->db->limit(4);
+        // $query= $this->db->get();
+        $query= $this->db->query("SELECT * FROM `pengumuman` order by tanggal ASC limit 4");
+        return $query->result();
     }
 
     public function create_pengumuman()
