@@ -56,12 +56,17 @@ class Pengumuman extends CI_Controller {
 		$this->form_validation->set_rules(
 			'judul',
 			'Judul',
-			'required|is_unique[pengumuman.judul]',
+			'required|min_length[5]|max_length[999]',
 			array(
 				'required' => 'Isi %s dulu',
-				'is_unique' => 'Judul <strong>' . $this->input->post('judul') . '</strong> sudah .'
+				'min_length[5]' => 'Judul tes<strong>' . $this->input->post('judul') . '</strong> kurang panjang'
 			)
 		);
+
+		// $this->form_validation->set_rules(
+		// 	'username', 
+		// 	'Username', 
+		// 	'required|min_length[5]|is_unique[users.username]');
 
 		if($this->form_validation->run() === FALSE){
 			$this->load->view('header_footer/header_admin');
@@ -75,9 +80,9 @@ class Pengumuman extends CI_Controller {
 
 	public function delete_pengumuman()
 	{
-		$judul = $this->input->post('judul');
+		$id = $this->input->post('id');
 
-		$data = $this->pengumuman_model->delete_pengumuman($judul);
+		$data = $this->pengumuman_model->delete_pengumuman($id);
 			echo json_encode($data);
 		
 	}

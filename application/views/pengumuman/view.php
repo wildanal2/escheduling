@@ -19,6 +19,7 @@
 						<!-- Kita format tampilan blog dalam bentuk card -->
 						<!-- https://getbootstrap.com/docs/4.0/components/card/ -->
 						<form id="tampil">
+							<input id="id" hidden="" name="id"></input>
 						<div class="card text-black bg-default mb-2 boddy" id="update">
 							<div class="card-header" name="tanggal" id="tanggal">Tanggal</div>
 						  <div class="card-body">
@@ -87,7 +88,7 @@
 	            <div class="modal-footer">
 	              <input type="hidden" name="id_pengumuman_delete" id="id_pengumuman_delete" class="form-control">
 	              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-	              <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Yes</button>
+	              <button type="button" type="submit" id="btn_delete" class="btn btn-danger">Yes</button>
 	            </div>
 	          </div>
 	        </div>

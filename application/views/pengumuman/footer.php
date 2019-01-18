@@ -83,12 +83,12 @@
                                     '<td>'+data[i].tanggal+'</td>'+ 
                                     
                                     '<td>'+
-                                        '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'" data-tanggal="'+data[i].tanggal+'"  >Edit</a>'+
+                                        '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id+'"data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'" data-tanggal="'+data[i].tanggal+'"  >Edit</a>'+
                                     '</td>'+
                                    
 
                                     '<td>'+
-                                        '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'" data-tanggal="'+data[i].tanggal+'">Hapus</a>'+
+                                        '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id+'"data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'" data-tanggal="'+data[i].tanggal+'">Hapus</a>'+
                                     '</td>'+
 
                                 '</tr>';    
@@ -106,10 +106,13 @@
             //get data for update record UPDATEEEE
             $('#mydata').on('click','.item_edit',function(){
                 //alert($(this).data('isi'));
+                var id = $(this).data('id');
                 var tanggal = $(this).data('tanggal');
                 var judul = $(this).data('judul');
                 var pengumuman = $(this).data('isi');
-                  
+                
+
+                document.getElementById("id").value=id;  
                 document.getElementById("judul").innerHTML=judul;
                 document.getElementById("tanggal").innerHTML=tanggal;
                 document.getElementById("pengumuman").value=pengumuman;
@@ -158,15 +161,17 @@
             //  ===================   Delete Record ===============================================
             //get data for delete record show prompt
             $('#show_data').on('click','.item_delete',function(){
+                // alert($(this).data('id'))
+                var id = $(this).data('id');
                 var tanggal = $(this).data('tanggal');
                 var judul = $(this).data('judul');
                 var pengumuman = $(this).data('isi');
                  
                 $('#Modal_Delete').modal('show');
-                document.getElementById("namaPengumuman_hapus").innerHTML="Hapus Pengumuman '"+judul+"' ?";
+                document.getElementById("namaPengumuman_hapus").innerHTML=" '"+judul+"' ";
                 
                 
-                $('[name="id_pengumuman_delete"]').val(judul);
+                $('[name="id_pengumuman_delete"]').val(id);
             });
             //delete record to database
              $('#btn_delete').on('click',function(){
@@ -175,7 +180,7 @@
                     type : "POST",
                     url  : "<?php echo site_url(); ?>/Pengumuman/delete_pengumuman",
                     dataType : "JSON",
-                    data : {judul:id_pengumuman_delete},
+                    data : {id:id_pengumuman_delete},
                     success: function(){
                         $('[name="id_pengumuman_delete"]').val("");
                         $('#Modal_Delete').modal('hide');
