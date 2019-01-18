@@ -219,19 +219,35 @@
 
 			            		if (asign==null) { 
 			            			html+='<td>';
-									html+=''+date;
+			            			if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
 							        html+='</td>'; 
 			            		}else if(asign==1){
 			            			html+='<td bgcolor="#66C99B">'; //ijo
-						            html+=''+date;
+						            if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
 					    	        html+='</td>';
 			            		}else if(asign==2){
 			            			html+='<td bgcolor="#FE851C">'; //orange
-						            html+=''+date;
+						            if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
 					    	        html+='</td>';
 			            		}else if(asign==3){
 			            			html+='<td bgcolor="#ABAA61">'; //coklat
-						            html+=''+date;
+						            if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
 					    	        html+='</td>';
 			            		}
    
@@ -244,24 +260,29 @@
 			            	var tglb = new Date(agendaweek[io].tanggal_akhir);
 
 			            	if (date>=tgla.getDate() && date<=tglb.getDate()) {
-		            			var tgll = date+"/"+tgla.getMonth()+1+"/"+tgla.getFullYear();
-			            		if (date==today.getDate()) {
-			            			htmlweek += '<tr style="background-color: #C8AFD4;font-weight: 900;">';
-			            		}else{
-			            			htmlweek += '<tr>';
-			            		}
 
-			            		///////// isiiiiii 
-		                        		if (agendaweek[io].level == 1) {
-		                        htmlweek +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+numday+'</font></td>';
-		                        		}else if (agendaweek[io].level == 2) {
-		                        htmlweek +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+numday+'</font></td>';
-		                        		}
-			                    htmlweek +=	
-			                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
-			                            	'<td style="text-align: right;">'+tgll+' '+
-		                        		'</tr>';
-		                        /////////////////////
+			            		if (date>=(today.getDate()-1) && date<=(today.getDate()+4)) {
+
+			            			var tgll = date+"/"+tgla.getMonth()+1+"/"+tgla.getFullYear();
+				            		if (date==today.getDate()) {
+				            			htmlweek += '<tr style="background-color: #C8AFD4;font-weight: 900;">';
+				            		}else{
+				            			htmlweek += '<tr>';
+				            		}
+
+				            		///////// isiiiiii 
+			                        		if (agendaweek[io].level == 1) {
+			                        htmlweek +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+numday+'</font></td>';
+			                        		}else if (agendaweek[io].level == 2) {
+			                        htmlweek +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+numday+'</font></td>';
+			                        		}
+				                    htmlweek +=	
+				                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
+				                            	'<td style="text-align: right;">'+tgll+' '+
+			                        		'</tr>';
+			                        /////////////////////
+
+			            		}
 
 		                        numday++;
 			            	}

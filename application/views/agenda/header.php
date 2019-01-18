@@ -22,7 +22,7 @@
 
 
     <body style="background: #b3d1ff" onload=display_ct()>
-        <nav  class=" navbar navbar-expand-md navbar-dark bg-uno box-shadowf"role="" style="background: #4f0381">
+        <nav  class=" navbar navbar-expand-md navbar-dark bg-uno box-shadowf"role="" style="background: #0039e6">
             <div class="container-fluid">
                 <a class="navbar-brand" style="color: #ffffff" href="#">Admin E-Scheduling</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavbar" aria-controls="mainnavbar" aria-expanded="false" aria-label="Toggle navigation">
