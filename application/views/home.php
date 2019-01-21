@@ -7,7 +7,7 @@
 		<div class="boddy" >
 			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
 			<div class="card">
-		        <h5 style="text-align: center;" id="thismonth"></h5>
+		        <h4 style="text-align: center;" id="thismonth"></h4>
 		        <table class="table table-responsive-sm" id="calendar">
 		            <thead>
 		            <tr style="background-color: #E8E8E8">
@@ -22,6 +22,13 @@
 		            <tbody id="calendarbody">
 
 		            </tbody> 
+		        </table>
+		        <table class="table table-bordered"  style="margin-top: -10px; margin-bottom: -10px">
+		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_hijau.png">  : Bupati</td>
+		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_hijau-parah.png"> : Bupati</td>
+		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_orange.png"> : Kominfo</td>
+		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_orange-parah.png"> : Kominfo </td>
+		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_jam-parah.png"> : Bupati dan Kominfo</td>
 		        </table>
 		     </div>
 	    </div>

@@ -396,7 +396,7 @@
 
 	                		html += '<div class="card">'+
 										'<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">'+
-											 '<img  width="40px" src="<?php echo base_url() ?>assets/image/horn.png" style="margin: 10px;" >'+
+											 '<img  width="40px" src="<?php echo base_url() ?>assets/image/horn.png">'+
 										'</div>'+
 										'<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="align-items: center;">'+
 											'<a style="color: #000;" class="item_view linkpengumum" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h5>'+data[i].judul+'</h5></a>'+
