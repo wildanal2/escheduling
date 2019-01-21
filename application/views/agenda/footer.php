@@ -133,7 +133,7 @@
 	                    $('#tbl_agendakegiatan').html(html);
 	                    $("#agendaall").DataTable({
 	                    		destroy:true,
-						        "lengthMenu": [[10, 15, 25, -1], [10, 15, 25, "Semua"]]
+						        "lengthMenu": [[7, 14,-1], [7, 14, "Semua"]]
 						    }); 
 	                }
 	            });
@@ -175,14 +175,19 @@
 			            					if (agenda[ia].level==1) {
 			            						if (asign==null) {
 			            							asign=1;
-			            						}else{
-			            							asign=3;
-			            						}
-			            					} else if(agenda[ia].level==2){
-			            						if (asign==1) { 
+			            						}else if (asign==1 || asign==3) { 
 									    	        asign=3; 
 				            					}else{ 
-									    	        asign=2; 
+			            							asign=5;
+			            						}
+			            					} 
+			            					else if(agenda[ia].level==2){
+			            						if(asign==null){
+			            							asign=2; 
+			            						}else if (asign==2 || asign==4) { 
+									    	        asign=4; 
+				            					}else{ 
+									    	        asign=5; 
 				            					}
 			            					}
 							    	        break; 
@@ -190,21 +195,59 @@
 			            			} 
 			            		}
 
-			            		if (asign==null) { 
+			            		// warna
+			            		// 1 bupati normal
+			            		// 4 bupati parah
+			            		// 3 bupati & kominfo
+			            		// 2 jam parah
+
+			            		if (asign==null) {
 			            			html+='<td>';
-									html+=''+date;
+			            			if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
 							        html+='</td>'; 
 			            		}else if(asign==1){
 			            			html+='<td bgcolor="#66C99B">'; //ijo
-						            html+=''+date;
+						            if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
 					    	        html+='</td>';
 			            		}else if(asign==2){
-			            			html+='<td bgcolor="#FE851C">'; //orange
-						            html+=''+date;
+			            			html+='<td bgcolor="#FFBA7E">'; //orange
+						            if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
 					    	        html+='</td>';
 			            		}else if(asign==3){
-			            			html+='<td bgcolor="#ABAA61">'; //coklat
-						            html+=''+date;
+			            			html+='<td bgcolor="#398359">'; //ijo parah
+						            if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
+					    	        html+='</td>';
+			            		}else if(asign==4){
+			            			html+='<td bgcolor="#FE851C">'; //orange parah
+						            if (date==today.getDate()) {
+			            				html+='<font color="#FFF">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
+					    	        html+='</td>';
+			            		}else if(asign==5){
+			            			html+='<td bgcolor="#ABAA61">'; //jam parah
+						            if (date==today.getDate()) {
+			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
 					    	        html+='</td>';
 			            		}
    

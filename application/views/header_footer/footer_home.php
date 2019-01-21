@@ -202,14 +202,19 @@
 			            					if (agenda[ia].level==1) {
 			            						if (asign==null) {
 			            							asign=1;
-			            						}else{
-			            							asign=3;
-			            						}
-			            					} else if(agenda[ia].level==2){
-			            						if (asign==1) { 
+			            						}else if (asign==1 || asign==3) { 
 									    	        asign=3; 
 				            					}else{ 
-									    	        asign=2; 
+			            							asign=5;
+			            						}
+			            					} 
+			            					else if(agenda[ia].level==2){
+			            						if(asign==null){
+			            							asign=2; 
+			            						}else if (asign==2 || asign==4) { 
+									    	        asign=4; 
+				            					}else{ 
+									    	        asign=5; 
 				            					}
 			            					}
 							    	        break; 
@@ -217,34 +222,56 @@
 			            			} 
 			            		}
 
-			            		if (asign==null) { 
-			            			html+='<td>';
+			            		// warna
+			            		// 1 bupati normal
+			            		// 4 bupati parah
+			            		// 3 bupati & kominfo
+			            		// 2 jam parah
+
+			            		if (asign==null) {
+			            			html+='<td style="border: 1px solid #dddddd;">';
 			            			if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
+			            				html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
 			            				html+='<font>'+date+'</font>';
 			            			}
 							        html+='</td>'; 
-			            		}else if(asign==1){
-			            			html+='<td bgcolor="#66C99B">'; //ijo
+			            		}else if(asign==1){ 
+			            			html+='<td bgcolor="#66C99B">'; //ijo 
 						            if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
-			            			}else{
+			            				html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
+			            			}else{ 
 			            				html+='<font>'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==2){
-			            			html+='<td bgcolor="#FE851C">'; //orange
+			            			html+='<td bgcolor="#FFBA7E">'; //orange
 						            if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
+						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
 			            				html+='<font>'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==3){
-			            			html+='<td bgcolor="#ABAA61">'; //coklat
+			            			html+='<td bgcolor="#398359">'; //ijo parah
 						            if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
+						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
+					    	        html+='</td>';
+			            		}else if(asign==4){
+			            			html+='<td bgcolor="#FE851C">'; //orange parah
+						            if (date==today.getDate()) {
+						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
+			            			}else{
+			            				html+='<font>'+date+'</font>';
+			            			}
+					    	        html+='</td>';
+			            		}else if(asign==5){
+			            			html+='<td bgcolor="#cc3300">'; //jam parah
+						            if (date==today.getDate()) {
+			            				html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
 			            				html+='<font>'+date+'</font>';
 			            			}
@@ -265,16 +292,16 @@
 
 			            			var tgll = date+"/"+tgla.getMonth()+1+"/"+tgla.getFullYear();
 				            		if (date==today.getDate()) {
-				            			htmlweek += '<tr style="background-color: #C8AFD4;font-weight: 900;">';
+				            			htmlweek += '<tr style="background: url(<?php echo base_url() ?>assets/image/FJFchO.gif); background-repeat: no-repeat; background-size: cover; font-weight: 900;">';
 				            		}else{
 				            			htmlweek += '<tr>';
 				            		}
 
-				            		///////// isiiiiii 
-			                        		if (agendaweek[io].level == 1) {
-			                        htmlweek +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+numday+'</font></td>';
-			                        		}else if (agendaweek[io].level == 2) {
-			                        htmlweek +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+numday+'</font></td>';
+				            		///////// isiiiiii  agenda mingguan
+			                        		if (agendaweek[io].level == 1) { //Bupati
+			                        htmlweek +='<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+numday+'</font></td>';
+			                        		}else if (agendaweek[io].level == 2) { // kominfo
+			                        htmlweek +='<td style="text-align: center" bgcolor="#FFBA7E"><font color="#fff">'+numday+'</font></td>';
 			                        		}
 				                    htmlweek +=	
 				                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
@@ -291,10 +318,10 @@
 			            }
 			            
 
-			        }
-
+			        } 
 					html+='</tr>';	        		
-	        	} 
+	        	}  
+
 	        	$('#calendarbody').html(html);  
 	        	$('#tbl_agendakegiatan').html(htmlweek); 
 	        }
@@ -312,14 +339,14 @@
 	                        var tgla = new Date(data[i].tanggal_awal);
 
 	                        html += '<tr>'+
-	                        	'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+tgla.getDate()+'</font></td>'+
+	                        	'<td style="text-align: center" bgcolor="#FFBA7E"><font color="#fff">'+tgla.getDate()+'</font></td>'+
 		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+ 
 	                            '</tr>'; 
 	                    }
 	                    $('#tbl_agendakominfo').html(html);
 	                    $("#tbl_kominfo").DataTable({
 	                    		destroy:true,searching: false,
-						        "lengthMenu": [[5,10, -1], [5,10, "Semua"]],
+						        "lengthMenu": [[4, -1], [4, "Semua"]],
 						        "bLengthChange": false
 						    });
 	                }
@@ -346,7 +373,7 @@
 	                    $('#tbl_agendabupati').html(html); 
 	                    $("#tbl_bupati").DataTable({
 	                    		destroy:true,searching: false,
-	                    		"lengthMenu": [[5,10, -1], [5,10, "Semua"]],
+	                    		"lengthMenu": [[4, -1], [4, "Semua"]],
 	                    		"bLengthChange": false
 						    });
 
@@ -464,7 +491,7 @@
 			}
 
 			document.getElementById("prev").addEventListener("click",minSlides);
-			document.getElementById("next").addEventListener("click",plusSlides);
+			document.getElementById("next").addEventListener("click",plusSlides); 
 
 			function plusSlides() {
 				n= 1;
@@ -492,8 +519,23 @@
 			  slides[slideIndex-1].style.display = "block";
 			  dots[slideIndex-1].className += " active"; 
 			  captionText.innerHTML = dots[slideIndex-1].alt;
+			  $('#caption').attr('data-source',dots[slideIndex-1].src);
+			  // $('#caption').attr('data-nama',dots[slideIndex-1].alt);
 			}
+ 			
+ 			//get data for img for detail show prompt
+            $('#capimg').on('click','.imgdetail',function(){
+                // var id_k = $(this).data('id_k');
+                var src = $(this).data('source'); 
+                // var nama = $(this).data('nama'); 
+
+
+				// captionText.innerHTML = nama;
+                
+            });
 //  end slide
+			
+			
 
 		});
 		</script>

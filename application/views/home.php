@@ -8,9 +8,9 @@
 			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
 			<div class="card">
 		        <h5 style="text-align: center;" id="thismonth"></h5>
-		        <table class="table table-bordered table-responsive-sm" id="calendar">
+		        <table class="table table-responsive-sm" id="calendar">
 		            <thead>
-		            <tr>
+		            <tr style="background-color: #E8E8E8">
 		                <th>Minggu</th>
 			            <th>Senin</th>
 			            <th>Selasa</th>
@@ -18,20 +18,19 @@
 			            <th>Kamis</th>
 			            <th>Jumat</th>
 			            <th>Sabtu</th>
-		            </tr>
-		            </thead>
+		            </tr> 
 		            <tbody id="calendarbody">
 
-		            </tbody>
+		            </tbody> 
 		        </table>
 		     </div>
 	    </div>
 
 		<div class="boddymid" style="padding-bottom: 10px;">
 			<h4 class="namatitel">AGENDA KEGIATAN MINGGU INI</h4>
-			<table>
+			<table class="table table-bordered">
 			  <tr style="background-color: #E8E8E8">
-			    <th style="width: 10%;">No</th>
+			    <th style="text-align: center;width: 10%;">No</th>
 			    <th style="text-align: center; width: 70%;">Kegiatan</th>
 			    <th style="text-align: right; width: 20%">Tanggal</th>
 			  </tr>
@@ -40,6 +39,8 @@
 					
 				</tbody> 
 			</table>
+ 
+			 
 		</div>	
 
 		
@@ -50,7 +51,7 @@
 		
 		<div class="boddy">
 	    	<h4 class="namatitel">AGENDA BUPATI BULAN INI</h4>
-		     <table id="tbl_bupati">
+		     <table class="table table-bordered" id="tbl_bupati">
 				<thead>
 					<tr style="background-color: #E8E8E8">
 					   <th style="width: 10%;">Tgl</th>
@@ -64,7 +65,7 @@
 	     
 	    <div class="boddymid">
 	    	<h4 class="namatitel">AGENDA KOMINFO BULAN INI</h4>
-		     <table id="tbl_kominfo">
+		     <table class="table table-bordered" id="tbl_kominfo">
 		     	<thead>
 		     		<tr style="background-color: #E8E8E8">
 					   <th style="width: 10%;">Tgl</th>
@@ -124,7 +125,7 @@
 				  <a class="prevgal" id="prev">❮</a>
 				  <a class="nextgal" id="next">❯</a>
 
-				<div class="caption-container"> <a href="" style="color: white;"><p id="caption"></p></a></div>
+				<div class="caption-container" id="capimg"> <a href="javascript:void(0);" id="caption" class="imgdetail" style="color: white;"></a></div>
 
 				<div class="row" style="margin-left: 2px;margin-right: 2px;">
 
@@ -135,6 +136,9 @@
 
 		</div>
 	</div> 
+
+
+	
 
 </div>
 
@@ -162,5 +166,20 @@
 		    </div>
 		  </div>
 		</div>
+
+
+	<!-- The Image Modal -->
+	<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">              
+	      <div class="modal-body">
+	      	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <img src="" id="imagepreview" style="width: 100%;" >
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
 
 <?php $this->load->view('header_footer/footer_home'); ?>

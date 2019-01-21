@@ -14,6 +14,7 @@
 	background: #ffffff; 
 	/*height: 500px; */
 	/*margin-top: 60px; */
+	min-height: 250px;
 	padding: 20px;
 }
 
@@ -21,6 +22,7 @@
 	background: #ffffff;
 	margin-top: 10px;
 	padding: 20px;
+	min-height: 250px;
 }
 
 .linkpengumum{
@@ -52,14 +54,51 @@
 
 
 
+.boxgrad{
+	/*position: absolute;*/
+	/*width: 400px;
+	height: 250px;*/
+	/*background: linear-gradient(0deg,#000,#262626);*/
+}
+.boxgrad:before{
+	content: ''; 
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	background: linear-gradient(45deg,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000);
+	background-size: 500%;
+	width: calc(100% + 8px);
+	height: calc(100% + 8px);
+	z-index: -1;
+	animation: animate 20s linear infinite;
+}
+@keyframes animate{
+	0%{
+		background-position: 0 0;
+	}
+	50%{
+		background-position: 300% 0;
+	}
+	100%{
+		background-position: 0 0;
+	}
+}
+
+
+
+
+
+
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
   }
 td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
+	/*border: 1px solid #dddddd;*/
+	/*text-align: left;*/
 	padding: 8px;
   }
   
