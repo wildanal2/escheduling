@@ -91,16 +91,15 @@ class Pengumuman extends CI_Controller {
 	{	 
 		date_default_timezone_set("Asia/Jakarta");
 
-		$judul = $this->input->post('judul');
-		$isi = $this->input->post('pengumuman');
+		$judul = $this->input->post('judul_m');
+		$isi = $this->input->post('pengumuman_m');
 		
 		$result = $this->pengumuman_model->update_pengumuman($judul,$isi);
 		if ($result) {
-			echo json_encode("suc ");
+			echo json_encode("suc");
 		}else{
 			echo json_encode("Gagal");
 		}
-		
 	}
 
 	public function getCountPengumuman()

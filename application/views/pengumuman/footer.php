@@ -117,10 +117,12 @@
                 document.getElementById("tanggal").innerHTML=tanggal;
                 document.getElementById("pengumuman").value=pengumuman;
                
+
                 document.getElementById("btn_perbaharui").style.display="block";
                 
-                document.getElementById("judul_m").innerHTML=judul;
-                //document.getElementById("judul_p").value=judul;
+
+                document.getElementById("temp").innerHTML=judul;
+                document.getElementById("judul_m").value=judul;
                 document.getElementById("tanggal_m").innerHTML=tanggal;
                 document.getElementById("pengumuman_m").value=pengumuman;
 
@@ -135,14 +137,14 @@
 
                 var judul_m= $('#judul_m').val();
                 var pengumuman_m = $('#pengumuman_m').val();
-                //alert(judul_m + " "+ pengumuman_m);
+                alert( judul_m );
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo site_url(); ?>/Pengumuman/pengumumanUpdate",
+                    url  : "<?php echo site_url(); ?>/pengumuman/pengumumanUpdate",
                     dataType : "JSON",
                     data : { 
-                            judul:judul_m,
-                            pengumuman:pengumuman_m},
+                            judul_m:judul_m,
+                            pengumuman_m:pengumuman_m},
                     success: function(data){                     
                         $('#modal_lihat').modal('hide'); 
                         refresh();

@@ -23,7 +23,7 @@
 						<div class="card text-black bg-default mb-2 boddy" id="update">
 							<div class="card-header" name="tanggal" id="tanggal">Tanggal</div>
 						  <div class="card-body">
-						    <h4 class=" card-title" nama="judul" id="judul" ><b>Judul </b></h4>
+						    <h4 class=" card-title" name="judul" id="judul" ><b>Judul </b></h4>
 						    <br>
 						    <!-- <p class="card-text" nama="pengumuman" id="pengumuman">Pengumuman </p> -->
 						
@@ -96,15 +96,15 @@
 	    </form>
 	  <!--END MODAL DELETE-->
 					
-		<!-- Modal LIHAT -->
+		<!-- Modal UPDATE -->
 	<form id="form_update">
 		<div class="modal fade" id="modal_lihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="judul_m"></b></h5>
+		        <h5 class="modal-title" id="temp">Judul</h5>
 
-		        	<!-- <input type="hidden" id="judul_p" > -->
+		        	<input type="hidden" id="judul_m">
 		      </div>
 		      <div class="modal-body">
 		        <div class="form-group">
