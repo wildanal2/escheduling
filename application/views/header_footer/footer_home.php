@@ -237,43 +237,43 @@
 			            			}
 							        html+='</td>'; 
 			            		}else if(asign==1){ 
-			            			html+='<td bgcolor="#66C99B">'; //ijo 
+			            			html+='<td bgcolor="#ff6666">'; //Bupati 
 						            if (date==today.getDate()) {
 			            				html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{ 
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==2){
-			            			html+='<td bgcolor="#FFBA7E">'; //orange
+			            			html+='<td bgcolor="#008ae6">'; //kominfo
 						            if (date==today.getDate()) {
 						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==3){
-			            			html+='<td bgcolor="#398359">'; //ijo parah
+			            			html+='<td bgcolor="#ff6666">'; //Bupati parah
 						            if (date==today.getDate()) {
 						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==4){
-			            			html+='<td bgcolor="#FE851C">'; //orange parah
+			            			html+='<td bgcolor="#008ae6">'; //kominfo parah
 						            if (date==today.getDate()) {
 						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==5){
-			            			html+='<td bgcolor="#cc3300">'; //jam parah
+			            			html+='<td bgcolor="#8B76A0">'; //jam parah bp_kalender
 						            if (date==today.getDate()) {
 			            				html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}
@@ -299,9 +299,9 @@
 
 				            		///////// isiiiiii  agenda mingguan
 			                        		if (agendaweek[io].level == 1) { //Bupati
-			                        htmlweek +='<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+numday+'</font></td>';
+			                        htmlweek +='<td style="text-align: center" bgcolor="#ff6666"><font color="#fff">'+numday+'</font></td>';
 			                        		}else if (agendaweek[io].level == 2) { // kominfo
-			                        htmlweek +='<td style="text-align: center" bgcolor="#FFBA7E"><font color="#fff">'+numday+'</font></td>';
+			                        htmlweek +='<td style="text-align: center" bgcolor="#008ae6"><font color="#fff">'+numday+'</font></td>';
 			                        		}
 				                    htmlweek +=	
 				                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
@@ -337,10 +337,16 @@
 	                    for(i=0; i<data.length; i++){
 	                        a=i+1;
 	                        var tgla = new Date(data[i].tanggal_awal);
+	                        var isi = data[i].namaKegiatan+', '+data[i].keterangan; 
+
+	                        if(isi.length > 95){ 
+	                        	isi = isi.substring(0, 95);
+	                        	isi +="...";
+	                        }
 
 	                        html += '<tr>'+
-	                        	'<td style="text-align: center" bgcolor="#FFBA7E"><font color="#fff">'+tgla.getDate()+'</font></td>'+
-		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+ 
+	                        	'<td style="text-align: center" bgcolor="#008ae6"><font color="#fff">'+tgla.getDate()+'</font></td>'+
+		                            '<td>'+isi+'</td>'+ 
 	                            '</tr>'; 
 	                    }
 	                    $('#tbl_agendakominfo').html(html);
@@ -364,10 +370,16 @@
 	                    for(i=0; i<data.length; i++){
 	                        a=i+1;
 	                        var tgla = new Date(data[i].tanggal_awal);
+	                        var isi = data[i].namaKegiatan+', '+data[i].keterangan; 
+
+	                        if(isi.length > 95){ 
+	                        	isi = isi.substring(0, 95);
+	                        	isi +="...";
+	                        }
 
 	                        html += '<tr>'+
-	                        	'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+tgla.getDate()+'</font></td>'+
-		                            '<td>'+data[i].namaKegiatan+', '+data[i].keterangan+'</td>'+ 
+	                        	'<td style="text-align: center" bgcolor="#ff6666"><font color="#fff">'+tgla.getDate()+'</font></td>'+
+		                            '<td>'+isi+'</td>'+ 
 	                            '</tr>';
 	                    }
 	                    $('#tbl_agendabupati').html(html); 

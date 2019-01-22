@@ -2,7 +2,9 @@
 ?> 
 
 
-<div class="container-fluid" style="width: 100%;  ">
+<div class="container-fluid" style="width: 100%; margin-top: -10px; ">
+	
+
 	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 		<div class="boddy" >
 			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
@@ -23,11 +25,9 @@
 
 		            </tbody> 
 		        </table>
-		        <table class="table table-bordered"  style="margin-top: -10px; margin-bottom: -10px">
-		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_hijau.png">  : Bupati</td>
-		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_hijau-parah.png"> : Bupati</td>
-		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_orange.png"> : Kominfo</td>
-		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_orange-parah.png"> : Kominfo </td>
+		        <table class="table table-bordered"  style="margin-top: -10px; margin-bottom: -2px">
+		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_hijau.png">  : Bupati</td> 
+		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_orange.png"> : Kominfo</td> 
 		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_jam-parah.png"> : Bupati dan Kominfo</td>
 		        </table>
 		     </div>
@@ -50,12 +50,11 @@
 			 
 		</div>	
 
-		
-		
-
 	</div>
+
 	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4" style="margin-left: -20px">
 		
+		<!-- bupati bulan ini -->
 		<div class="boddy">
 	    	<h4 class="namatitel">AGENDA BUPATI BULAN INI</h4>
 		     <table class="table table-bordered" id="tbl_bupati">
@@ -69,7 +68,8 @@
 				</tbody> 
 			</table>	
 	    </div>
-	     
+	    
+	    <!-- kominfo bulan ini -->
 	    <div class="boddymid">
 	    	<h4 class="namatitel">AGENDA KOMINFO BULAN INI</h4>
 		     <table class="table table-bordered" id="tbl_kominfo">
@@ -85,9 +85,9 @@
 	    </div>
 	     
 	</div>
+
 	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 boddy" >
 		<h4 class="namatitel">PENGUMUMAN</h4>
-		
 		<div id="con_lstpgumuman">	
 		</div>
 

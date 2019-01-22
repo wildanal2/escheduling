@@ -2,6 +2,7 @@
 	background-color: rgb(34, 34, 34);
 	color: #F8C301;
 	text-align: center;
+	margin-top: 8px;
 	padding-top: 8px;
 	padding-bottom: 8px;
 }
@@ -15,13 +16,13 @@
 	/*height: 500px; */
 	/*margin-top: 60px; */
 	min-height: 250px;
-	padding: 20px;
+	padding: 5px;
 }
 
 .boddymid{
 	background: #ffffff;
-	margin-top: 10px;
-	padding: 20px;
+	margin-top: 5px;
+	padding: 5px;
 	min-height: 250px;
 }
 
@@ -51,42 +52,7 @@
 .rowtoday{
 	color: #EE8D52;
 }
-
-
-
-.boxgrad{
-	/*position: absolute;*/
-	/*width: 400px;
-	height: 250px;*/
-	/*background: linear-gradient(0deg,#000,#262626);*/
-}
-.boxgrad:before{
-	content: ''; 
-	position: absolute;
-	top: -2px;
-	left: -2px;
-	right: -2px;
-	bottom: -2px;
-	background: linear-gradient(45deg,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000);
-	background-size: 500%;
-	width: calc(100% + 8px);
-	height: calc(100% + 8px);
-	z-index: -1;
-	animation: animate 20s linear infinite;
-}
-@keyframes animate{
-	0%{
-		background-position: 0 0;
-	}
-	50%{
-		background-position: 300% 0;
-	}
-	100%{
-		background-position: 0 0;
-	}
-}
-
-
+ 
 
 
 

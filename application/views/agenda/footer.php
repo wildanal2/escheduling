@@ -133,7 +133,7 @@
 	                    $('#tbl_agendakegiatan').html(html);
 	                    $("#agendaall").DataTable({
 	                    		destroy:true,
-						        "lengthMenu": [[7, 14,-1], [7, 14, "Semua"]]
+						        "lengthMenu": [[4,7, 14,-1], [4,7, 14, "Semua"]]
 						    }); 
 	                }
 	            });
@@ -199,54 +199,54 @@
 			            		// 1 bupati normal
 			            		// 4 bupati parah
 			            		// 3 bupati & kominfo
-			            		// 2 jam parah
+			            		// 2 jam parah 
 
 			            		if (asign==null) {
-			            			html+='<td>';
-			            			if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			html+='<td style="border: 1px solid #dddddd;">'; 
+			            			if (date==today.getDate() && today.getMonth()==currentMonth) {
+			            				html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
 			            				html+='<font>'+date+'</font>';
 			            			}
 							        html+='</td>'; 
-			            		}else if(asign==1){
-			            			html+='<td bgcolor="#66C99B">'; //ijo
-						            if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
-			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            		}else if(asign==1){ 
+			            			html+='<td bgcolor="#ff6666">'; //Bupati 
+						            if (date==today.getDate() && today.getMonth()==currentMonth) {
+			            				html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
+			            			}else{ 
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==2){
-			            			html+='<td bgcolor="#FFBA7E">'; //orange
-						            if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			html+='<td bgcolor="#008ae6">'; //kominfo
+						            if (date==today.getDate() && today.getMonth()==currentMonth) {
+						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==3){
-			            			html+='<td bgcolor="#398359">'; //ijo parah
-						            if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			html+='<td bgcolor="#ff6666">'; //Bupati parah
+						            if (date==today.getDate() && today.getMonth()==currentMonth) {
+						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==4){
-			            			html+='<td bgcolor="#FE851C">'; //orange parah
-						            if (date==today.getDate()) {
-			            				html+='<font color="#FFF">'+date+'</font>';
+			            			html+='<td bgcolor="#008ae6">'; //kominfo parah
+						            if (date==today.getDate() && today.getMonth()==currentMonth) {
+						            	html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}else if(asign==5){
-			            			html+='<td bgcolor="#ABAA61">'; //jam parah
-						            if (date==today.getDate()) {
-			            				html+='<font color="#E8246C">'+date+'</font>';
+			            			html+='<td bgcolor="#8B76A0">'; //jam parah bp_kalender
+						            if (date==today.getDate() && today.getMonth()==currentMonth) {
+			            				html+='<div style="background: url(<?php echo base_url() ?>assets/image/bg_datenow.png); background-repeat: no-repeat; background-position: center;  font-weight: 900; text-align: center; color: #FFF;">'+date+'</div>';
 			            			}else{
-			            				html+='<font>'+date+'</font>';
+			            				html+='<font style="color: #FFF;">'+date+'</font>';
 			            			}
 					    	        html+='</td>';
 			            		}
