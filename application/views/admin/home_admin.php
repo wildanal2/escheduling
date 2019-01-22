@@ -1,12 +1,12 @@
 <div class="container">
-   <div class="py-5 text-center">
+   <div class="py-5 text-center" style="margin-top: -40px">
        <h2>Selamat datang 
         <span class="badge badge-secondary">Admin</span>
        </h2>
        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
    </div>
 
-    <div class="row">
+    <div class="row" style="margin-top: -40px">
       <div class="col-xl-6 col-sm-12 mb-6" > 
         <div class="card text-white    bg-primary o-hidden h-100">
           <div class="card-body">
@@ -17,7 +17,7 @@
               <div class="col-xl-3" style="margin-top: -20px">
                 <h1 class="display-2" id="ccc_agenda"><strong><?php echo $w_agenda->ok ?></strong></h1>
               </div>
-              <div class="col-xl-7">Jumlah <b>Agenda</b> bulan ini <br> 
+              <div class="col-xl-7" style="margin-top: -40px; margin-bottom: -10px">Jumlah <b>Agenda</b> bulan ini <br> 
                 <h2 class="text-center"><?php echo $m_agenda->ok ?></h2>
               </div>
             </div>
@@ -44,7 +44,7 @@
               <div class="col-xl-3" style="margin-top: -20px">
                 <h1 class="display-2" id="ccc_pengumuman"><strong><?php echo $w_pengumuman->ok ?></strong></h1>
               </div>
-              <div class="col-xl-7">Jumlah <b>Pengumuman</b> bulan ini <br> 
+              <div class="col-xl-7" style="margin-top: -40px; margin-bottom: -10px">Jumlah <b>Pengumuman</b> bulan ini <br> 
                 <h2 class="text-center"><?php echo $m_pengumuman->ok ?></h2>
               </div>
             </div>
@@ -72,7 +72,7 @@
               <div class="col-xl-3" style="margin-top: -20px">
                 <h1 class="display-2" id="ccc_galeri"><strong><?php echo $w_galeri->ok ?></strong></h1>
               </div>
-              <div class="col-xl-7">Jumlah <b>Galeri</b> bulan ini <br> 
+              <div class="col-xl-7" style="margin-top: -40px; margin-bottom: -10px">Jumlah <b>Galeri</b> bulan ini <br> 
                 <h2 class="text-center"><?php echo $m_galeri->ok ?></h2>
               </div>
             </div>

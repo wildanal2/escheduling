@@ -17,12 +17,12 @@
 				</div> 
 
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color: #ff1a1a"  >
-					<h4 style="color: #ffffff" style="align-items: center;"> 
+					<center><h4 style="color: #ffffff" > 
 						<?php
 						date_default_timezone_set("Asia/Jakarta");
 						echo " " . date("d:M:Y");
 						?>
-					</h4>
+					</h4></center>
 				</div>
 			</div>	
 		</nav>
@@ -51,7 +51,7 @@
 			function display_ct() {
 					var x = new Date()
 					var x1 =  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
-					document.getElementById('time').innerHTML = x1;
+					document.getElementById('time').innerHTML = x1+" WIB";
 					display_c();
 			}
 
@@ -339,8 +339,8 @@
 	                        var tgla = new Date(data[i].tanggal_awal);
 	                        var isi = data[i].namaKegiatan+', '+data[i].keterangan; 
 
-	                        if(isi.length > 95){ 
-	                        	isi = isi.substring(0, 95);
+	                        if(isi.length > 80){ 
+	                        	isi = isi.substring(0, 80);
 	                        	isi +="...";
 	                        }
 
@@ -372,8 +372,8 @@
 	                        var tgla = new Date(data[i].tanggal_awal);
 	                        var isi = data[i].namaKegiatan+', '+data[i].keterangan; 
 
-	                        if(isi.length > 95){ 
-	                        	isi = isi.substring(0, 95);
+	                        if(isi.length > 80){ 
+	                        	isi = isi.substring(0, 80);
 	                        	isi +="...";
 	                        }
 

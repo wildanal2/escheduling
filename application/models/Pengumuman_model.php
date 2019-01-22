@@ -27,11 +27,11 @@ class Pengumuman_model extends CI_Model {
         return $query->result();
     }
 
-    public function create_pengumuman()
+    public function create_pengumuman($judul,$isi)
     {
         $data = array(
-            'judul'     => $this->input->post('judul'),
-            'isi'       => $this->input->post('isi')
+            'judul'     => $judul,
+            'isi'       => $isi
         );
 
         return $this->db->insert('pengumuman', $data);

@@ -137,7 +137,7 @@
 
                 var judul_m= $('#judul_m').val();
                 var pengumuman_m = $('#pengumuman_m').val();
-                alert( judul_m );
+                
                 $.ajax({
                     type : "POST",
                     url  : "<?php echo site_url(); ?>/pengumuman/pengumumanUpdate",
@@ -156,6 +156,28 @@
             
  //   ========================  END UPDATE RECORD ====================================
 
+//   ========================  Start ADD RECORD ====================================
+            $('#formbaru').submit(function(e){
+                e.preventDefault();
+                var judul = $('#jdl').val();
+                var isi = $('#isi').val();
+                // alert(judul);
+                $.ajax({
+                    type : "POST",
+                    url  : "<?php echo site_url(); ?>/Pengumuman/create",
+                    dataType : "JSON",
+                    data : {judul:judul,
+                            isi:isi},
+
+                    success: function(){ 
+                        $('#Modal_Add').modal('hide'); 
+                        refresh();
+                    }
+                });
+
+                return false;
+            });
+//   ========================  END ADD RECORD ====================================
 
 
 

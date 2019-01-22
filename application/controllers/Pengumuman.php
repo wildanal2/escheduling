@@ -47,35 +47,13 @@ class Pengumuman extends CI_Controller {
 	// Membuat fungsi create
 	public function create()
 	{
-		$data['page_title'] = 'Buat Pengumuman Baru';
-		// Kita butuh helper dan library berikut
-		$this->load->helper('form');
-		$this->load->library('form_validation');
 
-		// Form validasi untuk Nama Kategori
-		$this->form_validation->set_rules(
-			'judul',
-			'Judul',
-			'required|min_length[5]|max_length[999]',
-			array(
-				'required' => 'Isi %s dulu',
-				'min_length[5]' => 'Judul tes<strong>' . $this->input->post('judul') . '</strong> kurang panjang'
-			)
-		);
 
-		// $this->form_validation->set_rules(
-		// 	'username', 
-		// 	'Username', 
-		// 	'required|min_length[5]|is_unique[users.username]');
-
-		if($this->form_validation->run() === FALSE){
-			$this->load->view('header_footer/header_admin');
-			$this->load->view('pengumuman/create', $data);
-			$this->load->view('header_footer/footer_admin');
-		} else {
-			$this->pengumuman_model->create_pengumuman();
-			redirect('pengumuman');
-		}
+		$judul = $this->input->post('judul');
+		$isi = $this->input->post('isi');
+		
+		$result = $this->pengumuman_model->create_pengumuman($judul,$isi);
+		echo json_encode($result);
 	}
 
 	public function delete_pengumuman()

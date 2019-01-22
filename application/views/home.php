@@ -105,10 +105,10 @@
 		    <textarea  class="form-control" rows="7" readonly="" id="pengumuman"></textarea>
 		   
 		    <div class="row align-items-center" >
-		    	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
 			    </div>
-			    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >
+			    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
 			    	<small class="text-muted" id="tanggal" style="text-align: right;"></small>
 		  		</div>
 		  	</div>

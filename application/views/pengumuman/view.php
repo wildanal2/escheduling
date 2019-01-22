@@ -43,7 +43,8 @@
 				      <div class="card-body">
 
 				       	<div class="pull-right">
-				       		<a class="btn btn-success" href="Pengumuman/create"> <span class="fa fa-plus"></span> Tambah Pengumuman </a>
+				       		
+				       		<a href="javascript:void(0);" class="btn btn-success" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Tambah Pengumuman </a>
 				       	</div>
 
 				       	
@@ -121,6 +122,36 @@
 		</div>	
 	</form>	
 
+	<!--MODAL Baru-->
+    <form id="formbaru">
+      <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Pengumuman Baru</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
+            </div>
+            <div class="modal-body">			              
+               
+               	<div class="form-group col-lg-12">
+					<label>Judul</label>
+					<input type="text" id="jdl" class="form-control" placeholder="Masukkan Nama Pengumuman" required="">
+				</div>
+
+				<div class="form-group col-lg-12">
+					<label>Pengumuman</label>
+					<textarea type="text" id="isi" class="form-control" rows="4" placeholder="Masukkan Pengumuman" required=""> </textarea>
+				</div>
+            </div>
+            <div class="modal-footer">
+            	<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">Batal</button>
+				<button type="submit" id="btn_push" class="btn btn-primary col-md-3">Tambah</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  <!--END MODAL baru-->
 	
 
 
