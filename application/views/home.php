@@ -5,12 +5,12 @@
 <div class="container-fluid" style="width: 100%; margin-top: -10px; ">
 	
 
-	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-es">
 		<div class="boddy" >
 			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
-			<div class="card">
+			<div class="card bs-example">
 		        <h4 style="text-align: center;" id="thismonth"></h4>
-		        <table class="table table-responsive-sm" id="calendar">
+		        <table class="table" id="calendar">
 		            <thead>
 		            <tr style="background-color: #E8E8E8">
 		                <th>Minggu</th>
@@ -52,7 +52,7 @@
 
 	</div>
 
-	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4" style="margin-left: -20px">
+	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4 col-es-mid">
 		
 		<!-- bupati bulan ini -->
 		<div class="boddy">
@@ -86,17 +86,17 @@
 	     
 	</div>
 
-	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 boddy" >
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-es boddy" >
 		<h4 class="namatitel">PENGUMUMAN</h4>
 		<div id="con_lstpgumuman">	
 		</div>
 
 		<div class="card-body" id="card_pengumuman" style="display: none;">
-			<div class="row" style="margin-bottom: -10px;">
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			<div class="row" style="margin-bottom: -10px; ">
+				<div class="col-sm-1" style="margin-left: 20px;">
 					<a id="back" class="prevv" >❮</a>		
 				</div>
-				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				<div class="col-sm-9">
 					<center><b><font id="judul" size="4"></font></b></center>
 				</div>
 			</div>
@@ -121,7 +121,7 @@
 		
 		
 
-	<div class="col-xs-3 col-sm-3 boddymid">
+	<div class="col-xs-3 col-sm-3 col-es boddymid">
 		<h4 class="namatitel">GALERY</h4>
 	     				 
 		<div class="">

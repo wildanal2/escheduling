@@ -6,7 +6,7 @@
 	padding-top: 8px;
 	padding-bottom: 8px;
 }
-
+f
 .navbarcolor{
 	background:#4f0381;
 }
@@ -52,22 +52,63 @@
 .rowtoday{
 	color: #EE8D52;
 }
- 
 
-
-
-
-table {
+/*table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
-	width: 100%;
-  }
+	width: 50%;
+  }*/
 td, th {
 	/*border: 1px solid #dddddd;*/
 	/*text-align: left;*/
 	padding: 8px;
-  }
-  
-/* tr:nth-child(even) {
-	background-color: #dddddd;
-  } */
+  } 
+
+.col-es-3{
+	width: 23%;
+}
+.col-hp-2{
+	width: 16.66%;
+}
+.col-hp-8{
+	width: 66.66%; 
+}
+
+.col-es-mid{
+	margin-left: -20px
+}
+
+
+
+
+/* for hp*/
+ @media only screen and (max-width: 768px) {
+ 	.col-es{
+		width: 100%;
+		margin-top: 8px;
+		margin-bottom: 8px;
+	} 
+	.gal_home img {
+	  width: 100%;
+	  height: auto;
+	  background-size: cover;
+	}
+
+	.col-es-mid{
+		width: 100%;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		margin-left: 0px;
+	}
+
+	.boddy{
+		width: 100%;
+	}
+
+	.col-hp-2{
+		width: 100%;
+	}
+	.col-hp-8{
+		width: 100%;
+	}
+}
