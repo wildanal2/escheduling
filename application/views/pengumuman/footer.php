@@ -218,6 +218,7 @@
         function refresh() {
                 $(".table").DataTable().destroy();
                 $('tbody').empty();
+                document.getElementById('formbaru').reset();
                 document.getElementById('form_update').reset();
                 document.getElementById('tampil').reset();
             

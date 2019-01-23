@@ -110,7 +110,7 @@
 		      <div class="modal-body">
 		        <div class="form-group">
 				  	<label for="exampleFormControlTextarea3" id="tanggal_m"></label>
-				  	<textarea class="form-control" id="pengumuman_m" rows="7" > Klik Edit data yang dipilih dibagian datatabel</textarea>
+				  	<textarea class="form-control" id="pengumuman_m" rows="7" required=""> Klik Edit data yang dipilih dibagian datatabel</textarea>
 				</div>
 		      </div>
 		      <div class="modal-footer">
@@ -123,7 +123,9 @@
 	</form>	
 
 	<!--MODAL Baru-->
+    
     <form id="formbaru">
+    
       <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -135,13 +137,15 @@
                
                	<div class="form-group col-lg-12">
 					<label>Judul</label>
-					<input type="text" id="jdl" class="form-control" placeholder="Masukkan Nama Pengumuman" required="">
+					<input type="text" id="jdl" class="form-control" minlength="10" placeholder="Masukkan Nama Pengumuman"required="" >
+					<div class="invalid-feedback">Isi Judul dulu</div>
 				</div>
 
 				<div class="form-group col-lg-12">
 					<label>Pengumuman</label>
-					<textarea type="text" id="isi" class="form-control" rows="4" placeholder="Masukkan Pengumuman" required=""> </textarea>
+					<textarea type="text" id="isi" class="form-control" rows=4 cols=50 placeholder="Masukkan Pengumuman" name="isi" required="" oninvalid="this.setCustomValidity('Masukkan isi pengumuman')"></textarea>
 				</div>
+				
             </div>
             <div class="modal-footer">
             	<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">Batal</button>
