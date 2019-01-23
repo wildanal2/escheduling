@@ -107,10 +107,10 @@
 	                        agend.push(ag);
 
 	                        html += '<tr>';
-	                        		if (data[i].level == 1) {
-	                        html +=			'<td style="text-align: center" bgcolor="#66C99B"><font color="#fff">'+a+'</font></td>';
-	                        		}else if (data[i].level == 2) {
-	                        html +=			'<td style="text-align: center" bgcolor="#FE851C"><font color="#fff">'+a+'</font></td>';
+	                        		if (data[i].level == 1) { // bupati
+	                        html +=			'<td style="text-align: center" bgcolor="#ff6666"><font color="#fff">'+a+'</font></td>';
+	                        		}else if (data[i].level == 2) { // kominfo
+	                        html +=			'<td style="text-align: center" bgcolor="#008ae6"><font color="#fff">'+a+'</font></td>';
 	                        		}
 		                    html +=	
 		                            '<td>'+data[i].namaKegiatan+'</td>'+
@@ -266,7 +266,7 @@
             $('#formbaru').submit(function(e){
                 e.preventDefault();
         		var namain = $('#namain').val();
-        		var ket = $('#ket').val();
+        		var ket = $('#ketgiat').val();
         		var mulaiin = $('#mulai').val();
         		var selesaiin = $('#selesai').val();
         		var levelin = $('#level').val();

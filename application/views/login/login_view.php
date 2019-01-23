@@ -22,17 +22,18 @@
                             <div class="form-horizontal fomlogin">
                                 <div class="input-group textinput">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="uname" type="text" class="form-control" name="uname" placeholder="username">
+                                    <input id="uname" type="text" class="form-control" name="uname" placeholder="username"  minlength="4" required>
                                 </div>
                                 <div class="input-group textinput">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input id="paswd" type="Password" class="form-control" name="paswd" placeholder="Password">
+                                    <input id="paswd" type="Password" class="form-control" name="paswd" placeholder="Password" minlength="4" required>
                                 </div>
                                 <div id="responseDiv" class="alert text-center" style="margin-top:20px; display:none;">
                                   <button type="button" class="close" id="clearMsg"><span aria-hidden="true">&times;</span></button>
                                   <span id="message"></span>
-                                </div>
-                                <button type="button" class="btn btn-success textinput" style="width:100%;" id="btn_login">Sign In</button>
+                                </div>  
+
+                                <button type="submit" class="btn btn-success buttonload" style="width:100%;" id="btn_login"><i id="loadbtn" style="display: none;" class="fa fa-spinner fa-spin"></i> Sign In</button>
                                 <br>
                             </div>
                         </fieldset>

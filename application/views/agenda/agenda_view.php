@@ -90,20 +90,20 @@
 			               
 			               	<div class="form-group col-lg-12">
 								<label>Nama Kegiatan</label>
-								<input type="text" id="namain" class="form-control" placeholder="Masukkan Nama Kegiatan" required="">
+								<input type="text" id="namain" class="form-control" placeholder="Masukkan Nama Kegiatan" minlength="8" required>
 							</div>
 
 							<div class="form-group col-lg-12">
 								<label>Keterangan</label>
-								<textarea type="text" id="ket" class="form-control" rows="4" placeholder="Masukkan Keterangan" required=""> </textarea>
+								<textarea type="text" id="ketgiat" class="form-control" rows="4" placeholder="Masukkan Keterangan" minlength="15" required></textarea>
 							</div>
 			            	
 							<div class="form-group col-lg-12">
 								<label for="#">Tanggal </label>
 								<div class="input-daterange input-group" data-provide="datepicker" id="datepicker">
-								    <input type="text" class="form-control" id="mulai" placeholder="Tanggal Mulai" required="" />
+								    <input type="text" class="form-control" id="mulai" placeholder="Tanggal Mulai" required/>
 								    <span class="input-group-addon"> &nbsp Sampai dengan &nbsp  </span>
-								    <input type="text" class="form-control" id="selesai" placeholder="Tanggal Selesai" required="" />
+								    <input type="text" class="form-control" id="selesai" placeholder="Tanggal Selesai" required/>
 								</div>	
 							</div>
 

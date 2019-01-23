@@ -19,13 +19,19 @@ class Admin extends CI_Controller{
 			if ($data['level'] == 1) {
 				redirect('Admin/home','refresh');
 			}else{
-				redirect('Login','refresh');	
+				redirect('Admin/login','refresh');	
 			}
 
 		}else {
-			redirect('Login','refresh');
+			redirect('Admin/login','refresh');
 		}
 
+	}
+
+	public function login(){
+		$this->load->view('login/header_login');
+		$this->load->view('login/login_view');
+		$this->load->view('login/footer_login');
 	}
 
 	public function home(){

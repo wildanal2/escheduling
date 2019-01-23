@@ -13,24 +13,25 @@
 		<script type="text/javascript">
 
 		$(document).ready(function(){
-
-			$('#btn_login').on('click',function(){
+ 
+			$('#form_login').submit(function(e){
 	            var username = $('#uname').val();
 	            var password = $('#paswd').val();
 
 	            $.ajax({
 	            	async : false,
 	                type : "POST",
-	                url   : '<?php echo base_url();?>index.php/Login/login',
+	                url   : '<?php echo base_url();?>index.php/Login/ceklogin',
 	                dataType : "JSON",
 	                data : {username:username,password:password},
 	                success: function(response){ 
 	                	$('#message').html(response.message);
 
 						if(response.error){
-							$('#responseDiv').removeClass('alert-success').addClass('alert-danger').show();
+							$('#responseDiv').removeClass('alert-success').addClass('alert-danger').show(); 
 						}
 						else{
+							document.getElementById("loadbtn").style.display="inline-block";
 							$('#responseDiv').removeClass('alert-danger').addClass('alert-success').show();
 							$('#uname').val("");
 							$('#paswd').val("");
@@ -43,9 +44,9 @@
 	                }
 	            });
 
-	   //          $(document).on('click', '#clearMsg', function(){
-				// 	$('#responseDiv').hide();
-				// });
+	            $(document).on('click', '#clearMsg',function(){
+					$('#responseDiv').hide();
+				});
 	            return false;
 	        });
 	       

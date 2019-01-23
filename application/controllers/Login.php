@@ -9,17 +9,11 @@ class Login extends CI_Controller {
 		$this->load->model('Login_model');
 	}
 
-	public function index(){
-		$this->load->view('login/header_login');
-		$this->load->view('login/login_view');
-		$this->load->view('login/footer_login');
-	}
-
-	public function login()
+	public function ceklogin()
 	{ 
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		//$output = array('error' => false);
+		$output = array('error' => false);
 
 		$result = $this->Login_model->login($username,$password);
 		if ($result) { 
@@ -34,15 +28,12 @@ class Login extends CI_Controller {
 			$this->session->set_userdata('escheduling_logged',$sess_array );
 			$output['level'] = 1;
 			$output['message'] = 'Prosess Masuk. Tunggu sebentar...';
-		}else {
-			
-			$this->session->set_flashdata('login_failed', 'Login invalid');
-
-			redirect('Admin', 'refreshe');
-			// $output['error'] = true;
-			// $output['message'] = 'Gagal masuk. User atau Password tidak terdaftar';
+		}else { 
+			$output['error'] = true;
+			$output['message'] = 'Gagal masuk. User atau Password tidak terdaftar';
 		}
-		echo json_encode($output);
+
+		echo json_encode($output); 
 	}
  
 	

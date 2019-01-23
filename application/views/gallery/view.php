@@ -23,12 +23,12 @@
 							<form class="form-horizontal" id="addgallery">
 								<div class="form-group">
 									<label style="text-align: left;">Nama Foto </label>
-									<input type="text" class="form-control" name="nama" placeholder="Nama Foto" required>
+									<input type="text" class="form-control" name="nama" placeholder="Nama Foto" minlength="6" required>
 									<div class="invalid-feedback">isi Nama Foto</div>
 								</div>
 								<div class="form-group">
 									<label style="text-align: left;">Tag</label>
-									<input type="text" class="form-control" name="tag" placeholder="Tag" required>
+									<input type="text" class="form-control" name="tag" placeholder="Tag" minlength="3" required>
 									<div class="invalid-feedback">isi Nama Tag</div>
 								</div>
 								<div class="form-group">
@@ -94,12 +94,12 @@
 			              <center><img id="foto_update" style="display: none;"></center>
 							<div class="form-group">
 								<label style="text-align: left;">Nama Foto </label>
-								<input type="text" class="form-control" name="nama_u" placeholder="Nama Foto" required>
+								<input type="text" class="form-control" name="nama_u" placeholder="Nama Foto" minlength="6" required>
 								<div class="invalid-feedback">isi Nama Foto</div>
 							</div>
 							<div class="form-group">
 								<label style="text-align: left;">Tag</label>
-								<input type="text" class="form-control" name="tag_u" placeholder="Tag" required>
+								<input type="text" class="form-control" name="tag_u" placeholder="Tag" minlength="3" required>
 								<div class="invalid-feedback">isi Nama Tag</div>
 							</div>
 							<div class="form-group">
