@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
-        
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style_admin.css">
 
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css"> 
         <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap-datepicker3.css">

@@ -1,0 +1,180 @@
+
+.jmlmingagenda{
+	margin-top: -20px;
+	margin-left: 0; 
+} 
+.jmlmingpengumuman{
+	margin-top: -20px;
+	margin-left: 0; 
+}
+.jmlminggallery{
+	margin-top: -20px;
+	margin-left: 0; 
+}
+
+
+.txtagendabln{
+	text-align: center; 
+}
+.txtpengumumanbln{
+	text-align: center; 
+}
+.txtgallerybln{
+	text-align: center; 
+}
+
+/*===========. Pengumuman.  ==============*/
+.minipengumuman{
+	width: 33%;
+	margin-left: 1%; 
+	border: 2px;
+}
+.pengumumanview{
+	width: 65%;
+	margin-left: 1%;
+	border: 2px; 
+}
+/*===========. Pengumuman.  ==============*/
+
+
+/*===========. Gallery.  ==============*/
+.minigallery{
+	width: 33%;
+	margin-left: 1%; 
+	border: 2px;
+}
+.galleryview{
+	width: 65%;
+	margin-left: 1%;
+	border: 2px; 
+}
+/*===========. Gallery.  ==============*/
+
+
+
+/*===========. AGENDA.  ==============*/
+.calendaragenda{
+	width: 33%;
+	margin-left: 1%; 
+	border: 2px;
+}
+.agendaview{
+	width: 65%;
+	margin-left: 1%;
+	border: 2px; 
+}
+.tblcus{
+	width: 100%;
+	overflow-x: auto;
+}
+/*===========. AGENDA.  ==============*/
+
+
+/* for laptop jelek*/
+@media only screen and (min-width: 1199px) and (max-width: 1345px) {
+/* ========. agneda  =========*/
+	.calendaragenda{
+		width: 38%;
+		margin-left: 1%; 
+		border: 2px;
+	}
+	.agendaview{
+		width: 60%;
+		margin-left: 1%;
+		border: 2px; 
+	}
+	.tblcus{
+		width: 100%;
+		overflow-x: scroll;
+	}
+/* ========. agneda  =========*/
+}
+
+@media only screen and (max-width: 1198px) {
+
+   .boxpengumuman{
+   		margin-top: 25px;
+   } 
+   .jmlmingagenda{
+   		margin-top: -45px;
+   		margin-left: 240px; 
+   		margin-bottom: 10px;
+   } 
+   .jmlmingpengumuman{
+   		margin-top: -45px;
+   		margin-left: 280px; 
+   		margin-bottom: 10px;
+   }
+   .jmlminggallery{
+   		margin-top: -45px;
+   		margin-left: 240px; 
+   		margin-bottom: 10px;
+   }
+
+
+
+   .txtagendabln{
+   		text-align: left;
+   		margin-left: 55px;
+   }
+   .txtpengumumanbln{
+		text-align: left;
+   		margin-left: 55px;
+	}
+	.txtgallerybln{
+		text-align: left;
+   		margin-left: 55px;
+	}
+
+
+/* ========. Pengumuman  =========*/
+	.minipengumuman{
+		border: 2px;
+		width: 100%;
+		margin-left: 20px;
+	}
+	.pengumumanview{
+		border: 2px;
+		width: 100%;
+		margin-left: 20px;
+		margin-top: 20px;
+	}
+/* ========. Pengumuman  =========*/
+
+
+/* ========. agneda  =========*/
+	.calendaragenda{
+		border: 2px;
+		width: 100%;
+		margin-left: 20px;
+	}
+	.agendaview{
+		border: 2px;
+		width: 100%;
+		margin-left: 20px;
+		margin-top: 20px;
+	}
+	.tblcus{
+		width: 100%;
+		overflow-x: auto;
+	}
+/* ========. agneda  =========*/
+
+/* ========. Gallery  =========*/
+	.minigallery{
+		border: 2px;
+		width: 100%;
+		margin-left: 20px;
+	}
+	.galleryview{
+		border: 2px;
+		width: 100%;
+		margin-left: 20px;
+		margin-top: 20px;
+	}
+/* ========. Gallery  =========*/
+
+
+
+
+}

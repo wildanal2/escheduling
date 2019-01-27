@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style_home.css">
         
         <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
-        
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style_admin.css">
  
     </head>
 

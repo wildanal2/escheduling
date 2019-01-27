@@ -2,21 +2,13 @@
 		
 		<nav class="navbar navbar-default navbar-fixed-bottom footer" style="background-color: transparent;" role="navigation">
 			<div class="container-fluid" >
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
 					<button type="button" class="btn btn-warning btn-lg disabled" id="time"></button>
 				</div>
-				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<div class="runtext-container">
-						<div class="main-runtext">
-							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
-								<div class="text-container">
-								   <!-- <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a> -->
-								</div>
-							</marquee>
-						</div>
-					</div>
+				<div class="col-xs-4 col-sm-6 col-md-8 col-lg-8">
+					 
 				</div> 
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+				<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2" >
 					<button type="button" class="btn btn-danger btn-lg disabled" style="align-items: center;"> 
 						<?php
 						date_default_timezone_set("Asia/Jakarta");
@@ -36,13 +28,6 @@
 
 		<!-- Custom -->
 		<!-- <script src="<?php echo base_url() ?>assets/js/custom.js"></script> -->
- 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#sandbox-container .input-daterange').datepicker({
-				});
-            });
-        </script>
 		
 		<script type="text/javascript">
 

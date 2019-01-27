@@ -15,7 +15,7 @@
 
 		<div class="container-fluid row">
 			
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border: 2px">
+			<div class="minigallery" style="border: 2px">
 				<div style="background-color: #FFF; padding: 15px">
 					<div class="boddy card">
 						<H5 class="card-header" id="titel_sec">Tambahkan Data Foto</H5>
@@ -49,13 +49,13 @@
 					<br>
 				</div>
 			</div>
-			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="border: 2px;">
+			<div class="galleryview" style="border: 2px;">
 				<div style="background-color: #FFF; padding: 15px;">
 					<div class="boddy card">
 				      <div class="card-header"> Daftar Foto</div>
 				      <div class="panel-body">
 				        <div class="card-title">
-				        <table class="table table-striped" id="mydata">
+				        <table class="table table-striped table-responsive-md" id="mydata">
 				          <thead>
 				            <tr>
 				              <th>No</th>

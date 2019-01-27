@@ -5,7 +5,7 @@
 <br>
 <div class="container-fluid row">
 			
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border: 2px">
+	<div class="calendaragenda">
 		<div style="background-color: #FFF; padding: 10px">
 
 			<div class="boddy card">
@@ -13,7 +13,7 @@
 				<div class="card-body">
 					<div class="row card-title">
 						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<button class="btn btn-outline-primary col-md-12" id="previous">Previous</button>	
+							<button class="btn btn-outline-primary col-md-12" id="previous"><font style="margin-left: -8px;">Previous</font></button>	
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 							<h5 style="text-align: center;" id="thismonth"></h5>
@@ -22,10 +22,9 @@
 							<button class="btn btn-outline-primary col-md-12" id="next">Next</button>	
 						</div>
 					</div>
-
-					
-			     					
-			        <table class="table table-bordered table-responsive-sm" id="calendar">
+ 					
+ 					<center>
+			        <table class="table table-bordered table-responsive-lg" id="calendar">
 			            <thead>
 			            <tr>
 			                <th>Mingg</th>
@@ -41,19 +40,21 @@
 
 			            </tbody>
 			        </table>
+			        </center>
 			     </div>
 		     </div>
 
 		</div>
 	</div>
-	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="border: 2px;">
+
+	<div class="agendaview">
 		<div style="background-color: #FFF; padding: 15px;">
 			<div class="boddy card">
 				<center><h4 class="namatitel card-header">AGENDA KEGIATAN</h4></center>
 				<div class="card-body">
 					<div class="pull-right"><a href="javascript:void(0);" class="btn btn-success" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Tambah Agenda</a></div>
 
-					<table class="table table-striped table-bordered" style="width:100%" id="agendaall">
+					<table class="table table-striped table-bordered table-responsive-md tblcus" style="width:100%" id="agendaall">
 						<thead>
 							<tr style="background-color: #E8E8E8;">
 							   <th style="width: 5%;">No</th>
@@ -100,11 +101,11 @@
 			            	
 							<div class="form-group col-lg-12">
 								<label for="#">Tanggal </label>
-								<div class="input-daterange input-group" data-provide="datepicker" id="datepicker">
-								    <input type="text" class="form-control" id="mulai" placeholder="Tanggal Mulai" required/>
+								<div class="input-daterange input-group" id="datepickerss">
+								    <input  class="form-control" name="mulai" id="mulai" placeholder="Tanggal Mulai" required/>
 								    <span class="input-group-addon"> &nbsp Sampai dengan &nbsp  </span>
-								    <input type="text" class="form-control" id="selesai" placeholder="Tanggal Selesai" required/>
-								</div>	
+								    <input   class="form-control" name="selesai" id="selesai" placeholder="Tanggal Selesai" required/>
+								</div>  
 							</div>
 
 							<div class="form-group col-lg-6">
@@ -153,7 +154,7 @@
 			            	
 							<div class="form-group col-lg-12">
 								<label for="#">Tanggal </label>
-								<div class="input-daterange input-group" data-provide="datepicker" id="datepicker">
+								<div class="input-daterange input-group" id="datepickers">
 								    <input type="text" class="form-control" id="mulaiup" name="mulaiup" placeholder="Tanggal Mulai" required="" />
 								    <span class="input-group-addon"> &nbsp Sampai dengan &nbsp  </span>
 								    <input type="text" class="form-control" id="selesaiup" name="selesaiup" placeholder="Tanggal Selesai" required="" />

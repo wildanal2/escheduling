@@ -53,6 +53,21 @@
 				}
 
 		$(document).ready(function(){
+			var datepickerss= $("#datepickerss");
+	        datepickerss.datepicker({
+	        	language: "id",
+	        	format: "dd/mm/yyyy",
+			    startDate: "today",  
+			    todayHighlight: true
+	        }) 
+	        datepickerss= $("#datepickers");
+	        datepickerss.datepicker({
+	        	language: "id",
+	        	format: "dd/mm/yyyy",
+			    // startDate: "today",  
+			    todayHighlight: true
+	        })  
+
 			let today = new Date();
 			let currentMonth = today.getMonth();
 			let currentYear = today.getFullYear();

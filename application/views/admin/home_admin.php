@@ -14,11 +14,11 @@
               <div class="col-xl-8 card-body-icon">
                 <i class="fa fa-fw fa-comments">Jumlah <b>Agenda</b> minggu ini</i>
               </div>
-              <div class="col-xl-3" style="margin-top: -20px">
+              <div class="col-xl-3 jmlmingagenda">
                 <h1 class="display-2" id="ccc_agenda"><strong><?php echo $w_agenda->ok ?></strong></h1>
               </div>
               <div class="col-xl-7" style="margin-top: -40px; margin-bottom: -10px">Jumlah <b>Agenda</b> bulan ini <br> 
-                <h2 class="text-center"><?php echo $m_agenda->ok ?></h2>
+                <h2 class="txtagendabln"><?php echo $m_agenda->ok ?></h2>
               </div>
             </div>
           </div>
@@ -34,18 +34,18 @@
         </div>
       </div>
 
-      <div class="col-xl-6 col-sm-12 mb-6"> 
+      <div class="col-xl-6 col-sm-12 mb-6 boxpengumuman"> 
         <div class="card text-white    bg-danger o-hidden h-100" >
           <div class="card-body">
             <div class="row">
               <div class="col-xl-8 card-body-icon">
                 <i class="fa fa-fw fa-comments">Jumlah <b>Pengumuman</b> minggu ini</i>
               </div>
-              <div class="col-xl-3" style="margin-top: -20px">
+              <div class="col-xl-3 jmlmingpengumuman">
                 <h1 class="display-2" id="ccc_pengumuman"><strong><?php echo $w_pengumuman->ok ?></strong></h1>
               </div>
               <div class="col-xl-7" style="margin-top: -40px; margin-bottom: -10px">Jumlah <b>Pengumuman</b> bulan ini <br> 
-                <h2 class="text-center"><?php echo $m_pengumuman->ok ?></h2>
+                <h2 class="txtpengumumanbln"><?php echo $m_pengumuman->ok ?></h2>
               </div>
             </div>
           </div>
@@ -69,11 +69,11 @@
               <div class="col-xl-8 card-body-icon">
                 <i class="fa fa-fw fa-comments">Jumlah <b>Galeri</b> minggu ini</i>
               </div>
-              <div class="col-xl-3" style="margin-top: -20px">
+              <div class="col-xl-3 jmlminggallery">
                 <h1 class="display-2" id="ccc_galeri"><strong><?php echo $w_galeri->ok ?></strong></h1>
               </div>
               <div class="col-xl-7" style="margin-top: -40px; margin-bottom: -10px">Jumlah <b>Galeri</b> bulan ini <br> 
-                <h2 class="text-center"><?php echo $m_galeri->ok ?></h2>
+                <h2 class="txtgallerybln"><?php echo $m_galeri->ok ?></h2>
               </div>
             </div>
           </div>

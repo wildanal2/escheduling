@@ -12,7 +12,7 @@
 
 		<div class="container-fluid row">
 			
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 boddy" style="border: 2px">
+			<div class="minipengumuman boddy" style="border: 2px">
 				<div style="background-color: #FFF; padding: 15px">
 
 					
@@ -36,7 +36,7 @@
 					
 				</div>
 			</div>
-			<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="border: 2px;">
+			<div class="pengumumanview" style="border: 2px;">
 				<div style="background-color: #FFF; padding: 15px;">
 					<div class="panel panel-default card text-black">
 				      <div class="panel-heading card-header"><h3><b><center> Pengumuman </center></b></h3></div>
@@ -48,7 +48,7 @@
 				       	</div>
 
 				       	
-				        <table class="table table-striped" id="mydata">
+				        <table class="table table-striped table-responsive-md" id="mydata">
 				          <thead>
 				            <tr>
 				              <th>No</th>
