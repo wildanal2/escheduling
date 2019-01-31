@@ -2,15 +2,15 @@
 ?> 
 
 
-<div class="container-fluid" style="width: 100%; margin-top: -10px; ">
+<div class="container-fluid row">
 	
 
-	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-es">
+	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 		<div class="boddy" >
 			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
 			<div class="card bs-example">
 		        <h4 style="text-align: center;" id="thismonth"></h4>
-		        <table class="table" id="calendar">
+		        <table class="table table-bordered table-responsive-lg" id="calendar">
 		            <thead>
 		            <tr style="background-color: #E8E8E8">
 		                <th>Minggu</th>
@@ -45,14 +45,12 @@
 				<tbody id="tbl_agendakegiatan">
 					
 				</tbody> 
-			</table>
- 
-			 
+			</table>		 
 		</div>	
 
 	</div>
 
-	<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4 col-es-mid">
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 		
 		<!-- bupati bulan ini -->
 		<div class="boddy">
@@ -86,64 +84,63 @@
 	     
 	</div>
 
-	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-es boddy" >
-		<h4 class="namatitel">PENGUMUMAN</h4>
-		<div id="con_lstpgumuman">	
-		</div>
-
-		<div class="card-body" id="card_pengumuman" style="display: none;">
-			<div class="row" style="margin-bottom: -10px; ">
-				<div class="col-sm-1" style="margin-left: 20px;">
-					<a id="back" class="prevv" >❮</a>		
-				</div>
-				<div class="col-sm-9">
-					<center><b><font id="judul" size="4"></font></b></center>
-				</div>
+	<div class="coll3 " >
+		<div class="boddy">
+			<h4 class="namatitel">PENGUMUMAN</h4>
+			<div id="con_lstpgumuman">	
 			</div>
-		    
-		    <hr> 
-		    <textarea  class="form-control" rows="7" readonly="" id="pengumuman"></textarea>
-		   
-		    <div class="row align-items-center" >
-		    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-			    </div>
-			    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
-			    	<small class="text-muted" id="tanggal" style="text-align: right;"></small>
-		  		</div>
-		  	</div>
-  		</div>
-
-	</div> 
-
-		<!-- <div class="card text-black bg-default mb-2" id="update">
-		</div> -->
-		
-		
-
-	<div class="col-xs-3 col-sm-3 col-es boddymid">
-		<h4 class="namatitel">GALERY</h4>
-	     				 
-		<div class="">
-				<div id="gal_home">	
-				    <!-- container img gallery -->
+			<div class="card-body" id="card_pengumuman" style="display: none;">
+				<div class="row" style="margin-bottom: -10px; ">
+					<div class="col-sm-1" style="margin-left: 20px;">
+						<a id="back" class="prevv" >❮</a>		
+					</div>
+					<div class="col-sm-9">
+						<center><b><font id="judul" size="4"></font></b></center>
+					</div>
 				</div>
+			    
+			    <hr> 
+			    <textarea  class="form-control" rows="7" readonly="" id="pengumuman"></textarea>
+			   
+			    <div class="row align-items-center" >
+			    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-				  <a class="prevgal" id="prev">❮</a>
-				  <a class="nextgal" id="next">❯</a>
-
-				<div class="caption-container" id="capimg"> <a href="javascript:void(0);" id="caption" class="imgdetail" style="color: white;"></a></div>
-
-				<div class="row" style="margin-left: 2px;margin-right: 2px;">
-
-					<div id="column_imggallery">
-					    <!-- container rowsColls img -->
-				    </div> 
-				</div>
+				    </div>
+				    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+				    	<small class="text-muted" id="tanggal" style="text-align: right;"></small>
+			  		</div>
+			  	</div>
+	  		</div>	
 
 		</div>
-	</div> 
+		
 
+	  	<div class="boddymid">
+			<h4 class="namatitel">GALERY</h4>
+		     				 
+			<div class="">
+					<div id="gal_home">	
+					    <!-- container img gallery -->
+					</div>
+
+					  <h4 class="prevgal" id="prev">❮</h4>
+					  <h4 class="nextgal" id="next">❯</h4>
+
+					<div class="caption-container" id="capimg"> <a href="javascript:void(0);" id="caption" class="imgdetail" style="color: white;"></a></div>
+
+					<div class="row" style="margin-left: 2px;margin-right: 2px;">
+
+						<div id="column_imggallery">
+						    <!-- container rowsColls img -->
+					    </div> 
+					</div>
+
+			</div>
+		</div> 
+
+
+	</div> 
 
 	
 

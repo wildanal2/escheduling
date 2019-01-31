@@ -28,18 +28,10 @@
 		</nav>
 		
 
-		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
- 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>  
  		<script type="text/javascript" src="<?php echo base_url().'assets/datatables/datatables.min.js'?>"></script> 
-
-
-
-
-
-		
+  		
 		<script type="text/javascript">
 		var slideIndex = 1;
 
@@ -406,15 +398,15 @@
 	                		const tgl = new Date(data[i].tanggal);
 	                        var tgl_a = tgl.getDate()+"-"+tgl.getMonth()+1+"-"+tgl.getFullYear();
 
-	                		html += '<div class="card">'+
+	                		html += '<div class="row" style="align-items: center;">'+
 										'<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">'+
 											 '<img  width="40px" src="<?php echo base_url() ?>assets/image/horn.png">'+
 										'</div>'+
 										'<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="align-items: center;">'+
-											'<a style="color: #000;" class="item_view linkpengumum" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h5>'+data[i].judul+'</h5></a>'+
+											'<a style="color: #000;" class="item_view linkpengumum" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h6>'+data[i].judul+'</h6></a>'+
 											'<p style="margin-top: -5px">'+tgl_a+'</p>'+
 										'</div>'+
-									'</div><hr>';
+									'</div><hr style="margin-top: -10px;">';
 	                	}
 	                    $('#con_lstpgumuman').html(html); 
 	                }
@@ -455,13 +447,12 @@
 	                	var html='';
 	                	var html1='';
 	                	for(i=0; i<data.length; i++){
-	                		html+=  '<div class="mySlides">'+
-									   // '<div class="numbertext">'+data[i].nama+'</div>'+
-									    '<img class="img-responsive" src="<?=base_url()?>./assets/image/'+data[i].source+'">'+
+	                		html+=  '<div class="mySlides">'+ 
+									    '<img class="img-fluid" src="<?=base_url()?>./assets/image/'+data[i].source+'">'+
 									'</div>';
 
 							html1+= '<div class="column">'+
-								      '<img class="demo cursor img-responsive" src="<?=base_url()?>./assets/image/'+data[i].source+'" style="width:100%" onclick="currentSlide('+(i+1)+')" alt="'+data[i].nama+'">'+
+								      '<img class="demo cursor img-fluid" src="<?=base_url()?>./assets/image/'+data[i].source+'" style="width:100%" onclick="currentSlide('+(i+1)+')" alt="'+data[i].nama+'">'+
 								    '</div>';
 							
 				    	}

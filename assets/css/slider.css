@@ -20,13 +20,14 @@ img {
 /* nextgal & prevgalious buttons */
 .prevgal,
 .nextgal {
+  text-decoration: none;
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 65%;
   width: auto;
   padding: 16px; 
-  margin-right: 20px;
-  color: white;
+  margin-right: 35px;
+  color: black;
   font-weight: bold;
   font-size: 20px;
   border-radius: 0 3px 3px 0;
@@ -45,6 +46,7 @@ img {
 .nextgal:hover {
   background-color: rgba(0, 0, 0, 0.8);
   text-decoration:none;
+  color: white;
 }
 
 /* Number text (1/3 etc) */
