@@ -13,6 +13,12 @@ f
 
 .coll3{
 	width: 25%;
+	margin-left: 24px;
+	margin-right: -100px;
+}
+.col4{
+	width: 31%;
+	margin-right: -10px;
 }
 
 .boddy{
@@ -87,6 +93,25 @@ td, th {
 	}
 
 	.coll3{
-		width: 100%;
+		margin-top: 10PX;
+		margin-left: 12PX;
+		width: 92%;
+	}
+
+	.col4{
+		margin-top: 10PX;
+		margin-left: 12PX;
+		width: 92%;
+	}
+
+	.col20{
+		width: 1%;
+	}
+	.col80	{
+		width: 80%;
+	}
+
+	.navbar-fixed-bottom{
+		display: none;
 	}
 }

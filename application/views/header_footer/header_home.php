@@ -4,7 +4,9 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>E-scheduling</title>
+		
+		<link rel="icon" href="<?=base_url()?>assets/image/Mojokerto.png">
+		<title>E-Scheduling</title>
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/datatables.min.css"> 
@@ -16,9 +18,9 @@
 	</head>
 
 
-	<body style="background: #b3d1ff; margin-bottom: 40px; background-image: url(<?=base_url()?>assets/image/mjk_bg.jpg);" onload=display_ct()>
-		<nav  class=" navbar navbar-default navbar-top"role="navigation" style="background: #0039e6; height: 60px; margin-bottom: 5px;">
+	<body style="background: #b3d1ff; font-size: 14px; margin-bottom: 40px; background-image: url(<?=base_url()?>assets/image/mjk_bg.jpg);" onload=display_ct()>
+		<nav  class=" navbar navbar-default navbar-top"role="navigation" style="background: #0039e6; height: 40px; margin-bottom: 5px;">
 			<div class="container-fluid" style="margin-left: 50px">
-				<img src="<?=base_url()?>assets/image/Logo Mojokerto.png" height="50px">
+				<img src="<?=base_url()?>assets/image/Logo Mojokerto.png" height="40px">
 			</div>
 		</nav>

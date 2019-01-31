@@ -8,7 +8,7 @@ class Login_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('user');
 		$this->db->where('user', $username);
-		$this->db->where('pass', $password);
+		$this->db->where('pass', md5($password));
 		$query = $this->db->get();
 		if ($query->num_rows()==1) {
 			return $query->result();

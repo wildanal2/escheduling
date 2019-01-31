@@ -1,8 +1,9 @@
 
-		<nav class="navbar navbar-default navbar-fixed-bottom" style="background: #2929a3; margin-bottom: -10px" role="navigation">
-			<div class="container-fluid">
+		<nav class="navbar navbar-fixed-bottom" style="background: #2929a3; margin-bottom: -20px; position: fixed; height: 50px; bottom: 0; width: 100%;" role="navigation">
+			<div class="container-fluid" style="margin-top: -18px">
+				
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color: #ff9900;">
-					<center><h4 style="color: #ffffff" id="time"></h4></center>
+					<center><h5 style="color: #ffffff" id="time"></h5></center>
 				</div>
 				
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -17,12 +18,12 @@
 				</div> 
 
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color: #ff1a1a"  >
-					<center><h4 style="color: #ffffff" > 
+					<center><h5  style="color: #ffffff; " > 
 						<?php
 						date_default_timezone_set("Asia/Jakarta");
 						echo " " . date("d:M:Y");
 						?>
-					</h4></center>
+					</h5></center>
 				</div>
 			</div>	
 		</nav>
@@ -399,12 +400,16 @@
 	                        var tgl_a = tgl.getDate()+"-"+tgl.getMonth()+1+"-"+tgl.getFullYear();
 
 	                		html += '<div class="row" style="align-items: center;">'+
-										'<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">'+
-											 '<img  width="40px" src="<?php echo base_url() ?>assets/image/horn.png">'+
+										'<div class="col20 col-xs-1 col-sm-1 col-md-1 col-lg-1">'+
+											 '<img  width="35px" src="<?php echo base_url() ?>assets/image/horn.png">'+
 										'</div>'+
-										'<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="align-items: center;">'+
-											'<a style="color: #000;" class="item_view linkpengumum" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><h6>'+data[i].judul+'</h6></a>'+
-											'<p style="margin-top: -5px">'+tgl_a+'</p>'+
+										'<div class="col80 col-xs-10 col-sm-10 col-md-10 col-lg-10" style="align-items: center; margin-left: 15px">'+
+											'<a style="color: #000;" class="item_view linkpengumum" data-judul="'+data[i].judul+'" data-isi="'+data[i].isi+'"  data-tanggal="'+data[i].tanggal+'" ><b>'+data[i].judul+'</b></a>'+
+									
+										'</div>'+
+										
+										'<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="margin-left:45px">'+
+											 '<p style="margin-top: -5px">'+tgl_a+'</p>'+
 										'</div>'+
 									'</div><hr style="margin-top: -10px;">';
 	                	}

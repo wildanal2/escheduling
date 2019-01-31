@@ -2,14 +2,14 @@
 ?> 
 
 
-<div class="container-fluid row">
+<div class="row" style="margin-right: 5px; margin-left: 5px">
 	
 
 	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 		<div class="boddy" >
-			<h4 class="namatitel">KALENDER KEGIATAN BULAN INI</h4>
+			<h5 class="namatitel">KALENDER KEGIATAN BULAN INI</h5>
 			<div class="card bs-example">
-		        <h4 style="text-align: center;" id="thismonth"></h4>
+		        <h5 style="text-align: center;" id="thismonth"></h5>
 		        <table class="table table-bordered table-responsive-lg" id="calendar">
 		            <thead>
 		            <tr style="background-color: #E8E8E8">
@@ -34,7 +34,7 @@
 	    </div>
 
 		<div class="boddymid" style="padding-bottom: 10px;">
-			<h4 class="namatitel">AGENDA KEGIATAN MINGGU INI</h4>
+			<h5 class="namatitel">AGENDA KEGIATAN MINGGU INI</h5>
 			<table class="table table-bordered">
 			  <tr style="background-color: #E8E8E8">
 			    <th style="text-align: center;width: 10%;">No</th>
@@ -50,11 +50,11 @@
 
 	</div>
 
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	<div class="col4" >
 		
 		<!-- bupati bulan ini -->
 		<div class="boddy">
-	    	<h4 class="namatitel">AGENDA BUPATI BULAN INI</h4>
+	    	<h5 class="namatitel">AGENDA BUPATI BULAN INI</h5>
 		     <table class="table table-bordered" id="tbl_bupati">
 				<thead>
 					<tr style="background-color: #E8E8E8">
@@ -69,7 +69,7 @@
 	    
 	    <!-- kominfo bulan ini -->
 	    <div class="boddymid">
-	    	<h4 class="namatitel">AGENDA KOMINFO BULAN INI</h4>
+	    	<h5 class="namatitel">AGENDA KOMINFO BULAN INI</h5>
 		     <table class="table table-bordered" id="tbl_kominfo">
 		     	<thead>
 		     		<tr style="background-color: #E8E8E8">
@@ -84,24 +84,24 @@
 	     
 	</div>
 
-	<div class="coll3 " >
+	<div class="coll3" >
 		<div class="boddy">
-			<h4 class="namatitel">PENGUMUMAN</h4>
+			<h5 class="namatitel">PENGUMUMAN</h5>
 			<div id="con_lstpgumuman">	
 			</div>
 
 			<div class="card-body" id="card_pengumuman" style="display: none;">
 				<div class="row" style="margin-bottom: -10px; ">
-					<div class="col-sm-1" style="margin-left: 20px;">
+					<div class="col-sm-1" style="margin-top: -20px;">
 						<a id="back" class="prevv" >❮</a>		
 					</div>
-					<div class="col-sm-9">
-						<center><b><font id="judul" size="4"></font></b></center>
+					<div class="col-sm-11" style="margin-top: -15px; margin-left: 30px">
+						<center><b><font id="judul" size="2"></font></b></center>
 					</div>
 				</div>
 			    
 			    <hr> 
-			    <textarea  class="form-control" rows="7" readonly="" id="pengumuman"></textarea>
+			    <textarea  class="form-control" rows="7" readonly="" id="pengumuman" ></textarea>
 			   
 			    <div class="row align-items-center" >
 			    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -116,16 +116,21 @@
 		</div>
 		
 
-	  	<div class="boddymid">
-			<h4 class="namatitel">GALERY</h4>
-		     				 
-			<div class="">
+	  	<div class="boddymid rows">
+			
+		    <div class="col-xs-13 col-sm-13 col-md-13 col-lg-13">
+		     	<h5 class="namatitel">GALERY</h5>	
+		     		 	
+		    </div>				 
+			<div class="col-xs-13 col-sm-13 col-md-13 col-lg-12">
+
 					<div id="gal_home">	
+
 					    <!-- container img gallery -->
 					</div>
-
-					  <h4 class="prevgal" id="prev">❮</h4>
-					  <h4 class="nextgal" id="next">❯</h4>
+					<h5 class="prevgal" id="prev">❮</h5>
+					<h5 class="nextgal" id="next">❯</h5>	
+					  
 
 					<div class="caption-container" id="capimg"> <a href="javascript:void(0);" id="caption" class="imgdetail" style="color: white;"></a></div>
 
