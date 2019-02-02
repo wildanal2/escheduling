@@ -12,7 +12,7 @@ class User_model extends CI_Model {
 	public function getweekagenda()
 	{
 		$query=$this->db->query("select * from (
-								  SELECT * FROM `kegiatan` where month(tanggal_awal)=month(curdate()) and year(tanggal_awal)=year(curdate())  order by tanggal_awal ASC
+								  SELECT * FROM `kegiatan` where month(tanggal_awal)>=month(curdate()) and month(tanggal_awal)<=(month(curdate())+1) and year(tanggal_awal)=year(curdate())  order by tanggal_awal ASC
 								  ) as kegmonth where kegmonth.tanggal_akhir>= subdate(curdate(),1) and kegmonth.tanggal_awal<= date_add(curdate(),interval 3 day)  order by kegmonth.tanggal_awal asc "
 								);
        	return $query->result();

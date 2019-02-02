@@ -4,12 +4,14 @@
 
 <div class="row" style="margin-right: 5px; margin-left: 5px">
 	
-
-	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-		<div class="boddy" >
-			<h5 class="namatitel">KALENDER KEGIATAN BULAN INI</h5>
+	<!-- coloumn block Kiri -->
+	<div class="col-kiri">
+		<!-- kalender body -->
+		<div class="body-kalender" >
+			<h5 class="text-titel">KALENDER KEGIATAN BULAN INI</h5>
 			<div class="card bs-example">
-		        <h5 style="text-align: center;" id="thismonth"></h5>
+				<center>
+		        <h5 id="thismonth"></h5>
 		        <table class="table table-bordered table-responsive-lg" id="calendar">
 		            <thead>
 		            <tr style="background-color: #E8E8E8">
@@ -21,10 +23,11 @@
 			            <th>Jumat</th>
 			            <th>Sabtu</th>
 		            </tr> 
-		            <tbody id="calendarbody">
+		            <tbody style="text-align: left;" id="calendarbody">
 
 		            </tbody> 
 		        </table>
+		        </center>
 		        <table class="table table-bordered"  style="margin-top: -10px; margin-bottom: -2px">
 		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_hijau.png">  : Bupati</td> 
 		        	<td> <img height="20px" src="<?php echo base_url() ?>assets/image/w_orange.png"> : Kominfo</td> 
@@ -33,9 +36,10 @@
 		     </div>
 	    </div>
 
-		<div class="boddymid" style="padding-bottom: 10px;">
-			<h5 class="namatitel">AGENDA KEGIATAN MINGGU INI</h5>
-			<table class="table table-bordered">
+	    <!-- kegiatan mingguan body -->
+		<div class="body-kegiatan">
+			<h5 class="text-titel">AGENDA KEGIATAN MINGGU INI</h5>
+			<table class="table table-bordered table-responsive-lg">
 			  <tr style="background-color: #E8E8E8">
 			    <th style="text-align: center;width: 10%;">No</th>
 			    <th style="text-align: center; width: 70%;">Kegiatan</th>
@@ -50,16 +54,16 @@
 
 	</div>
 
-	<div class="col4" >
-		
+	<!-- coloumn block Tengah -->
+	<div class="col-tengah" >
 		<!-- bupati bulan ini -->
-		<div class="boddy">
-	    	<h5 class="namatitel">AGENDA BUPATI BULAN INI</h5>
+		<div class="body-agenda-bupati">
+	    	<h5 class="text-titel">AGENDA BUPATI BULAN INI</h5>
 		     <table class="table table-bordered" id="tbl_bupati">
 				<thead>
 					<tr style="background-color: #E8E8E8">
-					   <th style="width: 10%;">Tgl</th>
-					   <th style="text-align: center; width: 90%;">Kegiatan</th>
+					   <th>Tgl</th>
+					   <th style="text-align: center;">Kegiatan</th>
 					</tr>
 				</thead>	
 				<tbody id="tbl_agendabupati">		
@@ -68,13 +72,13 @@
 	    </div>
 	    
 	    <!-- kominfo bulan ini -->
-	    <div class="boddymid">
-	    	<h5 class="namatitel">AGENDA KOMINFO BULAN INI</h5>
+	    <div class="body-agenda-kominfo">
+	    	<h5 class="text-titel">AGENDA KOMINFO BULAN INI</h5>
 		     <table class="table table-bordered" id="tbl_kominfo">
 		     	<thead>
 		     		<tr style="background-color: #E8E8E8">
-					   <th style="width: 10%;">Tgl</th>
-					   <th style="text-align: center; width: 90%;">Kegiatan</th>
+					   <th>Tgl</th>
+					   <th style="text-align: center;">Kegiatan</th>
 					</tr>
 		     	</thead>
 				<tbody id="tbl_agendakominfo">		
@@ -84,10 +88,12 @@
 	     
 	</div>
 
-	<div class="coll3" >
-		<div class="boddy">
-			<h5 class="namatitel">PENGUMUMAN</h5>
-			<div id="con_lstpgumuman">	
+	<!-- coloumn block Kanan -->
+	<div class="col-kanan" >
+		<!-- body agenda pengumuman -->
+		<div class="body-agenda-pengumuman">
+			<h5 class="text-titel">PENGUMUMAN</h5>
+			<div id="con_lstpgumuman" class="list-pengumuman">	
 			</div>
 
 			<div class="card-body" id="card_pengumuman" style="display: none;">
@@ -112,18 +118,16 @@
 			  		</div>
 			  	</div>
 	  		</div>	
-
 		</div>
-		
-
-	  	<div class="boddymid rows">
+		<!-- body gallary -->
+	  	<div class="body-gallery rows">
 			
 		    <div class="col-xs-13 col-sm-13 col-md-13 col-lg-13">
-		     	<h5 class="namatitel">GALERY</h5>	
+		     	<h5 class="text-titel">GALERY</h5>	
 		     		 	
 		    </div>				 
 			<div class="col-xs-13 col-sm-13 col-md-13 col-lg-12">
-
+				<div style="margin-left: -13px; margin-right: -13px;">
 					<div id="gal_home">	
 
 					    <!-- container img gallery -->
@@ -140,44 +144,42 @@
 						    <!-- container rowsColls img -->
 					    </div> 
 					</div>
-
+				</div>
 			</div>
 		</div> 
-
 
 	</div> 
 
 	
-
 </div>
 
 
 <!-- Modal LIHAT -->
-		<div class="modal fade" id="modal_lihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		  <div class="modal-dialog modal-dialog-centered" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title align-items-center" style="text-align: center; font-size:30px; font-weight: bold;" id="judul_m"></h5>
-		      </div>
-		      <div class="modal-body">
-		        <div class="form-group">
-		        	<div class="col-md-10"></div>
-		        	<div class="col-md-2">
-				  		<small style="text-align: right;" id="tanggal_m"></small>
-				  	</div>
+	<div class="modal fade" id="modal_lihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title align-items-center" style="text-align: center; font-size:30px; font-weight: bold;" id="judul_m"></h5>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+	        	<div class="col-md-10"></div>
+	        	<div class="col-md-2">
+			  		<small style="text-align: right;" id="tanggal_m"></small>
+			  	</div>
 
-				  	<textarea class="form-control" id="pengumuman_m" rows="7" readonly=""></textarea>
-				</div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">&nbsp OK &nbsp</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
+			  	<textarea class="form-control" id="pengumuman_m" rows="7" readonly=""></textarea>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">&nbsp OK &nbsp</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 
-	<!-- The Image Modal -->
+<!-- The Image Modal -->
 	<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">              

@@ -54,17 +54,12 @@
 
 		$(document).ready(function(){
 			var datepickerss= $("#datepickerss");
-	        datepickerss.datepicker({
-	        	language: "id",
-	        	format: "dd/mm/yyyy",
+	        datepickerss.datepicker({ 
 			    startDate: "today",  
 			    todayHighlight: true
 	        }) 
 	        datepickerss= $("#datepickers");
-	        datepickerss.datepicker({
-	        	language: "id",
-	        	format: "dd/mm/yyyy",
-			    // startDate: "today",  
+	        datepickerss.datepicker({    
 			    todayHighlight: true
 	        })  
 
@@ -109,9 +104,9 @@
 	                    for(i=0; i<data.length; i++){ 
 	                    	a=i+1;             
 	                        const tgl_a = new Date(data[i].tanggal_awal);
-	                        var tgl_awal = tgl_a.getDate()+"/"+tgl_a.getMonth()+1+"/"+tgl_a.getFullYear();
+	                        var tgl_awal = tgl_a.getDate()+"/"+(parseInt(tgl_a.getMonth(), 10)+1)+"/"+tgl_a.getFullYear();
 	                        const tgl_b = new Date(data[i].tanggal_akhir);
-	                        var tgl_ahir = tgl_b.getDate()+"/"+tgl_b.getMonth()+1+"/"+tgl_b.getFullYear();
+	                        var tgl_ahir = tgl_b.getDate()+"/"+(parseInt(tgl_b.getMonth(), 10)+1)+"/"+tgl_b.getFullYear();
 	                        
 	                        var ag = {
 	                        			tanggal_a:tgl_a,

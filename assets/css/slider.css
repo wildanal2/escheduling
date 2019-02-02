@@ -23,11 +23,12 @@ img {
   text-decoration: none;
   cursor: pointer;
   position: absolute;
-  top: 25%;
+  top: 28%;
   width: auto;
   padding: 16px; 
-  margin-right: 14px;
+  margin-right: 3px; 
   color: black;
+  background-color: rgba(255, 255, 255, 0.37);
   font-weight: bold;
   font-size: 20px;
   border-radius: 0 3px 3px 0;

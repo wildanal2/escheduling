@@ -1,13 +1,13 @@
 
-		<nav class="navbar navbar-fixed-bottom" style="background: #2929a3; margin-bottom: -20px; position: fixed; height: 50px; bottom: 0; width: 100%;" role="navigation">
+		<nav class="navbar navbar-fixed-bottom" role="navigation">
 			<div class="container-fluid" style="margin-top: -18px">
 				
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color: #ff9900;">
-					<center><h5 style="color: #ffffff" id="time"></h5></center>
+					<center><h5 class="time-now" id="time"></h5></center>
 				</div>
 				
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<div class="runtext-container" style="margin-top: 5px">
+					<div class="runtext-container">
 						<div class="main-runtext">
 							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();" id="text_berjalan">
 
@@ -18,7 +18,7 @@
 				</div> 
 
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color: #ff1a1a"  >
-					<center><h5  style="color: #ffffff; " > 
+					<center><h5 class="date-now"> 
 						<?php
 						date_default_timezone_set("Asia/Jakarta");
 						echo " " . date("d:M:Y");
@@ -79,19 +79,12 @@
 			const monthName = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
 
 			showAgendaandCalendar(); //call function show all agenda
-			// showAgendaMingguIni();
 			showabupati();
 			showakominfo();
 			showPengumuman();
 			showGalerihome();
 			showpengumumanfooter();
-
-
-
-			function showAgendaMingguIni() {
-				
-			}
-
+ 
 	        //function show all agenda
 	        function showAgendaandCalendar(){
 	            var agenda=null;
@@ -169,14 +162,14 @@
 	        	let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
 
 	        	let date = 1;
-	        	let numday = 1;
+	        	let numday = 1;  
 
+	        	//perulangan pembuatan tanggal setiap minggu
     			for (let i = 0; i < 6; i++) {
     				// creates a table row
-	        		html+='<tr>';
-
+	        		html+='<tr>'; 
 	        		//creating individual cells, filing them up with data.
-			        for (let numdays = 0; numdays < 7; numdays++) {
+			        for (let numdays = 0; numdays < 7; numdays++) { 
 			        	var doubell = null;
 			            if (i === 0 && numdays < firstDay) {
 			                html+='<td>';
@@ -215,12 +208,12 @@
 			            			} 
 			            		}
 
-			            		// warna
+			            		// warna 
 			            		// 1 bupati normal
 			            		// 4 bupati parah
 			            		// 3 bupati & kominfo
 			            		// 2 jam parah
-
+			            		// aslinya ada 5 warna trus di persempit jadi 3 warna
 			            		if (asign==null) {
 			            			html+='<td style="border: 1px solid #dddddd;">';
 			            			if (date==today.getDate()) {
@@ -270,50 +263,92 @@
 			            			}
 					    	        html+='</td>';
 			            		}
-   
-			                date++;
+   							
+   							//cek minggu an tgl  untuk filter tampilan agenda minggu ini dengan hari sekarang
+				            var asig = null;
+				            for (var io = 0; io < agendaweek.length; io++) {
+				            	var tgla = new Date(agendaweek[io].tanggal_awal);
+				            	var tglb = new Date(agendaweek[io].tanggal_akhir); 
+
+				            	var tmpp = (today.getMonth()+1)+"/"+date+"/"+today.getFullYear();
+				            	var tglnowdate = new Date(tmpp);  
+
+				            	if (tglnowdate>=tgla && tglnowdate<=tglb) { 
+				            		if (date>=(today.getDate()-1) && date<=(today.getDate()+3)) { 
+				            			// if (asig==null) {   
+					            			var tgll = date+"/"+(parseInt(tgla.getMonth(), 10)+1)+"/"+tgla.getFullYear();
+						            		// jika hari sama dengan hari ini  ada bacground biru
+						            		if (date==today.getDate()) {
+						            			htmlweek += '<tr style="background: url(<?php echo base_url() ?>assets/image/FJFchO.gif); background-repeat: no-repeat; background-size: cover; font-weight: 900;">';
+						            		}else{
+						            			htmlweek += '<tr>';
+						            		}
+
+						            		///////// isi  agenda mingguan /////
+					                        		if (agendaweek[io].level == 1) { //Bupati
+					                        htmlweek +='<td style="text-align: center" bgcolor="#ff6666"><font color="#fff">'+numday+'</font></td>';
+					                        		}else if (agendaweek[io].level == 2) { // kominfo
+					                        htmlweek +='<td style="text-align: center" bgcolor="#008ae6"><font color="#fff">'+numday+'</font></td>';
+					                        		}
+						                    htmlweek +=	
+						                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
+						                            	'<td style="text-align: right;">'+tgll+' '+
+					                        		'</tr>';
+					                        ////////// end agenda mingguan ///////////
+
+					            			asig = "notnull"; 
+					            			numday++; 
+					            		// }
+				            		} 
+				            	}
+				            	 
+				            }
+
+			                date++; // tanggal bertambah
 			            }
 
-			            //cek minggu an tgl
-			            for (var io = 0; io < agendaweek.length; io++) {
-			            	var tgla = new Date(agendaweek[io].tanggal_awal);
-			            	var tglb = new Date(agendaweek[io].tanggal_akhir);
-
-			            	if (date>=tgla.getDate() && date<=tglb.getDate()) {
-
-			            		if (date>=(today.getDate()-1) && date<=(today.getDate()+4)) {
-
-			            			var tgll = date+"/"+tgla.getMonth()+1+"/"+tgla.getFullYear();
-				            		if (date==today.getDate()) {
-				            			htmlweek += '<tr style="background: url(<?php echo base_url() ?>assets/image/FJFchO.gif); background-repeat: no-repeat; background-size: cover; font-weight: 900;">';
-				            		}else{
-				            			htmlweek += '<tr>';
-				            		}
-
-				            		///////// isiiiiii  agenda mingguan
-			                        		if (agendaweek[io].level == 1) { //Bupati
-			                        htmlweek +='<td style="text-align: center" bgcolor="#ff6666"><font color="#fff">'+numday+'</font></td>';
-			                        		}else if (agendaweek[io].level == 2) { // kominfo
-			                        htmlweek +='<td style="text-align: center" bgcolor="#008ae6"><font color="#fff">'+numday+'</font></td>';
-			                        		}
-				                    htmlweek +=	
-				                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
-				                            	'<td style="text-align: right;">'+tgll+' '+
-			                        		'</tr>';
-			                        /////////////////////
-
-			            		}
-
-		                        numday++;
-			            	}
-			            	
-
-			            }
-			            
 
 			        } 
 					html+='</tr>';	        		
 	        	}  
+
+
+	        	var asign=null; 
+	        	// untuk agenda lebih dari bulan
+	        	for (var io = 0; io < agendaweek.length; io++) {
+	        		var tgla = new Date(agendaweek[io].tanggal_awal);
+	        		var tmpp = (today.getMonth()+1)+"/"+(date-1)+"/"+today.getFullYear();
+			        var tglnowdate = new Date(tmpp); 
+			        //lebih bulan
+	        		var asignagenda=null;
+	        		if (tgla > tglnowdate) {
+	        			// sparator tampilan agenda bulan depan
+	        			if (asign==null) {
+	        				htmlweek += '<tr><td></td><td style="text-align: center">~<b>Agenda Bulan depan</b>~</td><td></td></tr>';
+	        				asign='not-null';
+	        			} 
+	        			///////// isiiiiii  agenda bulan depan
+	        			if (asignagenda==null) {
+	        				var a = parseInt("1", 10); 
+	        				var b = parseInt(tgla.getMonth(), 10);
+	        				var c = a+b;
+	        				var tgll = tgla.getDate()+"/"+c+"/"+tgla.getFullYear();
+
+		            		htmlweek += '<tr>';
+	                        		if (agendaweek[io].level == 1) { //Bupati
+	                        htmlweek +='<td style="text-align: center" bgcolor="#ff6666"><font color="#fff">'+'1'+'</font></td>';
+	                        		}else if (agendaweek[io].level == 2) { // kominfo
+	                        htmlweek +='<td style="text-align: center" bgcolor="#008ae6"><font color="#fff">'+'1'+'</font></td>';
+	                        		}
+		                    htmlweek +=	
+		                            '<td>'+agendaweek[io].nama+', '+agendaweek[io].ket+'</td>'+
+		                            	'<td style="text-align: right;">'+tgll+' '+
+	                        		'</tr>';	
+	        			}
+	            		
+	        		}
+
+	        	}
 
 	        	$('#calendarbody').html(html);  
 	        	$('#tbl_agendakegiatan').html(htmlweek); 
