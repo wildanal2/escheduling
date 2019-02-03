@@ -4,7 +4,8 @@
 <main role="main">
 <br>
 <div class="container-fluid row">
-			
+	
+	<!-- view tabel Calendar -->
 	<div class="calendaragenda">
 		<div style="background-color: #FFF; padding: 10px">
 
@@ -47,6 +48,7 @@
 		</div>
 	</div>
 
+	<!-- view tabel agenda -->
 	<div class="agendaview">
 		<div style="background-color: #FFF; padding: 15px;">
 			<div class="boddy card">
@@ -78,145 +80,142 @@
 </div>  <!-- end container  -->	
 
 
-			<!--MODAL Baru-->
-			    <form id="formbaru">
-			      <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			        <div class="modal-dialog" role="document">
-			          <div class="modal-content">
-			            <div class="modal-header">
-			              <h4 class="modal-title">Agenda Baru</h4>
-			              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
-			            </div>
-			            <div class="modal-body">			              
-			               
-			               	<div class="form-group col-lg-12">
-								<label>Nama Kegiatan</label>
-								<input type="text" id="namain" class="form-control" placeholder="Masukkan Nama Kegiatan" minlength="8" required>
-							</div>
+<!--MODAL Baru-->
+    <form id="formbaru">
+      <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Agenda Baru</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
+            </div>
+            <div class="modal-body">			              
+               	<!-- form inputan nama kegiatan -->
+               	<div class="form-group col-lg-12">
+					<label>Nama Kegiatan</label>
+					<input type="text" id="namain" class="form-control" placeholder="Masukkan Nama Kegiatan" minlength="8" required>
+				</div>
+				<!-- form inputan keterangan kegiatan -->
+				<div class="form-group col-lg-12">
+					<label>Keterangan</label>
+					<textarea type="text" id="ketgiat" class="form-control" rows="4" placeholder="Masukkan Keterangan" minlength="15" required></textarea>
+				</div>
+            	<!-- form inputan pilihan tanggal -->
+				<div class="form-group col-lg-12">
+					<label for="#">Tanggal </label>
+					<div class="input-daterange input-group" id="datepickerss">
+					    <input  class="form-control" name="mulai" id="mulai" placeholder="Tanggal Mulai" required/>
+					    <span class="input-group-addon"> &nbsp Sampai dengan &nbsp  </span>
+					    <input   class="form-control" name="selesai" id="selesai" placeholder="Tanggal Selesai" required/>
+					</div>  
+				</div>
+				<!-- form inputan pilihan level kegiatan -->
+				<div class="form-group col-lg-6">
+					<label>Agenda</label>
+					<select class="form-control" id="level" required="">
+							<option disabled selected> Pilih Agenda</option>
+						<?php foreach ($level as $key) { ?>
+							<option value="<?php  echo $key->id ?>"> <?php  echo $key->nama ?> </option>
+						<?php }  ?>
+					</select>
+				</div>
 
-							<div class="form-group col-lg-12">
-								<label>Keterangan</label>
-								<textarea type="text" id="ketgiat" class="form-control" rows="4" placeholder="Masukkan Keterangan" minlength="15" required></textarea>
-							</div>
-			            	
-							<div class="form-group col-lg-12">
-								<label for="#">Tanggal </label>
-								<div class="input-daterange input-group" id="datepickerss">
-								    <input  class="form-control" name="mulai" id="mulai" placeholder="Tanggal Mulai" required/>
-								    <span class="input-group-addon"> &nbsp Sampai dengan &nbsp  </span>
-								    <input   class="form-control" name="selesai" id="selesai" placeholder="Tanggal Selesai" required/>
-								</div>  
-							</div>
+            </div>
+            <div class="modal-footer">
+            	<!-- inputan button simpan dan batal -->
+            	<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">Batal</button>
+				<button type="submit" id="btn_push" class="btn btn-primary col-md-3">Tambah</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+<!--END MODAL baru-->
 
-							<div class="form-group col-lg-6">
-								<label>Agenda</label>
-								<select class="form-control" id="level" required="">
-										<option disabled selected> Pilih Agenda</option>
-									<?php foreach ($level as $key) { ?>
-										<option value="<?php  echo $key->id ?>"> <?php  echo $key->nama ?> </option>
-									<?php }  ?>
-								</select>
-							</div>
+<!--MODAL START UPDATEEE UPDATEEE-->
+    <form id="formupdate">
+      <div class="modal fade" id="Modal_update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Perbarui Agenda</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
+            </div>
+            <div class="modal-body">			              
+               	<!-- form inputan nama kegiatan -->
+               	<div class="form-group col-lg-12">
+					<label>Nama Kegiatan</label>
+					<input type="text" id="namaupdt" name="namaupdt" class="form-control" placeholder="Masukkan Nama Kegiatan" required="">
+				</div>
+				<!-- form inputan keterangan kegiatan -->
+				<div class="form-group col-lg-12">
+					<label>Keterangan</label>
+					<textarea type="text" id="ketup" name="ketup" class="form-control" rows="4" placeholder="Masukkan Keterangan" required=""> </textarea>
+				</div>
+            	<!-- form inputan pilihan tanggal -->
+				<div class="form-group col-lg-12">
+					<label for="#">Tanggal </label>
+					<div class="input-daterange input-group" id="datepickers">
+					    <input type="text" class="form-control" id="mulaiup" name="mulaiup" placeholder="Tanggal Mulai" required="" />
+					    <span class="input-group-addon"> &nbsp Sampai dengan &nbsp  </span>
+					    <input type="text" class="form-control" id="selesaiup" name="selesaiup" placeholder="Tanggal Selesai" required="" />
+					</div>	
+				</div>
+				<!-- form inputan pilihan level kegiatan -->
+				<div class="form-group col-lg-6">
+					<label>Agenda</label>
+					<select class="form-control" name="levelup" id="levelup" required="">
+							<option disabled selected> Pilih Agenda</option>
+						<?php foreach ($level as $key) { ?>
+							<option value="<?php  echo $key->id ?>"> <?php  echo $key->nama ?> </option>
+						<?php }  ?>
+					</select>
+				</div>
 
-			            </div>
-			            <div class="modal-footer">
-			            	<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">Batal</button>
-							<button type="submit" id="btn_push" class="btn btn-primary col-md-3">Tambah</button>
-			            </div>
-			          </div>
-			        </div>
-			      </div>
-			    </form>
-			  <!--END MODAL baru-->
+            </div>
+            <div class="modal-footer">
+            	<!-- inputan button simpan dan batal -->
+            	<input type="hidden" id="id_kup" name="id_kup" value="">
+            	<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">Batal</button>
+				<button type="submit" id="btn_push" class="btn btn-success col-md-3">Perbarui</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+<!--END UPDATEEE UPDATEEE-->
 
+<!--MODAL Delete-->
+    <form id="formdelete">
+      <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Agenda Delete</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
+            </div>
+            <div class="modal-body">			              
+               
+               	<div class="form-group col-lg-12">
+					<label>Apa Anda Yakin Ingin Meng<font style="color: red;"><b>Hapus</b></font> Agenda Berikut?</label>
+					<br><br>
+					<center><H4 id="msg"></H4></center>
+					<input type="hidden" name="id_kegiatan" id="id_kegiatan" value="">
+				</div>
 
+				<br><br><br>
+				<center>
+            		<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal" style="margin-right: 20px">Batal</button>
+            		<button type="submit" id="btn_delete" class="btn btn-danger col-md-3">Hapus</button>	
+            	</center>
+            </div>
+            <div class="modal-footer">
 
-		<!--MODAL START UPDATEEE UPDATEEE-->
-			    <form id="formupdate">
-			      <div class="modal fade" id="Modal_update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			        <div class="modal-dialog" role="document">
-			          <div class="modal-content">
-			            <div class="modal-header">
-			              <h4 class="modal-title">Perbarui Agenda</h4>
-			              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
-			            </div>
-			            <div class="modal-body">			              
-			               
-			               	<div class="form-group col-lg-12">
-								<label>Nama Kegiatan</label>
-								<input type="text" id="namaupdt" name="namaupdt" class="form-control" placeholder="Masukkan Nama Kegiatan" required="">
-							</div>
-
-							<div class="form-group col-lg-12">
-								<label>Keterangan</label>
-								<textarea type="text" id="ketup" name="ketup" class="form-control" rows="4" placeholder="Masukkan Keterangan" required=""> </textarea>
-							</div>
-			            	
-							<div class="form-group col-lg-12">
-								<label for="#">Tanggal </label>
-								<div class="input-daterange input-group" id="datepickers">
-								    <input type="text" class="form-control" id="mulaiup" name="mulaiup" placeholder="Tanggal Mulai" required="" />
-								    <span class="input-group-addon"> &nbsp Sampai dengan &nbsp  </span>
-								    <input type="text" class="form-control" id="selesaiup" name="selesaiup" placeholder="Tanggal Selesai" required="" />
-								</div>	
-							</div>
-
-							<div class="form-group col-lg-6">
-								<label>Agenda</label>
-								<select class="form-control" name="levelup" id="levelup" required="">
-										<option disabled selected> Pilih Agenda</option>
-									<?php foreach ($level as $key) { ?>
-										<option value="<?php  echo $key->id ?>"> <?php  echo $key->nama ?> </option>
-									<?php }  ?>
-								</select>
-							</div>
-
-			            </div>
-			            <div class="modal-footer">
-			            	<input type="hidden" id="id_kup" name="id_kup" value="">
-			            	<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">Batal</button>
-							<button type="submit" id="btn_push" class="btn btn-success col-md-3">Perbarui</button>
-			            </div>
-			          </div>
-			        </div>
-			      </div>
-			    </form>
-			  <!--END UPDATEEE UPDATEEE-->
-
-
-
-			  <!--MODAL Delete-->
-			    <form id="formdelete">
-			      <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			        <div class="modal-dialog" role="document">
-			          <div class="modal-content">
-			            <div class="modal-header">
-			              <h4 class="modal-title">Agenda Delete</h4>
-			              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
-			            </div>
-			            <div class="modal-body">			              
-			               
-			               	<div class="form-group col-lg-12">
-								<label>Apa Anda Yakin Ingin Meng<font style="color: red;"><b>Hapus</b></font> Agenda Berikut?</label>
-								<br><br>
-								<center><H4 id="msg"></H4></center>
-								<input type="hidden" name="id_kegiatan" id="id_kegiatan" value="">
-							</div>
- 
-							<br><br><br>
-							<center>
-			            		<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal" style="margin-right: 20px">Batal</button>
-			            		<button type="submit" id="btn_delete" class="btn btn-danger col-md-3">Hapus</button>	
-			            	</center>
-			            </div>
-			            <div class="modal-footer">
-
-			            </div>
-			          </div>
-			        </div>
-			      </div>
-			    </form>
-			  <!--END MODAL Delete-->
-
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+<!--END MODAL Delete-->
 
 </main>

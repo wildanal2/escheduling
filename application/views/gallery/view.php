@@ -2,19 +2,16 @@
 
 	<!-- Begin page content -->
 	<main >
+		<!-- heading gallery -->
 		<section class=" text-center">
-			<div class="container">
-				<!-- <h1 class="jumbotron-heading"><?php echo $page_title ?></h1> -->
-				<br>
-				<H2>
-					GALLERY
-				</H2>
-				<hr>
+			<div class="container"> 
+				<br><H2>GALLERY</H2><hr>
 			</div>
 		</section>
 
 		<div class="container-fluid row">
 			
+			<!-- gallery inputan -->
 			<div class="minigallery" style="border: 2px">
 				<div style="background-color: #FFF; padding: 15px">
 					<div class="boddy card">
@@ -49,6 +46,7 @@
 					<br>
 				</div>
 			</div>
+			<!-- gallery tables list view -->
 			<div class="galleryview" style="border: 2px;">
 				<div style="background-color: #FFF; padding: 15px;">
 					<div class="boddy card">
@@ -77,72 +75,74 @@
 				</div>
 			</div>
 
+		</div>  
+		<!-- end container  -->
 
-		</div>  <!-- end container  -->
-		
+		<!--MODAL Update-->
+		    <form id="formupdate">
+		      <div class="modal fade" id="Modal_update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		        <div class="modal-dialog" role="document">
+		          <div class="modal-content">
+		            <div class="modal-header">
+		              <h4 class="modal-title">Update Foto</h4>
+		              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>	         
+		            </div>
+		            <div class="modal-body">			              
+		              <center><img id="foto_update" style="display: none;"></center>
+		              	<!-- form inputan nama foto -->
+						<div class="form-group">
+							<label style="text-align: left;">Nama Foto </label>
+							<input type="text" class="form-control" name="nama_u" placeholder="Nama Foto" minlength="6" required>
+							<div class="invalid-feedback">isi Nama Foto</div>
+						</div>
+						<!-- form inputan tagar -->
+						<div class="form-group">
+							<label style="text-align: left;">Tag</label>
+							<input type="text" class="form-control" name="tag_u" placeholder="Tag" minlength="3" required>
+							<div class="invalid-feedback">isi Nama Tag</div>
+						</div>
+						<!-- form inputan file foto -->
+						<div class="form-group">
+							<label style="text-align: left;">File Foto Baru</label>
+							<input type="file" class="form-control" name="file" id="file">
+							<div class="invalid-feedback">isi file foto</div>
+						</div>
+						<input type="hidden" name="id_foto" id="id_foto" class="form-control">
+						<input type="hidden" name="fotolama" id="fotolama" class="form-control"> 
+		            </div>
+		            <!-- submit button  -->
+		            <div class="modal-footer">
+		            	<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">No</button>
+						<button type="submit" id="btn_update" class="btn btn-success col-md-3">Update</button>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </form>
+		<!--END MODAL Update-->
 
-			<!--MODAL Update-->
-			    <form id="formupdate">
-			      <div class="modal fade" id="Modal_update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			        <div class="modal-dialog" role="document">
-			          <div class="modal-content">
-			            <div class="modal-header">
-			              <h4 class="modal-title">Update Foto</h4>
-			              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
-			            </div>
-			            <div class="modal-body">			              
-			              <center><img id="foto_update" style="display: none;"></center>
-							<div class="form-group">
-								<label style="text-align: left;">Nama Foto </label>
-								<input type="text" class="form-control" name="nama_u" placeholder="Nama Foto" minlength="6" required>
-								<div class="invalid-feedback">isi Nama Foto</div>
-							</div>
-							<div class="form-group">
-								<label style="text-align: left;">Tag</label>
-								<input type="text" class="form-control" name="tag_u" placeholder="Tag" minlength="3" required>
-								<div class="invalid-feedback">isi Nama Tag</div>
-							</div>
-							<div class="form-group">
-								<label style="text-align: left;">File Foto Baru</label>
-								<input type="file" class="form-control" name="file" id="file">
-								<div class="invalid-feedback">isi file foto</div>
-							</div>
-							<input type="hidden" name="id_foto" id="id_foto" class="form-control">
-							<input type="hidden" name="fotolama" id="fotolama" class="form-control"> 
-			            </div>
-			            <div class="modal-footer">
-			            	<button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">No</button>
-							<button type="submit" id="btn_update" class="btn btn-success col-md-3">Update</button>
-			            </div>
-			          </div>
-			        </div>
-			      </div>
-			    </form>
-			  <!--END MODAL Update-->
-
-
-			  <!--MODAL DELETE-->
-			    <form>
-			      <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			        <div class="modal-dialog" role="document">
-			          <div class="modal-content">
-			            <div class="modal-header">
-			              <h4 class="modal-title">Hapus Foto</h4>
-			              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
-			            </div>
-			            <div class="modal-body">
-			              <strong id="namafoto_hapus"> pesan </strong>
-			              <center><img id="foto_delete" height="120" width="180" style="margin-top: 10px"></center>
-			            </div>
-			            <div class="modal-footer">
-			              <input type="hidden" name="id_galery_delete" id="id_galery_delete" class="form-control">
-			              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-			              <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Yes</button>
-			            </div>
-			          </div>
-			        </div>
-			      </div>
-			    </form>
-			  <!--END MODAL DELETE-->
+		<!--MODAL DELETE-->
+		    <form>
+		      <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		        <div class="modal-dialog" role="document">
+		          <div class="modal-content">
+		            <div class="modal-header">
+		              <h4 class="modal-title">Hapus Foto</h4>
+		              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>			           
+		            </div>
+		            <div class="modal-body">
+		              <strong id="namafoto_hapus"> pesan </strong>
+		              <center><img id="foto_delete" height="120" width="180" style="margin-top: 10px"></center>
+		            </div>
+		            <div class="modal-footer">
+		              <input type="hidden" name="id_galery_delete" id="id_galery_delete" class="form-control">
+		              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+		              <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Yes</button>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </form>
+		<!--END MODAL DELETE-->
 
 	</main>

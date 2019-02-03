@@ -1,3 +1,4 @@
+        <!-- navbar bottom jam & tanggal -->
         <nav class="navbar navbar-default navbar-fixed-bottom footer" style=" background-color: transparent;" role="navigation">
             <div class="container-fluid" >
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -8,8 +9,7 @@
                     <div class="runtext-container">
                         <div class="main-runtext">
                             <marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
-                                <div class="text-container">
-                                  <!--  <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a> -->
+                                <div class="text-container"> 
                                 </div>
                             </marquee>
                         </div>
@@ -27,31 +27,30 @@
             </div>  
         </nav>
 
-        <!-- Bootstrap core & jQuery JavaScript
-        ================================================== -->
+        <!-- Bootstrap  & datatables JavaScript -->
         <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script> 
         <script type="text/javascript" src="<?php echo base_url().'assets/datatables/datatables.min.js'?>"></script> 
         
 
         <script type="text/javascript">
-
+        //time refresh
         function display_c(){
-                var refresh=1000; // Refresh rate in milli seconds
-                mytime=setTimeout('display_ct()',refresh)
-                }
-
-                function display_ct() {
-                    var x = new Date()
-                    var x1 =  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
-                    document.getElementById('time').innerHTML = x1;
-                    display_c();
-                }
+            var refresh=1000; // Refresh rate in milli seconds
+            mytime=setTimeout('display_ct()',refresh)
+        }
+        function display_ct() {
+            var x = new Date()
+            var x1 =  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
+            document.getElementById('time').innerHTML = x1;
+            display_c();
+        }
 
 
         $(document).ready(function(){
 
             showgallery();    
 
+            // menampilkan semua gallery
             function showgallery(){
                     $.ajax({
                         type  : 'ajax',
@@ -84,8 +83,9 @@
             }
 
 // ====================  Update ======================================================
-            //get data for update record UPDATEEEE
+            
             $('#show_data').on('click','.item_edit',function(){
+                //get data for update record UPDATEEEE
                 var id_galery = $(this).data('id_foto');
                 var namafoto_galery = $(this).data('nama_foto');
                 var tag_galery = $(this).data('tag');
@@ -103,6 +103,7 @@
 
                 $('#Modal_update').modal('show');
             });
+
             // UPDATEEE record to database
             $('#formupdate').submit(function(e){
                 e.preventDefault();
@@ -136,6 +137,7 @@
                 document.getElementById("foto_delete").src="<?=base_url()?>./assets/image/"+sourcefoto_galery;
                 $('[name="id_galery_delete"]').val(id_galery);
             });
+
             //delete record to database
              $('#btn_delete').on('click',function(){
                 var id_galery_delete = $('#id_galery_delete').val();
@@ -183,6 +185,7 @@
                 resetinputan();
             });
 
+            // fungsi reset inputan
             function resetinputan() {
                 document.getElementById("titel_sec").innerHTML="Tambahkan Data Foto";
                 document.getElementById("foto_update").style.display="none";

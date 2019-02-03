@@ -1,17 +1,21 @@
-.login{
-	background-color: #ffffff;
-	
+/* background warna body*/
+.body-login{
+  background: #b3d1ff;
 }
 
+/* background warna login form */
+.login{
+	background-color: #ffffff;
+}
 .fomlogin{
 	margin: 15px;
 	padding: 10px;
 } 
-
 .textinput{
 	margin: 5px;
 }
 
+/* button login */
 .buttonload {
   background-color: #4CAF50; /* Green background */
   border: none; /* Remove borders */
@@ -26,45 +30,4 @@
 .fa {
   margin-left: -12px;
   margin-right: 8px;
-}
-
-.midd{
-  margin-left: 353px;
-  margin-right: 0;
-  width: 38%;
-  text-align: center;
-  display:  inline-block;
-}
-
-
-/* for hp*/
-@media only screen and (min-width: 800px) and (max-width: 992px) {
-
-  .midd{
-    margin-left: 180px;
-    margin-right: 0;
-    width: 50%;
-  }
- 
-}
-
-@media only screen and (min-width: 601px) and (max-width: 799px) {
-
-  .midd{
-    margin-left: 100px;
-    margin-right: 0;
-    width: 70%;
-  }
- 
-}
-
-
-@media only screen and (max-width: 600px) {
-
-  .midd{
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-  }
- 
 }

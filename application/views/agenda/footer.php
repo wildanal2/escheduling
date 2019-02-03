@@ -1,5 +1,5 @@
 
-		
+		<!-- navbar jam dan tanggal bottom -->
 		<nav class="navbar navbar-default navbar-fixed-bottom footer" style="background-color: transparent;" role="navigation">
 			<div class="container-fluid" >
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -9,8 +9,7 @@
 					<div class="runtext-container">
 						<div class="main-runtext">
 							<marquee direction="" onmouseover="this.stop();"onmouseout="this.start();">
-								<div class="text-container">
-								   <!-- <a data-fancybox-group="gallery" class="fancybox" href="#" style="color: #ffffff"><h5><img src="<?php echo base_url() ?>assets/image/logo.png" height="20px">DINAS KOMUNIKASI DAN INFORMATIKA</h5></a> -->
+								<div class="text-container"> 
 								</div>
 							</marquee>
 						</div>
@@ -27,64 +26,65 @@
 			</div>	
 		</nav>
 
-		<!-- =============== Bootstrap core & jQuery JavaScript ================================================== -->
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> --> 
+		<!-- =============== Bootstrap & datatables datepicker JavaScript ============== -->
 		<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script> 
 		<script type="text/javascript" src="<?php echo base_url().'assets/datatables/datatables.min.js'?>"></script> 
 		<script src="<?php echo base_url() ?>assets/js/bootstrap-datepicker.js"></script>
 
-		<!-- Custom -->
-		<!-- <script src="<?php echo base_url() ?>assets/js/custom.js"></script>-->
-
- 
-
-
 		<script type="text/javascript">
-		function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-				}
 
-				function display_ct() {
-					var x = new Date()
-					var x1 =  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
-					document.getElementById('time').innerHTML = x1;
-					display_c();
-				}
+		// timer jam refresh in detik
+		function display_c(){
+			var refresh=1000; // Refresh rate in milli seconds
+			mytime=setTimeout('display_ct()',refresh)
+		}
+		function display_ct() {
+			var x = new Date()
+			var x1 =  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
+			document.getElementById('time').innerHTML = x1;
+			display_c();
+		}
 
 		$(document).ready(function(){
+			// fungsi date picker tanggal mulai
 			var datepickerss= $("#datepickerss");
 	        datepickerss.datepicker({ 
 			    startDate: "today",  
 			    todayHighlight: true
 	        }) 
+	        // fungsi date picker tanggal selesai
 	        datepickerss= $("#datepickers");
 	        datepickerss.datepicker({    
 			    todayHighlight: true
 	        })  
 
+	        // deklarasi variabel tanggal sekarang
 			let today = new Date();
 			let currentMonth = today.getMonth();
 			let currentYear = today.getFullYear();
 			
-			showAgendaandCalendar(currentMonth,currentYear); //call function show all agenda 
+			//call function show all agenda berdasarkan bulan dan tahun 
+			showAgendaandCalendar(currentMonth,currentYear); 
 
+			// event click previous and next button month
 			document.getElementById("previous").addEventListener("click",previous);
 			document.getElementById("next").addEventListener("click",next);
 
+			// fungsi next month
 			function next() {
 				currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
 			    currentMonth = (currentMonth + 1) % 12;
 			    showAgendaandCalendar(currentMonth, currentYear);
 			}
 
+			// fungsi previous month
 			function previous() {
 				currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
 			    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
 			    showAgendaandCalendar(currentMonth, currentYear);
 			}
 
-	        //function show all agenda
+	        //function show agenda berdasarkan mulan dan tahun
 	        function showAgendaandCalendar(month,year){
 	            var agenda=null;
 	            var mm =(month+1);
@@ -101,8 +101,10 @@
 	                success : function(data){ 
 	                    var agend=[];
 	                    var html='';
+
 	                    for(i=0; i<data.length; i++){ 
-	                    	a=i+1;             
+	                    	a=i+1;   
+	                    	// mengkonversi tanggal yang akan ditampilkan
 	                        const tgl_a = new Date(data[i].tanggal_awal);
 	                        var tgl_awal = tgl_a.getDate()+"/"+(parseInt(tgl_a.getMonth(), 10)+1)+"/"+tgl_a.getFullYear();
 	                        const tgl_b = new Date(data[i].tanggal_akhir);
@@ -113,7 +115,7 @@
 	                        			tanggal_b:tgl_b,
 	                        			level:data[i].level
 	                        			}
-
+	                        // memasukkan data agenda kedalam array yang nantinya akan diolah untuk coloring calendar
 	                        agend.push(ag);
 
 	                        html += '<tr>';
@@ -136,10 +138,12 @@
 
 	                            '</tr>';
 	                    } 
+	                    // memasukkan data agenda lokal ke variabel agenda global
 	                    agenda=agend;
+
 	                    $("#agendaall").DataTable().destroy();
             			$('tbody').empty();
-	                    
+	                    // memasukkan hatml agenda ke id tblagendakegiatan & set datatables
 	                    $('#tbl_agendakegiatan').html(html);
 	                    $("#agendaall").DataTable({
 	                    		destroy:true,
@@ -148,7 +152,7 @@
 	                }
 	            });
 
-	            //calendarrr nya
+	            // nama bulan calendarrr nya
 	            const monthName = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
 
 	            var html = '';
@@ -158,30 +162,36 @@
 
 				document.getElementById("thismonth").innerHTML=""+monthName[currentMonth]+"&nbsp "+currentYear;
 				
+				// pembuatan tabel calendar
 	        	let firstDay = (new Date(currentYear, currentMonth)).getDay();
 	        	let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
 
+	        	// variabel tanggal dimulai tgl 1
 	        	let date = 1;
     			for (let i = 0; i < 6; i++) {
-    				// creates a table row
+    				// creates a table row calendar
 	        		html+='<tr>';
 
 	        		//creating individual cells, filing them up with data.
 			        for (let j = 0; j < 7; j++) {
+
 			            if (i === 0 && j < firstDay) {
 			                html+='<td>';
 			                html+='';
 			                html+='</td>';
 			            } else if (date > daysInMonth) {
 			                break;
-			            } else {	 
+			            } else {	
+			            		// variabel info agar tidak terjadi doubel
 			            		var asign=null;
 
+			            		// pengecekan calendar jika ada agenda di tanggal ini(date)
 			            		for (var ia = (agenda.length-1); ia >=0 ; ia--) {
 			            			for (var ib = 0; ib < agenda.length; ib++) {
 
 			            				if (new Date(currentYear,currentMonth,date) >=agenda[ia].tanggal_a && new Date(currentYear,currentMonth,date)<=agenda[ia].tanggal_b) {
 			            					
+			            					// pemberian warna jika level bupati
 			            					if (agenda[ia].level==1) {
 			            						if (asign==null) {
 			            							asign=1;
@@ -191,6 +201,7 @@
 			            							asign=5;
 			            						}
 			            					} 
+			            					// pemberian warna jika level kominfo
 			            					else if(agenda[ia].level==2){
 			            						if(asign==null){
 			            							asign=2; 
@@ -205,11 +216,11 @@
 			            			} 
 			            		}
 
-			            		// warna
+			            		// penentuan warna warna
 			            		// 1 bupati normal
-			            		// 4 bupati parah
+			            		// 4 bupati parah (dua kali kegiatan)
 			            		// 3 bupati & kominfo
-			            		// 2 jam parah 
+			            		// 2 jam parah (bupati dan kominfo)
 
 			            		if (asign==null) {
 			            			html+='<td style="border: 1px solid #dddddd;">'; 
@@ -260,7 +271,7 @@
 			            			}
 					    	        html+='</td>';
 			            		}
-   
+   							// tanngal bertambah
 			                date++;
 			            }
 			        }
@@ -272,9 +283,10 @@
 	        }
 
 //   ========================  Start ADD RECORD ====================================
-	         //Save new Foto
+	        //Save kegiatan baru
             $('#formbaru').submit(function(e){
                 e.preventDefault();
+        		// memasukkan data inputan ke variabel
         		var namain = $('#namain').val();
         		var ket = $('#ketgiat').val();
         		var mulaiin = $('#mulai').val();
@@ -293,6 +305,7 @@
 
                     success: function(){ 
                         $('#Modal_Add').modal('hide'); 
+                        // method clear form & calendar agenda
                         refresh();
                     }
                 });
@@ -305,6 +318,7 @@
 //  ===================  START UPDATE Record ===============================================
             //get data for UPDATE record show prompt
             $('#agendaall').on('click','.item_edit',function(){
+            	// memasukkan data yang dipilih dari tbl list agenda updatean ke variabel 
                 var id_k = $(this).data('id_k');
                 var nama = $(this).data('nama'); 
                 var ket = $(this).data('ket');
@@ -313,12 +327,13 @@
                 var level = $(this).data('level'); 
                 var namalevel = $(this).data('namalevel'); 
 
+                // memasukkan data ke form updatean
 				$('[name="id_kup"]').val(id_k);
 				$('[name="namaupdt"]').val(nama);
 				$('[name="ketup"]').val(ket);
 				$('[name="mulaiup"]').val(tanggal_awal);
 				$('[name="selesaiup"]').val(tanggal_akhir);
-
+				// data dropdown
 				for(var i=0; i < document.getElementById('levelup').options.length; i++){
 				    if(document.getElementById('levelup').options[i].value == level) {
 				      document.getElementById('levelup').selectedIndex = i;
@@ -331,9 +346,10 @@
                 
             });
             
-            //UPDATE record to database
+            //UPDATE record to database (submit button)
              $('#formupdate').submit(function(e){
                 e.preventDefault(); 
+        		// memasukkan data dari form update ke variabel untuk update db
         		var id_kegup = $('#id_kup').val();
 				var namaup = $('#namaupdt').val();
         		var ketup = $('#ketup').val();
@@ -364,8 +380,8 @@
 
 
 
-//  ===================  START Delete Record ===============================================
-            //get data for delete record show prompt
+//  ===================  START Delete Record ===================================
+            //get data for delete record show prompt modal
             $('#agendaall').on('click','.item_delete',function(){
                 var id_k = $(this).data('id_k');
                 var nama = $(this).data('nama'); 
@@ -375,6 +391,7 @@
                 
                 $('[name="id_kegiatan"]').val(id_k);
             });
+
             //delete record to database
              $('#formdelete').submit(function(e){
                 e.preventDefault(); 
@@ -393,8 +410,10 @@
                 });
                 return false;
             });
- //   ========================  END DELETE RECORD ====================================
+ //   ==================  END DELETE RECORD ====================================
 
+
+ 		// fungsi refresh reset data all form dan calendar
  		function refresh() {
  			$("#agendaall").DataTable().destroy();
             $('tbody').empty();
