@@ -44,11 +44,12 @@
         
         <script type="text/javascript">
 
+        // timer jam refresh in detik
         function display_c(){
                 var refresh=1000; // Refresh rate in milli seconds
                 mytime=setTimeout('display_ct()',refresh)
                 }
-
+        // mengambil tanggal dan tahun
         function display_ct() {
             var x = new Date();
             var x1 =  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
@@ -125,9 +126,6 @@
                 document.getElementById("judul_m").value=judul;
                 document.getElementById("tanggal_m").innerHTML=tanggal;
                 document.getElementById("pengumuman_m").value=pengumuman;
-
-               
-
             });
 
             
@@ -179,9 +177,6 @@
             });
 //   ========================  END ADD RECORD ====================================
 
-
-
-
             //  ===================   Delete Record ===============================================
             //get data for delete record show prompt
             $('#show_data').on('click','.item_delete',function(){
@@ -223,22 +218,8 @@
                 document.getElementById('tampil').reset();
             
                 show();
-        }
-
-          
+        }          
         });
-
-        
-//        document.getElementById().innerText = truncateText("pengumuman", 99);
-          
-
-        
-        
-
-        
-
-
-
         </script>
 
 

@@ -156,10 +156,6 @@
       </div>
     </form>
   <!--END MODAL baru-->
-	
-
-
-
 
 	</main>
 

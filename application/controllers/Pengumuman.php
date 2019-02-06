@@ -9,9 +9,6 @@ class Pengumuman extends CI_Controller {
 		// Load custom helper applications/helpers/MY_helper.php
 		// $this->load->helper('MY');
 		$this->load->model('pengumuman_model');
-
-		
-
 	}
 	public function getPengumuman()
 	{

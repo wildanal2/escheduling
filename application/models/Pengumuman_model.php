@@ -33,12 +33,12 @@ class Pengumuman_model extends CI_Model {
             'judul'     => $judul,
             'isi'       => $isi
         );
-
+        // menambahkan pengumuman
         return $this->db->insert('pengumuman', $data);
     }
 
     public function pengumumanbyjudul($judul)
-    {
+    {      
         $this->db->select('*');
         $this->db->from('pengumuman');
         $this->db->where('judul', $judul);
@@ -50,12 +50,15 @@ class Pengumuman_model extends CI_Model {
 
     public function delete_pengumuman($id)
     {
+        // menghapus pengumuman
         $this->db->where('id', $id);
         $result = $this->db->delete('pengumuman');
         return $result;
     }
 
-    public function update_pengumuman($judul,$isi){
+    public function update_pengumuman($judul,$isi)
+    {
+        // mengedit pengumuman
         date_default_timezone_set("Asia/Jakarta"); 
         $data = array(
                 'isi'  => $isi,
